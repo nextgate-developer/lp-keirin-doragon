@@ -7,8 +7,8 @@
 // x・youtube: 下部SNS。FAQ・配信スケジュール・アーカイブの内部ページは継続します。
 // フッターの運営者・利用規約・プライバシー・特商法は、従来の固定Coming soon表示です。
 window.KD_LP_CONFIG = {
-  "registration": "",
-  "live": "",
+  "registration": "https://line.me/R/ti/p/%40683pdsif",
+  "live": "https://line.me/R/ti/p/%40683pdsif",
   "previewMovie": "",
   "line": "https://line.me/R/ti/p/%40683pdsif",
   "events": "",
