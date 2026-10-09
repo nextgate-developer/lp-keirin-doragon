@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import ArchiveCard from '../components/ArchiveCard.astro';
+import PageFooter from '../components/PageFooter.astro';
+import { archives } from '../lib/data.mjs';
+import markup from '../fragments/archives.html?raw';
+const sorted=[...archives].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt));
+let html=markup;
+if(sorted.length){
+  html=html.replace(/<section class="service-panel archive-empty"[\s\S]*?<\/section>/,'');
+  html=html.replace(/<p class="topic-count"[^>]*>\s*<\/p>/,`<p class="topic-count" data-archive-count aria-live="polite">${sorted.length}本の公開動画</p>`);
+}
+const [before,after]=html.split(/<div class="archive-grid"[^>]*>\s*<\/div>/);
+const [afterGrid,afterFooter]=after.split(/<footer class="news-footer">[\s\S]*?<\/footer>/);
+---
+<Base title="ライブ配信アーカイブ｜競輪ドラゴン" description="会員登録なしで見られる、競輪ドラゴンのライブ配信の切り抜き動画をご紹介します。" bodyClass="topics-page service-page">
+  <Fragment set:html={before}/><div class="archive-grid" data-archive-grid aria-label="公開中の切り抜き動画">{sorted.map(video=><ArchiveCard video={video}/>)}</div><Fragment set:html={afterGrid}/><PageFooter/><Fragment set:html={afterFooter}/>
+</Base>

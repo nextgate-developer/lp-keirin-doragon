@@ -1,0 +1,54 @@
+{
+  "slug": "2026-12-18-kawasaki",
+  "title": "桜花賞・海老澤清杯",
+  "category": "配信予定",
+  "grade": "GⅢ",
+  "venue": "川崎",
+  "featuredOrder": null,
+  "tentative": true,
+  "note": "開催区分は確認中のため、配信時刻は暫定です。",
+  "facts": [
+    {
+      "label": "開催日数",
+      "value": "4日制"
+    },
+    {
+      "label": "開催区分",
+      "value": "デイ（暫定）"
+    }
+  ],
+  "sessions": [
+    {
+      "startsAt": "2026-12-18T21:30:00+09:00",
+      "endsAt": "2026-12-18T23:00:00+09:00",
+      "approximate": true,
+      "stage": "前検日",
+      "target": "初日（12/19）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-12-19T21:30:00+09:00",
+      "endsAt": "2026-12-19T23:00:00+09:00",
+      "approximate": true,
+      "stage": "初日",
+      "target": "2日目（12/20）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-12-20T21:30:00+09:00",
+      "endsAt": "2026-12-20T23:00:00+09:00",
+      "approximate": true,
+      "stage": "2日目",
+      "target": "準決勝（12/21）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-12-21T21:30:00+09:00",
+      "endsAt": "2026-12-21T23:00:00+09:00",
+      "approximate": true,
+      "stage": "準決勝日",
+      "target": "決勝（12/22）",
+      "guest": ""
+    }
+  ]
+}

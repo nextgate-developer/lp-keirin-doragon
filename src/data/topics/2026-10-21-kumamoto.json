@@ -1,0 +1,58 @@
+{
+  "slug": "2026-10-21-kumamoto",
+  "title": "火の国杯争奪戦",
+  "category": "配信予定",
+  "grade": "GⅢ",
+  "venue": "熊本",
+  "teaserTitle": "GⅢ 火の国杯争奪戦",
+  "shortTitle": "GⅢ 火の国杯争奪戦",
+  "featuredOrder": 3,
+  "tentative": false,
+  "note": "",
+  "facts": [
+    {
+      "label": "開催日数",
+      "value": "4日制"
+    },
+    {
+      "label": "開催区分",
+      "value": "デイ"
+    }
+  ],
+  "sessions": [
+    {
+      "startsAt": "2026-10-21T21:30:00+09:00",
+      "endsAt": "2026-10-21T23:00:00+09:00",
+      "approximate": true,
+      "stage": "前検日",
+      "target": "初日（10/22）",
+      "guestLabel": "ゲスト出演予定",
+      "guest": "平原康多"
+    },
+    {
+      "startsAt": "2026-10-22T21:30:00+09:00",
+      "endsAt": "2026-10-22T23:00:00+09:00",
+      "approximate": true,
+      "stage": "初日",
+      "target": "2日目（10/23）",
+      "guestLabel": "ゲスト出演予定",
+      "guest": "平原康多"
+    },
+    {
+      "startsAt": "2026-10-23T21:30:00+09:00",
+      "endsAt": "2026-10-23T23:00:00+09:00",
+      "approximate": true,
+      "stage": "2日目",
+      "target": "準決勝（10/24）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-10-24T21:30:00+09:00",
+      "endsAt": "2026-10-24T23:00:00+09:00",
+      "approximate": true,
+      "stage": "準決勝日",
+      "target": "決勝（10/25）",
+      "guest": ""
+    }
+  ]
+}

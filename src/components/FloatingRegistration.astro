@@ -1,0 +1,6 @@
+---
+import markup from '../fragments/floating.html?raw';
+const { always=false }=Astro.props;
+const html=always ? markup.replace('data-floating-dock', 'data-floating-dock data-floating-mode="always"') : markup;
+---
+<Fragment set:html={html}/>

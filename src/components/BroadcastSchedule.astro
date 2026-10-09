@@ -1,0 +1,21 @@
+---
+import { sessionDay, formatDay, displayTime } from '../lib/schedule.mjs';
+const { topic } = Astro.props;
+---
+<section class="broadcast-schedule" aria-label="各回の配信予定">
+  <h2>各回の配信予定</h2>
+  <p class="schedule-timezone">時刻は日本時間{topic.tentative ? '・暫定' : ''}</p>
+  <ol>
+    {topic.sessions.map(session => <li>
+      <div class="session-when">
+        <time datetime={sessionDay(session)}>{formatDay(sessionDay(session),true)}</time>
+        <span class="session-time">{displayTime(session)}</span>
+      </div>
+      <div class="session-what">
+        <span class="session-stage">{session.stage}</span>
+        <p><strong>予想対象</strong> {session.target}</p>
+        {session.guest && <p class="session-guest"><strong>{session.guestLabel || 'ゲスト'}</strong> {session.guest}</p>}
+      </div>
+    </li>)}
+  </ol>
+</section>

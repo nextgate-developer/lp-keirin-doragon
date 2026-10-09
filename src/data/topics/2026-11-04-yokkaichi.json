@@ -1,0 +1,56 @@
+{
+  "slug": "2026-11-04-yokkaichi",
+  "title": "泗水杯争奪戦",
+  "category": "配信予定",
+  "grade": "GⅢ",
+  "venue": "四日市",
+  "teaserTitle": "GⅢ 泗水杯争奪戦",
+  "shortTitle": "GⅢ 泗水杯争奪戦",
+  "featuredOrder": 5,
+  "tentative": true,
+  "note": "開催区分は確認中のため、配信時刻は暫定です。",
+  "facts": [
+    {
+      "label": "開催日数",
+      "value": "4日制"
+    },
+    {
+      "label": "開催区分",
+      "value": "デイ（暫定）"
+    }
+  ],
+  "sessions": [
+    {
+      "startsAt": "2026-11-04T21:30:00+09:00",
+      "endsAt": "2026-11-04T23:00:00+09:00",
+      "approximate": true,
+      "stage": "前検日",
+      "target": "初日（11/05）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-05T21:30:00+09:00",
+      "endsAt": "2026-11-05T23:00:00+09:00",
+      "approximate": true,
+      "stage": "初日",
+      "target": "2日目（11/06）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-06T21:30:00+09:00",
+      "endsAt": "2026-11-06T23:00:00+09:00",
+      "approximate": true,
+      "stage": "2日目",
+      "target": "準決勝（11/07）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-07T21:30:00+09:00",
+      "endsAt": "2026-11-07T23:00:00+09:00",
+      "approximate": true,
+      "stage": "準決勝日",
+      "target": "決勝（11/08）",
+      "guest": ""
+    }
+  ]
+}

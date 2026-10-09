@@ -1,0 +1,11 @@
+---
+import { featured } from '../lib/data.mjs';
+import { sessionDay, formatDay, displayTime } from '../lib/schedule.mjs';
+---
+{featured.map(topic=><li>
+  <a href={`/topics/${topic.slug}.html`}>
+    <span class="teaser-date"><time datetime={sessionDay(topic.sessions[0])}>{formatDay(sessionDay(topic.sessions[0]))}</time>〜<time datetime={sessionDay(topic.sessions.at(-1))}>{formatDay(sessionDay(topic.sessions.at(-1)))}</time></span>
+    <span class="teaser-title"><span class="teaser-category">{topic.category}</span> <span class="teaser-name-full">{topic.teaserTitle || topic.title}</span><span class="teaser-name-mobile">{topic.shortTitle || topic.title}</span><small>{topic.venue}競輪場</small><small class="teaser-time">{[...new Set(topic.sessions.map(displayTime))].join(' ／ ')}</small></span>
+    <span class="teaser-arrow" aria-hidden="true">›</span>
+  </a>
+</li>)}

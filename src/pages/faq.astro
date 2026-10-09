@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import PageFooter from '../components/PageFooter.astro';
+import { faq } from '../lib/data.mjs';
+import hero from '../fragments/faq-hero.html?raw';
+---
+<Base title="よくあるご質問｜競輪ドラゴン" description="競輪ドラゴンの参加方法、配信、会費、退会など、よくあるご質問と回答をご案内します。" bodyClass="topics-page faq-page">
+  <a class="skip-link" href="#faq-main">本文へ進む</a>
+  <div class="news-shell">
+    <header><a class="faq-top-link" href="/">← 競輪ドラゴン トップへ</a></header>
+    <main id="faq-main">
+      <Fragment set:html={hero}/>
+      <nav class="faq-categories" aria-label="質問のカテゴリー">{faq.map(group=><a href={'#'+group.id}><span>{group.title}</span><span class="faq-jump-arrow" aria-hidden="true">↓</span></a>)}</nav>
+      {faq.map(group=><section class="faq-group" id={group.id} aria-labelledby={group.id+'-title'}>
+        <h2 id={group.id+'-title'}>{group.title}</h2>
+        {group.questions.map(q=><details class="faq-item" id={'faq-q-'+q.number} data-faq-number={q.number}>
+          <summary><span class="faq-question-no">Q{q.number}.</span><span class="faq-question-text">{q.question}</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+          <div class="faq-answer" set:html={q.answerHtml}/>
+        </details>)}
+      </section>)}
+      <nav class="faq-related" aria-label="関連ページ"><a href="/topics.html">配信スケジュール →</a><a href="/viewing-guide.html">ライブ配信の視聴方法 →</a><a href="/archives.html">ライブ配信アーカイブ →</a></nav>
+    </main><PageFooter/>
+  </div>
+</Base>

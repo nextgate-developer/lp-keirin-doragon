@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import PageFooter from '../components/PageFooter.astro';
+import TopicCard from '../components/TopicCard.astro';
+import FloatingRegistration from '../components/FloatingRegistration.astro';
+import { topics,months,categories } from '../lib/data.mjs';
+---
+<Base title="配信予定・トピック一覧｜競輪ドラゴン" description="競輪ドラゴンの配信日時、レース情報とゲストをご案内します。月やキーワードで配信予定を検索できます。" bodyClass="topics-page">
+  <a class="skip-link" href="#main-content">本文へ進む</a>
+  <div class="news-shell" data-floating-page>
+    <main id="main-content">
+      <nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true">/</span><span>配信予定・トピック一覧</span></nav>
+      <div class="news-title"><p class="eyebrow">TOPICS &amp; LIVE SCHEDULE</p><h1>配信予定・トピック一覧</h1><p>競輪ドラゴンの配信予定とお知らせ。レースの前夜に、翌日の予想をお届けします。時刻は日本時間です。</p></div>
+      <form class="topic-filters" hidden data-topic-filters role="search">
+        <label>キーワード<input type="search" name="search" placeholder="大会名・競輪場など" autocomplete="off"/></label>
+        <label>月<select name="month"><option value="">すべての月</option>{months.map(m=><option value={m}>{m.replace('-','年')}月</option>)}</select></label>
+        <label>カテゴリー<select name="category"><option value="">すべて</option>{categories.map(c=><option>{c}</option>)}</select></label>
+        <button type="reset">クリア</button>
+      </form>
+      <p class="topic-count" data-topic-count aria-live="polite">{topics.length}件のトピック</p>
+      <div class="topic-list">{topics.map(topic=><TopicCard topic={topic}/>)}</div>
+      <p class="empty-topics" data-no-results hidden>該当するトピックはありません。</p>
+      <div class="news-source"><p>配信予定は変更される場合があります。最新の掲載内容をご確認ください。</p></div>
+    </main>
+    <PageFooter/>
+  </div>
+  <FloatingRegistration always/>
+</Base>

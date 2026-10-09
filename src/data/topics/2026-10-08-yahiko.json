@@ -1,0 +1,56 @@
+{
+  "slug": "2026-10-08-yahiko",
+  "title": "第35回 寬仁親王牌・世界選手権記念トーナメント",
+  "category": "配信予定",
+  "grade": "GI",
+  "venue": "弥彦",
+  "teaserTitle": "GI 第35回 寬仁親王牌・世界選手権記念トーナメント",
+  "shortTitle": "GI 第35回 寬仁親王牌",
+  "featuredOrder": 1,
+  "tentative": false,
+  "note": "",
+  "facts": [
+    {
+      "label": "開催日数",
+      "value": "4日制"
+    },
+    {
+      "label": "開催区分",
+      "value": "デイ"
+    }
+  ],
+  "sessions": [
+    {
+      "startsAt": "2026-10-08T21:30:00+09:00",
+      "endsAt": "2026-10-08T23:00:00+09:00",
+      "approximate": true,
+      "stage": "前検日",
+      "target": "初日（10/09）",
+      "guest": "平原康多"
+    },
+    {
+      "startsAt": "2026-10-09T21:30:00+09:00",
+      "endsAt": "2026-10-09T23:00:00+09:00",
+      "approximate": true,
+      "stage": "初日",
+      "target": "2日目（10/10）",
+      "guest": "三宅伸"
+    },
+    {
+      "startsAt": "2026-10-10T21:30:00+09:00",
+      "endsAt": "2026-10-10T23:00:00+09:00",
+      "approximate": true,
+      "stage": "2日目",
+      "target": "準決勝（10/11）",
+      "guest": "三宅伸"
+    },
+    {
+      "startsAt": "2026-10-11T21:30:00+09:00",
+      "endsAt": "2026-10-11T23:00:00+09:00",
+      "approximate": true,
+      "stage": "準決勝日",
+      "target": "決勝（10/12）",
+      "guest": "平原康多　三宅伸"
+    }
+  ]
+}

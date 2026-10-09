@@ -1,0 +1,14 @@
+---
+import { sessionDay, formatDay, displayTime } from '../lib/schedule.mjs';
+const { topic } = Astro.props;
+const search=[topic.title,topic.category,topic.venue,topic.grade,topic.note,...topic.sessions.flatMap(s=>[s.stage,s.target,s.guest])].join(' ');
+const times=[...new Set(topic.sessions.map(displayTime))];
+---
+<article class="topic-list-card" data-topic-card data-months={[...new Set(topic.sessions.map(s=>s.startsAt.slice(0,7)))].join(' ')} data-category={topic.category} data-search={search}>
+  <div class="topic-meta"><span class="category">{topic.category}</span><span class="grade">{topic.grade}</span><span>{topic.venue}競輪場</span></div>
+  <h2><a href={`/topics/${topic.slug}.html`}>{topic.title}</a></h2>
+  <dl class="broadcast-days"><dt>配信予定日</dt><dd>{topic.sessions.map(s=><time datetime={sessionDay(s)}>{formatDay(sessionDay(s),true)}</time>)}</dd></dl>
+  <p class="broadcast-time">配信時間 {times.join(' ／ ')} <span>（日本時間{topic.tentative ? '・暫定' : ''}）</span></p>
+  {topic.note && <p class="source-note">{topic.note}</p>}
+  <a class="article-more" href={`/topics/${topic.slug}.html`}>このトピックの詳細 <span aria-hidden="true">→</span></a>
+</article>

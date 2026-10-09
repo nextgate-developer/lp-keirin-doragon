@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import markup from '../fragments/viewing-guide.html?raw';
+import PageFooter from '../components/PageFooter.astro';
+const [before,after]=markup.split(/<footer class="news-footer">[\s\S]*?<\/footer>/);
+---
+<Base title="ライブ配信の視聴方法｜競輪ドラゴン" description="公式LINEでの登録から案内メール、ライブへの参加まで、競輪ドラゴンの視聴方法をご案内します。" bodyClass="topics-page service-page"><Fragment set:html={before}/><PageFooter/><Fragment set:html={after}/></Base>

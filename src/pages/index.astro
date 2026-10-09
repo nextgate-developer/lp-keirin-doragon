@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import TopicTeasers from '../components/TopicTeasers.astro';
+import FloatingRegistration from '../components/FloatingRegistration.astro';
+import { site } from '../lib/data.mjs';
+import hero from '../fragments/home-hero.html?raw';
+import topics from '../fragments/home-topics.html?raw';
+const sections=import.meta.glob('../fragments/home-*.html',{query:'?raw',import:'default',eager:true});
+const heading=`<span class="topic-heading-full">${site.topicsHeading.full}</span><span class="topic-heading-mobile">${site.topicsHeading.mobile}</span>`;
+const [before,after]=topics.replace('<!-- TOPICS_HEADING -->',heading).split('<!-- TOPIC_TEASERS -->');
+---
+<Base>
+  <div class="kd-asset-bg-sky-background lp-canvas">
+    <a class="skip-link" href="#about">サービス紹介へ進む</a>
+    <main class="lp" id="top">
+      <Fragment set:html={hero}/>
+      <Fragment set:html={before}/><TopicTeasers/><Fragment set:html={after}/>
+      {['about','live','contents','people','registration','footer'].map(name=><Fragment set:html={sections[`../fragments/home-${name}.html`]}/>)}
+    </main>
+    <FloatingRegistration/>
+  </div>
+</Base>

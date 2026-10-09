@@ -1,0 +1,56 @@
+{
+  "slug": "2026-10-30-hofu",
+  "title": "周防国府杯争奪戦",
+  "category": "配信予定",
+  "grade": "GⅢ",
+  "venue": "防府",
+  "teaserTitle": "GⅢ 周防国府杯争奪戦",
+  "shortTitle": "GⅢ 周防国府杯争奪戦",
+  "featuredOrder": 4,
+  "tentative": false,
+  "note": "",
+  "facts": [
+    {
+      "label": "開催日数",
+      "value": "4日制"
+    },
+    {
+      "label": "開催区分",
+      "value": "デイ"
+    }
+  ],
+  "sessions": [
+    {
+      "startsAt": "2026-10-30T21:30:00+09:00",
+      "endsAt": "2026-10-30T23:00:00+09:00",
+      "approximate": true,
+      "stage": "前検日",
+      "target": "初日（10/31）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-10-31T21:30:00+09:00",
+      "endsAt": "2026-10-31T23:00:00+09:00",
+      "approximate": true,
+      "stage": "初日",
+      "target": "2日目（11/01）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-01T21:30:00+09:00",
+      "endsAt": "2026-11-01T23:00:00+09:00",
+      "approximate": true,
+      "stage": "2日目",
+      "target": "準決勝（11/02）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-02T21:30:00+09:00",
+      "endsAt": "2026-11-02T23:00:00+09:00",
+      "approximate": true,
+      "stage": "準決勝日",
+      "target": "決勝（11/03）",
+      "guest": ""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+---
+const { video }=Astro.props;
+const url=new URL(video.videoUrl);
+let iframe='';
+if(['youtube.com','www.youtube.com','m.youtube.com','youtu.be'].includes(url.hostname)){
+  const id=url.hostname==='youtu.be'?url.pathname.slice(1):url.searchParams.get('v')||url.pathname.match(/^\/(?:embed|shorts|live)\/([\w-]{11})/)?.[1];
+  if(/^[\w-]{11}$/.test(id||''))iframe='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=0&rel=0';
+}else if(['vimeo.com','www.vimeo.com','player.vimeo.com'].includes(url.hostname)){
+  const match=url.pathname.match(/^\/(?:video\/)?(\d+)(?:\/([a-zA-Z0-9]+))?\/?$/);
+  const hash=match?.[2]||url.searchParams.get('h');
+  if(match)iframe='https://player.vimeo.com/video/'+match[1]+'?autoplay=0'+(hash&&/^[a-zA-Z0-9]+$/.test(hash)?'&h='+hash:'');
+}
+const mp4=/\.mp4$/i.test(url.pathname);
+---
+<article class="archive-card" id={'archive-'+video.id} data-archive-id={video.id}>
+  <div class="archive-player">
+    {iframe||mp4 ? <button type="button" class="archive-watch" data-archive-player-src={iframe||video.videoUrl} data-archive-player-type={iframe?'iframe':'video'} data-archive-player-title={video.title} aria-label={video.title+'のプレーヤーを開く'}>この動画を見る</button> : <a class="archive-watch" href={video.videoUrl} target="_blank" rel="noopener noreferrer" aria-label={video.title+'を見る（別タブ）'}>この動画を見る</a>}
+  </div>
+  <div class="archive-card-body"><time datetime={video.publishedAt}>{video.publishedAt.replaceAll('-','/')} 公開</time><h2>{video.title}</h2>{video.description&&<p>{video.description}</p>}<a class="archive-original" href={video.videoUrl} target="_blank" rel="noopener noreferrer">動画の公開元で見る（別タブ）</a></div>
+</article>

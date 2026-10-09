@@ -1,0 +1,42 @@
+---
+import '../styles/legacy.css';
+import { site, topics } from '../lib/data.mjs';
+import { allSessions } from '../lib/schedule.mjs';
+import dialog from '../fragments/dialog.html?raw';
+const { title=site.title, description=site.description, bodyClass='', noindex=false }=Astro.props;
+const canonical=new URL(Astro.url.pathname==='/index.html'?'/':Astro.url.pathname,site.site).href;
+const sessions=JSON.stringify(allSessions(topics)).replaceAll('<','\\u003c');
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <script is:inline>
+      if(location.hostname==='lp.keirin-dragon.com'){
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W8P92CGH');
+      }
+    </script>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#061c5b"/>
+    <title>{title}</title>
+    <meta name="description" content={description}/>
+    {noindex && <meta name="robots" content="noindex,follow"/>}
+    <link rel="canonical" href={canonical}/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="ja_JP"/>
+    <meta property="og:site_name" content="競輪ドラゴン"/>
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:url" content={canonical}/>
+    <meta property="og:image" content={new URL(site.ogImage,site.site).href}/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <script src="/site-config.js" is:inline defer></script>
+  </head>
+  <body class={bodyClass}>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8P92CGH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="preview-root"><slot/></div>
+    <Fragment set:html={dialog}/>
+    <script id="kd-sessions-data" type="application/json" is:inline set:html={sessions}></script>
+    <script>import '../scripts/legacy-ui.js';import '../scripts/countdown.js';import '../scripts/legacy-links.js';import '../scripts/archive-player.js';</script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "slug": "2026-10-16-keiokaku",
+  "title": "開設77周年記念 ゴールドカップレース",
+  "category": "配信予定",
+  "grade": "GⅢ",
+  "venue": "京王閣",
+  "teaserTitle": "GⅢ 開設77周年記念 ゴールドカップレース",
+  "shortTitle": "GⅢ ゴールドカップレース",
+  "featuredOrder": 2,
+  "tentative": false,
+  "note": "",
+  "facts": [
+    {
+      "label": "開催日数",
+      "value": "4日制"
+    },
+    {
+      "label": "開催区分",
+      "value": "ナイター"
+    }
+  ],
+  "sessions": [
+    {
+      "startsAt": "2026-10-16T22:00:00+09:00",
+      "endsAt": "2026-10-16T23:30:00+09:00",
+      "approximate": true,
+      "stage": "前検日",
+      "target": "初日（10/17）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-10-17T22:00:00+09:00",
+      "endsAt": "2026-10-17T23:30:00+09:00",
+      "approximate": true,
+      "stage": "初日",
+      "target": "2日目（10/18）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-10-18T22:00:00+09:00",
+      "endsAt": "2026-10-18T23:30:00+09:00",
+      "approximate": true,
+      "stage": "2日目",
+      "target": "準決勝（10/19）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-10-19T22:00:00+09:00",
+      "endsAt": "2026-10-19T23:30:00+09:00",
+      "approximate": true,
+      "stage": "準決勝日",
+      "target": "決勝（10/20）",
+      "guest": ""
+    }
+  ]
+}

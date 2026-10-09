@@ -1,0 +1,70 @@
+{
+  "slug": "2026-11-17-kokura",
+  "title": "第68回 朝日新聞社杯競輪祭・第4回競輪祭女子王座戦",
+  "category": "配信予定",
+  "grade": "GI",
+  "venue": "小倉",
+  "featuredOrder": null,
+  "tentative": true,
+  "note": "開催区分は確認中のため、配信時刻は暫定です。",
+  "facts": [
+    {
+      "label": "開催日数",
+      "value": "6日制"
+    },
+    {
+      "label": "開催区分",
+      "value": "デイ（暫定）"
+    }
+  ],
+  "sessions": [
+    {
+      "startsAt": "2026-11-17T21:30:00+09:00",
+      "endsAt": "2026-11-17T23:00:00+09:00",
+      "approximate": true,
+      "stage": "前検日",
+      "target": "初日（11/18）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-18T21:30:00+09:00",
+      "endsAt": "2026-11-18T23:00:00+09:00",
+      "approximate": true,
+      "stage": "初日",
+      "target": "2日目（11/19）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-19T21:30:00+09:00",
+      "endsAt": "2026-11-19T23:00:00+09:00",
+      "approximate": true,
+      "stage": "2日目",
+      "target": "3日目（11/20）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-20T21:30:00+09:00",
+      "endsAt": "2026-11-20T23:00:00+09:00",
+      "approximate": true,
+      "stage": "3日目",
+      "target": "4日目（11/21）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-21T21:30:00+09:00",
+      "endsAt": "2026-11-21T23:00:00+09:00",
+      "approximate": true,
+      "stage": "4日目",
+      "target": "準決勝（11/22）",
+      "guest": ""
+    },
+    {
+      "startsAt": "2026-11-22T21:30:00+09:00",
+      "endsAt": "2026-11-22T23:00:00+09:00",
+      "approximate": true,
+      "stage": "準決勝日",
+      "target": "決勝（11/23）",
+      "guest": ""
+    }
+  ]
+}
