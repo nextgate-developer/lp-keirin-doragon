@@ -110,7 +110,8 @@ npm run test:browser
 - `validate`：JSON入力、日時、識別子の重複などを検証。
 - `verify`：ビルド、日時境界テスト、本文・メタ・リンク検証、日程変更の反映テスト。変更テストは `test-results/` のコピーだけを変更し、元データと通常の `dist/` は変えません。
 - `test:browser`：ローカルHTTPサーバーを自動起動し、390px／1440px、直アクセス・再読み込み、旧ハッシュリンク、検索、FAQ、ダイアログ、画像読込、JavaScript無効時の本文を検証。スクリーンショットは `test-results/` に保存します。
-- GitHub Actionsの `verify.yml` はpush／PRで検証のみ実行し、公開しません。
+- GitHub Actionsの `verify.yml` はmain以外へのpush／PRで検証のみ実行し、公開しません。
+- mainへのpushは `deploy.yml` がビルド・入力検証・HTML検証・ブラウザ検証を実行し、すべて成功した場合だけ `dist/` を自動公開します。検証用成果物の保存は失敗時にも試みますが、公開処理は進みません。
 
 静的HTMLはトップ・一覧・11件の詳細・FAQ・アーカイブ・視聴方法、計16ページ（別途404ページ）を生成します。各ページのtitle・description・canonical・OGP、`sitemap.xml` / `robots.txt` を出力します。FAQ本文はJavaScriptなしでもHTMLに含まれます。検索表示と次回予定の時刻更新、旧ハッシュURLの移動にはJavaScriptを使用します。
 
@@ -119,11 +120,13 @@ npm run test:browser
 DNS／Route 53の変更は必要ありません。対象はGitHubリポジトリ `nextgate-developer/lp-keirin-doragon` のPages公開設定です。
 
 1. 移行コードをレビューし、ローカル検証とActionsの検証が成功したことを確認。
-2. 承認後にコミット・push。現在のPages公開元、カスタムドメイン、HTTPS設定をGitHub画面で記録する（現在の公開元は未確認）。
+2. 現在のPages公開元、カスタムドメイン、HTTPS設定をGitHub画面で記録する（現在の公開元は未確認）。
 3. リポジトリの **Settings → Pages → Build and deployment → Source** を **GitHub Actions** にする。カスタムドメイン `lp.keirin-dragon.com` とHTTPSは維持する。
-4. **Actions → Deploy Astro to GitHub Pages (manual) → Run workflow** を対象ブランチで手動実行。`dist/` だけが公開される。
+4. 承認後にコミットし、mainへpush。**Actions → Verify and deploy Astro to GitHub Pages** が自動実行され、検証成功後に `dist/` だけが公開される。
 5. 本番でトップ、詳細URLへの直アクセス／再読み込み、旧 `/#/faq.html` と詳細リンク、PDF、登録リンク、PC／スマホ、canonical、サイトマップを確認。
 
-`deploy.yml` は意図的に手動実行だけです。日常更新もデータを編集→検証→push→手動Run workflowとします。自動公開への切り替えは別途承認後に行ってください。
+日常更新はデータを編集→ローカル検証→コミット→mainへpushで自動公開されます。Run workflowは毎回不要です。再実行が必要なときだけ、Actions画面のRe-run jobs、またはmainを選んだRun workflowを使用できます。main以外からの手動実行は公開しません。
+
+ビルド・検証に失敗すると公開ジョブはスキップされ、最後に正常公開できたサイトが維持されます。GitHubにはpushしたコミットが残るため、修正して再pushしてください。公開処理自体の途中で失敗した場合はActionsのログと実際の公開状態を確認します。Pagesをブランチ公開のままにすると、従来の公開処理はこの検証とは別に走るため、初回のSource変更が必要です。
 
 問題があれば、記録した旧Pages公開元へ戻すことで旧HTMLへ戻せます（再デプロイの時間は必要）。ロールバック確認が済むまではルートの旧HTMLと旧資産を消さないでください。GTMは本番ホストでのみ読み込み、ローカルプレビューでは送信しません（JavaScript有効時）。本番計測・外部登録先・動画再生・GitHub公開設定はローカルテストだけでは検証できません。
