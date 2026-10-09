@@ -100,6 +100,8 @@ CSSは既存の指定順を保っています。後ろの指定が前の指定�
 
 ## 検証
 
+優先度「中」までのクリック計測をGTMのdataLayerへ送信するコードを追加しています。対象、送信情報、GTM／GA4側で必要な設定は [docs/CLICK_TRACKING.md](docs/CLICK_TRACKING.md) を参照してください。GTM読み込みだけでは独自イベントはGA4に記録されません。管理画面の設定・公開は未実施です。
+
 ```sh
 npm run validate
 npm run verify

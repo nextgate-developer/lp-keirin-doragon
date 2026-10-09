@@ -37,6 +37,6 @@ const sessions=JSON.stringify(allSessions(topics)).replaceAll('<','\\u003c');
     <div id="preview-root"><slot/></div>
     <Fragment set:html={dialog}/>
     <script id="kd-sessions-data" type="application/json" is:inline set:html={sessions}></script>
-    <script>import '../scripts/legacy-ui.js';import '../scripts/countdown.js';import '../scripts/legacy-links.js';import '../scripts/archive-player.js';</script>
+    <script>import '../scripts/legacy-ui.js';import '../scripts/countdown.js';import '../scripts/legacy-links.js';import '../scripts/archive-player.js';import '../scripts/click-tracking.js';</script>
   </body>
 </html>
