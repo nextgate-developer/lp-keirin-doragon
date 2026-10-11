@@ -24,7 +24,7 @@
       "approximate": true,
       "stage": "前検日",
       "target": "初日（12/28）",
-      "guest": ""
+      "guest": "豪華レジェンド"
     },
     {
       "startsAt": "2026-12-28T21:30:00+09:00",
@@ -32,7 +32,7 @@
       "approximate": true,
       "stage": "初日",
       "target": "2日目（12/29）",
-      "guest": ""
+      "guest": "豪華レジェンド"
     },
     {
       "startsAt": "2026-12-29T21:30:00+09:00",
@@ -40,7 +40,7 @@
       "approximate": true,
       "stage": "2日目",
       "target": "最終日（GP）（12/30）",
-      "guest": ""
+      "guest": "豪華レジェンド"
     }
   ]
 }

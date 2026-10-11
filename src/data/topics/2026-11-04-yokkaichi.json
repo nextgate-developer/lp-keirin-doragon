@@ -26,7 +26,7 @@
       "approximate": true,
       "stage": "前検日",
       "target": "初日（11/05）",
-      "guest": ""
+      "guest": "豪華レジェンド"
     },
     {
       "startsAt": "2026-11-05T21:30:00+09:00",
@@ -34,7 +34,7 @@
       "approximate": true,
       "stage": "初日",
       "target": "2日目（11/06）",
-      "guest": ""
+      "guest": "豪華レジェンド"
     },
     {
       "startsAt": "2026-11-06T21:30:00+09:00",
@@ -42,7 +42,7 @@
       "approximate": true,
       "stage": "2日目",
       "target": "準決勝（11/07）",
-      "guest": ""
+      "guest": "豪華レジェンド"
     },
     {
       "startsAt": "2026-11-07T21:30:00+09:00",
@@ -50,7 +50,7 @@
       "approximate": true,
       "stage": "準決勝日",
       "target": "決勝（11/08）",
-      "guest": ""
+      "guest": "豪華レジェンド"
     }
   ]
 }
