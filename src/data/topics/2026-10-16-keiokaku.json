@@ -26,7 +26,7 @@
       "approximate": true,
       "stage": "初日",
       "target": "2日目（10/18）",
-      "guest": "豪華レジェンド"
+      "guest": "後閑信一"
     },
     {
       "startsAt": "2026-10-18T22:00:00+09:00",
@@ -34,7 +34,7 @@
       "approximate": true,
       "stage": "2日目",
       "target": "準決勝（10/19）",
-      "guest": "豪華レジェンド"
+      "guest": "三宅伸"
     },
     {
       "startsAt": "2026-10-19T22:00:00+09:00",
@@ -42,7 +42,7 @@
       "approximate": true,
       "stage": "準決勝日",
       "target": "決勝（10/20）",
-      "guest": "豪華レジェンド"
+      "guest": "後閑信一"
     }
   ]
 }
