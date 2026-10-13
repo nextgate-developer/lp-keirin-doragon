@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
-import { topics } from '../src/lib/data-node.mjs';
+import { topics,featured } from '../src/lib/data-node.mjs';
 import { allSessions } from '../src/lib/schedule.mjs';
 
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.pdf':'application/pdf'};
@@ -23,6 +23,22 @@ const base='http://127.0.0.1:'+server.address().port;
 const browser=await chromium.launch();
 fs.mkdirSync('test-results',{recursive:true});
 try{
+  for(const width of [320,375,393]){
+    const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
+    await page.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
+    await page.goto(base+'/');
+    const heading=page.locator('#about-title');
+    const metrics=await heading.evaluate(el=>{
+      const text=el.lastElementChild;
+      return {lines:text.getBoundingClientRect().height/parseFloat(getComputedStyle(text).lineHeight),
+        fontSize:parseFloat(getComputedStyle(el).fontSize),overflow:document.documentElement.scrollWidth>innerWidth+1};
+    });
+    assert.ok(metrics.lines<=2.1,'about heading exceeds two lines at '+width);
+    assert.equal(metrics.overflow,false,'horizontal overflow at '+width);
+    if(width===393)assert.equal(metrics.fontSize,23,'existing wider-phone font changed');
+    await heading.screenshot({path:`test-results/about-heading-${width}.png`});
+    await page.close();
+  }
   for(const width of [390,1440]){
     const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
     await page.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
@@ -127,7 +143,7 @@ try{
     await check('.movie-teaser-link','content_click','contents_preview','previewMovie','coming_soon');
     await check('.topic-button','schedule_click','top_topics','topics','internal');
     await check('.live-schedule-link','schedule_click','live_section','topics','internal');
-    await check('.topic-teasers li:first-child a','topic_click','top_topics','topic','internal',{kd_topic_slug:topics[0].slug});
+    if(featured.length)await check('.topic-teasers li:first-child a','topic_click','top_topics','topic','internal',{kd_topic_slug:featured[0].slug});
     await check('[data-next-live-link]','topic_click','next_live','topic','internal',{kd_topic_slug:topics[0].slug});
     await check('.footer-faq-link','faq_click','footer_nav','faq','internal');
     const beforeLegal=(await events()).length;

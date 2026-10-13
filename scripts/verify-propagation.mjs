@@ -10,6 +10,8 @@ const fixture=fs.mkdtempSync(path.resolve('test-results/propagation-'));
 const data=path.join(fixture,'data'),output=path.join(fixture,'dist');
 fs.cpSync('src/data',data,{recursive:true});
 const topic=structuredClone(topics[0]);
+// Make the fixture visible on the homepage even when the real topic is no longer featured.
+topic.featuredOrder=Math.max(0,...topics.map(t=>t.featuredOrder||0))+1;
 const day=topic.sessions[0].startsAt.slice(0,10);
 topic.sessions[0].startsAt=day+'T20:15:00+09:00';
 topic.sessions[0].endsAt=day+'T21:15:00+09:00';

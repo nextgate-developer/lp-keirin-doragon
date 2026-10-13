@@ -147,7 +147,7 @@ a:focus-visible{outline:3px solid #fff;outline-offset:5px}
   .race-icon{flex-basis:32px;width:32px}
   .race-notice p{font-size:13px;line-height:1.6}
   .brand-heading{width:80%;margin-bottom:0;font-size:23px}
-  .about-panel{padding-top:20%}
+  .about-panel{margin-top:-20%;padding-top:20%}
   .about-copy{padding:0 5%;font-size:16px;line-height:1.8}
   .about-lead{font-size:22px;line-height:1.55;margin-bottom:14px}
   .about-live,.hirahara-name{font-size:23px}
@@ -1077,3 +1077,10 @@ a[data-coming-soon]:focus-visible{outline:3px solid #ffe16a;outline-offset:4px}
 .hero-captions>img{position:absolute;display:block;height:auto;max-width:none}
 .hero-caption01{left:0;top:0;width:56%}
 .hero-caption02{right:0;top:18%;width:49%}
+
+/* Preserve the existing 393px-and-wider heading; fit the same text on narrow phones. */
+@media (max-width: 389px) {
+  #about-title.brand-heading {
+    font-size: clamp(18px, 5.85vw, 23px);
+  }
+}
