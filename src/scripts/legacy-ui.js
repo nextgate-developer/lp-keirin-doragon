@@ -77,12 +77,15 @@
       const search = form.elements.namedItem('search').value;
       const month = form.elements.namedItem('month').value;
       const category = form.elements.namedItem('category').value;
+      const now = Date.now();
       for (const card of cards) {
-        const match = matchesTopic(card, search, month, category);
+        const endsAt = Number(card.getAttribute('data-ends-at'));
+        const active = !card.hasAttribute('data-ends-at') || !Number.isFinite(endsAt) || endsAt > now;
+        const match = active && matchesTopic(card, search, month, category);
         card.hidden = !match;
         if (match) visible += 1;
       }
-      if (count) count.textContent = visible + '件のトピック';
+      if (count && count.textContent !== visible + '件のトピック') count.textContent = visible + '件のトピック';
       if (empty) empty.hidden = visible !== 0;
     }
     function submit(event) { event.preventDefault(); apply(); }
@@ -95,9 +98,16 @@
     form.addEventListener('change', apply);
     form.addEventListener('submit', submit);
     form.addEventListener('reset', reset);
+    // Recheck while open and on return from background tabs or device sleep.
+    const expiryTimer = global.setInterval(apply, 1000);
+    global.addEventListener('focus', apply);
+    scope.addEventListener('visibilitychange', apply);
     apply();
     return function () {
       global.clearTimeout(resetTimer);
+      global.clearInterval(expiryTimer);
+      global.removeEventListener('focus', apply);
+      scope.removeEventListener('visibilitychange', apply);
       form.removeEventListener('input', apply);
       form.removeEventListener('change', apply);
       form.removeEventListener('submit', submit);
