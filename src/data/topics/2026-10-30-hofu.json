@@ -8,7 +8,7 @@
   "shortTitle": "GⅢ 周防国府杯争奪戦",
   "featuredOrder": 4,
   "tentative": false,
-  "note": "",
+  "note": "ゲストの登場は配信の後半1時間（22:00〜23:00）です。",
   "facts": [
     {
       "label": "開催日数",
@@ -23,34 +23,34 @@
     {
       "startsAt": "2026-10-30T21:30:00+09:00",
       "endsAt": "2026-10-30T23:00:00+09:00",
-      "approximate": true,
-      "stage": "前検日",
+      "approximate": false,
+      "stage": "初日の前夜祭",
       "target": "初日（10/31）",
-      "guest": "豪華レジェンド"
+      "guest": "三宅伸"
     },
     {
       "startsAt": "2026-10-31T21:30:00+09:00",
       "endsAt": "2026-10-31T23:00:00+09:00",
-      "approximate": true,
-      "stage": "初日",
+      "approximate": false,
+      "stage": "2日目の前夜祭",
       "target": "2日目（11/01）",
-      "guest": "豪華レジェンド"
+      "guest": "後閑信一"
     },
     {
       "startsAt": "2026-11-01T21:30:00+09:00",
       "endsAt": "2026-11-01T23:00:00+09:00",
-      "approximate": true,
-      "stage": "2日目",
+      "approximate": false,
+      "stage": "準決勝の前夜祭",
       "target": "準決勝（11/02）",
       "guest": "平原康多"
     },
     {
       "startsAt": "2026-11-02T21:30:00+09:00",
       "endsAt": "2026-11-02T23:00:00+09:00",
-      "approximate": true,
-      "stage": "準決勝日",
+      "approximate": false,
+      "stage": "決勝の前夜祭",
       "target": "決勝（11/03）",
-      "guest": "豪華レジェンド"
+      "guest": "三宅伸"
     }
   ]
 }

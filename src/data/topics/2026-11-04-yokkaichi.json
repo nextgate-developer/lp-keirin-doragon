@@ -7,8 +7,8 @@
   "teaserTitle": "GⅢ 泗水杯争奪戦",
   "shortTitle": "GⅢ 泗水杯争奪戦",
   "featuredOrder": 5,
-  "tentative": true,
-  "note": "開催区分は確認中のため、配信時刻は暫定です。",
+  "tentative": false,
+  "note": "ゲストの登場は配信の後半1時間（22:30〜23:30）です。",
   "facts": [
     {
       "label": "開催日数",
@@ -16,41 +16,41 @@
     },
     {
       "label": "開催区分",
-      "value": "デイ（暫定）"
+      "value": "ナイター"
     }
   ],
   "sessions": [
     {
       "startsAt": "2026-11-04T22:00:00+09:00",
       "endsAt": "2026-11-04T23:30:00+09:00",
-      "approximate": true,
-      "stage": "前検日",
+      "approximate": false,
+      "stage": "初日の前夜祭",
       "target": "初日（11/05）",
-      "guest": "豪華レジェンド"
+      "guest": "三宅伸"
     },
     {
       "startsAt": "2026-11-05T22:00:00+09:00",
       "endsAt": "2026-11-05T23:30:00+09:00",
-      "approximate": true,
-      "stage": "初日",
+      "approximate": false,
+      "stage": "2日目の前夜祭",
       "target": "2日目（11/06）",
-      "guest": "豪華レジェンド"
+      "guest": "平原康多"
     },
     {
       "startsAt": "2026-11-06T22:00:00+09:00",
       "endsAt": "2026-11-06T23:30:00+09:00",
-      "approximate": true,
-      "stage": "2日目",
+      "approximate": false,
+      "stage": "準決勝の前夜祭",
       "target": "準決勝（11/07）",
-      "guest": "豪華レジェンド"
+      "guest": "平原康多"
     },
     {
       "startsAt": "2026-11-07T22:00:00+09:00",
       "endsAt": "2026-11-07T23:30:00+09:00",
-      "approximate": true,
-      "stage": "準決勝日",
+      "approximate": false,
+      "stage": "決勝の前夜祭",
       "target": "決勝（11/08）",
-      "guest": "豪華レジェンド"
+      "guest": "後閑信一"
     }
   ]
 }
