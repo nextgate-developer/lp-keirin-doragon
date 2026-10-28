@@ -222,6 +222,8 @@ a:focus-visible{outline:3px solid #fff;outline-offset:5px}
 .topics-panel>h2{padding:21px 5%;background:#db0900;color:white;font-size:clamp(18px,2.55cqw,28px);text-align:center;line-height:1.55;overflow-wrap:anywhere}
 .topics-panel-body{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:24px;padding:24px 4% 28px;align-items:center}
 .topic-teasers{list-style:none;margin:0;padding:0;min-width:0}
+.topics-empty{padding:16px 0;font-size:14px;line-height:1.8}
+.topics-home .topic-teasers>li:nth-child(1 of :not([hidden])){border-top:0}
 .topic-teasers li+li{border-top:1px solid #061c5b24}
 .topic-teasers a{display:grid;grid-template-columns:155px minmax(0,1fr) 12px;gap:12px;align-items:center;padding:12px 0;min-height:52px}
 .topic-teasers a:hover .teaser-title{text-decoration:underline}
@@ -624,7 +626,7 @@ a:focus-visible{outline:3px solid #fff;outline-offset:5px}
 /* Mobile TOPIC preview: top three only; full list remains available. */
 .live-copy h3>.live-wordmark{display:block;width:min(100%,440px);max-width:100%;height:auto;margin-top:8px;object-fit:contain}
 @media(max-width:767px){
-  .topics-home .topic-teasers>li:nth-child(n+4){display:none}
+  .topics-home .topic-teasers>li:nth-child(n+4 of :not([hidden])){display:none}
   .topics-home .topic-teasers a{padding-block:10px}
   .topics-home .topics-panel-body{row-gap:12px;padding-bottom:18px}
   .topics-home .topics-action>.topic-button{width:auto;min-width:180px;max-width:100%;min-height:44px;padding:8px 18px;font-size:14px;line-height:1.4;gap:8px}

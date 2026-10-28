@@ -3,8 +3,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
-import { topics,featured } from '../src/lib/data-node.mjs';
+import { topics,featured,archives } from '../src/lib/data-node.mjs';
 import { allSessions } from '../src/lib/schedule.mjs';
+import clipsPreview from '../src/data/youtube.json' with {type:'json'};
 
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.pdf':'application/pdf'};
 let servingDirectory='dist';
@@ -50,6 +51,30 @@ try{
     const checkWidth=async()=>assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'horizontal overflow at '+width+' '+page.url());
     await open('/');
     await checkWidth();
+    const promotion=page.locator('#promo-video');
+    assert.equal(await promotion.getAttribute('data-pr-video-id'),clipsPreview.promotion.id);
+    assert.equal(await promotion.locator('iframe').count(),0,'PR player must load only after interaction');
+    assert.ok(await page.evaluate(()=>{
+      const hero=document.querySelector('.hero'),pr=document.querySelector('#promo-video'),topics=document.querySelector('#topics');
+      const sections=Array.from(hero.parentElement.children).filter(el=>el.tagName==='SECTION');
+      return sections[sections.indexOf(hero)+1]===pr&&sections[sections.indexOf(pr)+1]===topics;
+    }),'PR belongs immediately after the hero and before TOPICS');
+    await promotion.locator('.promo-poster').focus();await page.keyboard.press('Enter');
+    assert.equal(await promotion.locator('iframe').getAttribute('src'),`https://www.youtube-nocookie.com/embed/${clipsPreview.promotion.id}?autoplay=0&rel=0`);
+    await open('/');
+    const clips=page.locator('#live-clips');
+    assert.equal(await clips.locator('[data-clip-id]').count(),Math.min(3,clipsPreview.videos.length));
+    assert.equal(await clips.locator('iframe').count(),0,'Shorts player must not load before a click');
+    assert.ok(await page.evaluate(()=>{
+      const live=document.querySelector('#live'),clips=document.querySelector('#live-clips'),contents=document.querySelector('#contents');
+      return Boolean(live.compareDocumentPosition(clips)&Node.DOCUMENT_POSITION_FOLLOWING)&&Boolean(clips.compareDocumentPosition(contents)&Node.DOCUMENT_POSITION_FOLLOWING);
+    }),'clips must follow LIVE and precede other contents');
+    await clips.locator('.clip-poster').first().click();
+    assert.equal(await clips.locator('iframe').count(),1);
+    const newestClip=[...clipsPreview.videos].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt))[0];
+    assert.equal(await clips.locator('iframe').getAttribute('src'),`https://www.youtube-nocookie.com/embed/${newestClip.id}?autoplay=0&rel=0`);
+    assert.ok(await clips.locator('iframe').getAttribute('title'));
+    await open('/');
     assert.ok((await page.locator('[data-next-live-label]').textContent())?.includes('次回'));
     assert.equal(await page.locator('[data-link="registration"]').first().getAttribute('href'),'https://line.me/R/ti/p/%40683pdsif');
     const current=await page.locator('.hero').boundingBox();
@@ -70,6 +95,25 @@ try{
       await page.clock.setFixedTime(new Date(time));await open('/');
       assert.equal(await page.locator('[data-next-live]').getAttribute('data-next-live-state'),state);
     }
+    const kumamoto=topics.find(t=>t.slug==='2026-10-21-kumamoto');
+    const kumamotoEnd=Math.max(...kumamoto.sessions.map(s=>Date.parse(s.endsAt)));
+    const kumamotoCard=page.locator('[data-home-topic]').filter({has:page.locator(`a[href="/topics/${kumamoto.slug}.html"]`)});
+    await page.clock.setFixedTime(new Date(kumamotoEnd-1));await open('/');
+    assert.equal(await kumamotoCard.isVisible(),true,'home keeps a topic until its final broadcast ends');
+    assert.ok((await page.locator('.topic-heading-full').textContent()).includes('火の国杯争奪戦'));
+    await page.clock.setFixedTime(new Date(kumamotoEnd));
+    await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
+    assert.equal(await kumamotoCard.isVisible(),false,'home hides an ended topic without a rebuild');
+    assert.ok((await page.locator('.topic-heading-full').textContent()).includes('周防国府杯争奪戦'));
+    assert.ok((await page.locator('.topic-heading-mobile>span').first().textContent()).includes('周防国府杯争奪戦'));
+    await page.clock.setFixedTime(new Date('2026-10-27T12:00:00+09:00'));await open('/');
+    const activeFeatured=featured.filter(t=>t.sessions.some(s=>Date.parse(s.endsAt)>Date.parse('2026-10-27T12:00:00+09:00')));
+    assert.equal(await page.locator('[data-home-topic]:visible').count(),Math.min(activeFeatured.length,width<768?3:Infinity),'mobile must count only non-ended topics');
+    assert.equal(await page.locator('.promo-watch').count(),0);
+    await page.clock.setFixedTime(new Date(sessions.at(-1).end));await open('/');
+    assert.equal(await page.locator('[data-home-topic]:visible').count(),0);
+    assert.equal(await page.locator('[data-home-topic-empty]').isVisible(),true);
+    assert.equal(await page.locator('.topic-heading-full').textContent(),'次回の配信予定は準備中です。');
     await page.clock.setFixedTime(new Date('2026-10-06T12:00:00+09:00'));
     await open('/topics.html');await checkWidth();
     await page.locator('input[name="search"]').fill('平原康多');
@@ -116,7 +160,35 @@ try{
     await page.locator('#faq-q-22 summary').click();
     assert.ok((await page.locator('#faq-q-22').textContent()).includes('American Express'));
     await page.screenshot({path:`test-results/faq-${width}.png`,fullPage:true});
-    for(const route of ['/archives.html','/viewing-guide.html']){await open(route);await checkWidth();}
+    for(const route of ['/archives.html','/viewing-guide.html']){
+      await open(route);await checkWidth();
+      if(route==='/archives.html'){
+        const archiveClips=page.locator('#archive-clips');
+        assert.equal(await archiveClips.locator('[data-clip-id]').count(),Math.min(6,clipsPreview.videos.length));
+        assert.equal(await archiveClips.locator('#archive-clips-title').textContent(),'ライブの魅力を切り抜きで');
+        assert.equal(await archiveClips.locator('iframe').count(),0);
+        assert.equal(await page.locator('[data-archive-empty]').count(),0,'the obsolete coming-soon introduction must be removed');
+        await archiveClips.locator('.clip-poster').first().focus();
+        await page.keyboard.press('Enter');
+        assert.equal(await archiveClips.locator('iframe').count(),1,'archive preview supports keyboard playback');
+        assert.ok((await archiveClips.locator('iframe').getAttribute('src')).includes(clipsPreview.videos[0].id));
+        const track=archiveClips.locator('.clips-grid');
+        const layout=await track.evaluate(el=>({rows:getComputedStyle(el).gridTemplateRows.split(' ').length,flow:getComputedStyle(el).gridAutoFlow,scrollable:el.scrollWidth>el.clientWidth}));
+        assert.equal(layout.rows,1,'archive preview must stay on one row');
+        assert.equal(layout.flow,'column');
+        await page.reload();
+        const nextButton=page.locator('#archive-clips [data-clip-scroll="1"]');
+        assert.equal(await page.locator('#archive-clips [data-clip-scroll="-1"]').isDisabled(),true);
+        if(layout.scrollable){
+          await nextButton.click();
+          await page.waitForFunction(()=>document.querySelector('#archive-clips .clips-grid').scrollLeft>0);
+        }else{
+          assert.equal(await nextButton.isDisabled(),true);
+        }
+        await page.locator('#archive-clips .clip-card').last().scrollIntoViewIfNeeded();
+        assert.equal(await page.locator('#archive-clips .clip-card').last().isVisible(),true);
+      }
+    }
     assert.deepEqual(errors,[],`browser errors at ${width}`);
     await page.close();
   }
@@ -196,6 +268,29 @@ try{
     await open('/archives.html');
     await check('.service-register','registration_click','service_registration','registration','external');
     await check('.service-nav a[href="/viewing-guide.html"]','viewing_guide_click','service_nav','viewing_guide','internal');
+    const titleFor=video=>Array.from(video.title).slice(0,100).join('');
+    const prExtra={kd_video_id:clipsPreview.promotion.id,kd_video_title:titleFor(clipsPreview.promotion)};
+    await open('/');
+    await check('.promo-original','content_click','top_pr_video','pr_video','external',prExtra);
+    const beforePr=(await events()).length;
+    await page.locator('.promo-poster').focus();await page.keyboard.press('Enter');
+    await page.waitForFunction(n=>(window.dataLayer||[]).filter(item=>item?.event==='kd_content_click'&&item?.kd_destination_type==='player').length===n,1);
+    assert.equal((await events()).length,beforePr+1,'keyboard player open emits exactly once');
+    assert.equal((await events()).at(-1).kd_video_id,clipsPreview.promotion.id);
+    assert.equal((await events()).at(-1).kd_video_title,prExtra.kd_video_title);
+    assert.equal(await page.locator('#promo-video iframe').count(),1);
+    const latest=[...clipsPreview.videos].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt));
+    for(const [route,placement,limit] of [['/','top_youtube_videos',3],['/archives.html','archive_youtube_videos',6]]){
+      await open(route);
+      for(const video of latest.slice(0,limit)){
+        const card=`[data-clip-id="${video.id}"]`;
+        const extra={kd_video_id:video.id,kd_video_title:titleFor(video)};
+        await check(`${card} h3 a`,'content_click',placement,'youtube_video','external',extra);
+        await check(`${card} .clip-poster`,'content_click',placement,'youtube_video','player',extra);
+        assert.equal(await page.locator(`${card} iframe`).count(),1);
+      }
+      await check('.clips-channel','sns_click',placement,'youtube','external',{kd_video_id:'',kd_video_title:''});
+    }
     assert.deepEqual(errors,[],`tracking errors at ${width}`);
     await context.close();
   }
@@ -216,7 +311,7 @@ try{
     await archivePage.goto(base+'/archives.html');await archivePage.waitForLoadState('networkidle');
     assert.equal(await archivePage.locator('.archive-card').count(),1);
     assert.equal(await archivePage.locator('.archive-player iframe').count(),0);
-    assert.deepEqual(videoRequests,[]);
+    assert.deepEqual(videoRequests.filter(url=>!/^https:\/\/i(?:[1-4])?\.ytimg\.com\//.test(url)),[],'only thumbnails may load before playback');
     await archivePage.locator('.archive-watch').click();
     assert.equal(await archivePage.locator('.archive-player iframe').getAttribute('src'),'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0');
     await archivePage.close();

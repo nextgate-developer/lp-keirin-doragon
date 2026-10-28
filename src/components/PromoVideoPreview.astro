@@ -1,0 +1,72 @@
+---
+import preview from '../data/youtube.json';
+const video=preview.promotion;
+---
+<section class="promo-video section" id="promo-video" aria-labelledby="promo-video-title" data-pr-video-id={video.id} data-track-placement="top_pr_video" data-track-video-id={video.id} data-track-video-title={video.title} data-track-video-kind="pr_video">
+  <div class="promo-panel">
+    <div class="promo-content">
+      <div class="promo-media">
+        <button type="button" class="promo-poster" data-track-video-action="open" data-archive-player-src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=0&rel=0`} data-archive-player-type="iframe" data-archive-player-title={video.title} aria-label="競輪ドラゴンのPR動画のプレーヤーを開く">
+          <span class="promo-fallback" aria-hidden="true">競輪ドラゴン<br/>PR動画</span>
+          <img class="promo-thumbnail" src={video.thumbnailUrl} width="480" height="360" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"/>
+          <span class="promo-shade" aria-hidden="true"></span>
+          <span class="promo-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5 20 12 9 19Z" fill="currentColor"/></svg></span>
+        </button>
+      </div>
+      <div class="promo-copy">
+        <p class="promo-kicker">はじめての方へ</p>
+        <h2 id="promo-video-title"><span>競輪ドラゴンって、</span><span>こんな場所。</span></h2>
+        <p class="promo-description">レジェンドと語って、笑って、<br/>競輪がもっと好きになる。</p>
+        <p class="promo-caption">実際の配信の雰囲気を、<br/>まずは動画でご覧ください。</p>
+        <a class="promo-original" data-track-video-action="external" href={video.videoUrl} target="_blank" rel="noopener noreferrer">YouTubeで見る <span aria-hidden="true">↗</span><span class="promo-sr-only">（別タブ）</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const thumbnail=document.querySelector<HTMLImageElement>('.promo-thumbnail');
+  if(thumbnail){
+    const fallback=()=>{thumbnail.hidden=true;};
+    thumbnail.addEventListener('error',fallback,{once:true});
+    if(thumbnail.complete&&!thumbnail.naturalWidth)fallback();
+  }
+</script>
+
+<style>
+  .promo-panel{padding:28px 36px;border:2px solid #fcd00b;border-radius:var(--radius);background:#fdfce5;color:#061c5b;box-shadow:0 6px 0 #0002}
+  .promo-content{display:grid;grid-template-columns:180px minmax(0,1fr);align-items:center;gap:44px;max-width:760px;margin:auto}
+  .promo-media{position:relative;min-width:0;aspect-ratio:9/16;overflow:hidden;border-radius:12px;background:#061c5b;box-shadow:0 4px 12px #061c5b1a}
+  .promo-media :global(iframe){display:block;width:100%;height:100%;border:0}
+  .promo-poster{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:#061c5b;color:white;font:inherit;cursor:pointer}
+  .promo-poster:focus-visible{outline:4px solid #fcd00b;outline-offset:-5px}
+  .promo-fallback{position:absolute;inset:0;display:grid;place-content:center;background:radial-gradient(ellipse at top,#087eac,transparent),#061c5b;color:#fcd00b;font-size:16px;font-weight:900;text-align:center}
+  .promo-thumbnail{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .25s}
+  .promo-thumbnail[hidden]{display:none}
+  .promo-shade{position:absolute;inset:0;background:linear-gradient(180deg,#0001,transparent 50%,#000b)}
+  .promo-play{position:absolute;top:50%;left:50%;display:grid;place-items:center;width:52px;height:52px;transform:translate(-50%,-50%);border:2px solid white;border-radius:50%;background:#061c5ba6;color:white}
+  .promo-play svg{width:26px;height:26px}
+  .promo-poster:hover .promo-thumbnail{transform:scale(1.025)}
+  .promo-copy{min-width:0}
+  .promo-kicker{display:inline-block;margin-bottom:12px;padding:3px 12px;border-radius:99px;background:#fcd00b;font-size:12px;font-weight:800}
+  h2{margin:0 0 16px;font-size:clamp(25px,3cqw,34px);font-weight:900;line-height:1.5;letter-spacing:.02em}
+  h2 span{display:block}
+  .promo-description{font-size:17px;font-weight:800;line-height:1.9}
+  .promo-caption{margin-top:10px;color:#46536c;font-size:14px;line-height:1.9}
+  .promo-original{display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:12px;text-decoration:underline;text-underline-offset:4px;font-size:13px;font-weight:700}
+  .promo-original:focus-visible{outline:3px solid #061c5b;outline-offset:3px}
+  .promo-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  @media(max-width:767px){
+    .promo-panel{padding:22px 16px}
+    .promo-content{grid-template-columns:38% minmax(0,1fr);gap:16px}
+    .promo-media{border-radius:9px}
+    .promo-kicker{margin-bottom:8px;padding:2px 8px;font-size:10px}
+    h2{margin-bottom:9px;font-size:clamp(15px,4.4vw,24px);line-height:1.6;letter-spacing:0}
+    .promo-description{font-size:12px;line-height:1.8}
+    .promo-caption{margin-top:8px;font-size:11px;line-height:1.8}
+    .promo-original{margin-top:5px;font-size:11px;gap:7px}
+    .promo-play{width:42px;height:42px}
+    .promo-play svg{width:22px;height:22px}
+  }
+  @media(prefers-reduced-motion:reduce){.promo-thumbnail{transition:none}.promo-poster:hover .promo-thumbnail{transform:none}}
+</style>

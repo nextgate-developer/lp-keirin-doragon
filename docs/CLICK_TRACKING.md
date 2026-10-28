@@ -20,10 +20,12 @@
 |`kd_faq_click`|FAQページへのリンク|現在はトップのフッター|
 |`kd_faq_open`|FAQ回答を開く|質問番号・カテゴリー。マウスとキーボード対応、閉じる操作は数えない|
 |`kd_viewing_guide_click`|視聴方法へのリンク|FAQ関連リンク・アーカイブ関連リンクなど|
-|`kd_content_click`|イベント・会員限定MOVIE・対談予告|未公開中は `coming_soon`。公開後は実際の遷移先種別|
+|`kd_content_click`|イベント・会員限定MOVIE・対談予告・PR動画・新着動画|動画は `player`（LP内のプレーヤーを開く）と `external`（YouTubeへ移動）を区別|
 |`kd_sns_click`|YouTube・X|公式LINEは `kd_line_click` に分ける|
 
 優先度「低」の運営者・規約・プライバシー・特商法、および「公開後」候補のアーカイブ再生は今回の独自計測対象外です。GTM／GA4の既存の外部リンク・PDF自動計測で収集される場合はあります。
+
+2026-10-29追加：RSSの新着動画とPR動画のクリックは対象です。上記の対象外は旧 `archives.json` の手動登録用プレーヤーを指します。動画イベントは再生開始・視聴完了・表示回数ではありません。
 
 登録・ライブ・LINEは現在同じLINE URLへ遷移しますが、リンク先URLではなく `data-link` と設置場所で区別します。Coming soonのクリックは関心の指標であり、登録・視聴の完了とは扱いません。
 
@@ -34,13 +36,15 @@
 |`kd_tracking_version`|送信形式の版（1）|`tracking_version`|
 |`kd_page_path`|クリックしたページのパス|`lp_page_path`|
 |`kd_placement`|設置位置|`placement`|
-|`kd_target`|registration／live／line／topics／topic／faq／viewing_guide／events／movie／previewMovie／youtube／x／faq_question|`link_target`|
-|`kd_destination_type`|internal／external／coming_soon／expand|`destination_type`|
+|`kd_target`|registration／live／line／topics／topic／faq／viewing_guide／events／movie／previewMovie／youtube／x／faq_question／pr_video／youtube_video|`link_target`|
+|`kd_destination_type`|internal／external／coming_soon／expand／player|`destination_type`|
 |`kd_topic_slug`|大会の識別子。それ以外は空文字|`topic_slug`|
 |`kd_faq_number`|FAQ番号。それ以外は空文字|`faq_number`|
 |`kd_faq_category`|FAQカテゴリーID。それ以外は空文字|`faq_category`|
+|`kd_video_id`|公開YouTube動画のID。それ以外は空文字|`video_id`|
+|`kd_video_title`|操作時点の公開動画タイトル（最大100文字）。それ以外は空文字|`video_title`|
 
-位置は `hero`、`bottom_registration`、`floating`、`service_registration`、`contents_cards`、`contents_movie`、`contents_preview`、`footer_sns`、`next_live`、`live_section`、`top_topics`、`topic_list`、`topic_detail`、`breadcrumbs`、`faq_related`、`service_nav`、`footer_nav`、`viewing_help`、`faq_question`、`page_content` です。
+位置は `hero`、`bottom_registration`、`floating`、`service_registration`、`contents_cards`、`contents_movie`、`contents_preview`、`footer_sns`、`next_live`、`live_section`、`top_topics`、`topic_list`、`topic_detail`、`breadcrumbs`、`faq_related`、`service_nav`、`footer_nav`、`viewing_help`、`faq_question`、`page_content`、`top_pr_video`、`top_youtube_videos`、`archive_youtube_videos` です。
 
 既存の `data-link`・リンク先パス・部品クラスから判定します。新しい部品を追加する場合は必要に応じてコードの分類を更新してください。位置だけを指定したい場合は、リンクまたは親要素に `data-track-placement="任意の固定識別子"` を付けられます。利用者の入力値は使わないでください。
 
@@ -63,6 +67,51 @@
 全フィールドを毎回設定するため、直前に開いたFAQ番号などが次のクリックへ持ち越されません。本コードでは氏名・メールアドレス・ユーザーID・検索語句・完全なリンクURL・ページのクエリ／ハッシュを送信しません。ただし、既存のGA4自動計測や他のタグが送る情報まで抑止するものではありません。
 
 ## GTM側の設定（別途必要）
+
+### 2026-10-29：動画計測を既存設定へ追加する手順
+
+既存の `GA4 - KD LP interactions` タグと `CE - KD LP interactions` トリガーを使います。イベント名・トリガーの正規表現・測定IDは変更不要です。GTM管理画面の保存・公開は、このコードのpushとは別操作です。
+
+1. **変数 → ユーザー定義変数 → 新規**で、次の2個を作成します。種類は「データレイヤーの変数」、バージョンは **2**。変数名欄に `{{ }}` は付けません。
+
+   |管理名|データレイヤーの変数名|
+   |---|---|
+   |`DLV - kd_video_id`|`kd_video_id`|
+   |`DLV - kd_video_title`|`kd_video_title`|
+
+2. **タグ → GA4 - KD LP interactions → タグの設定 → イベント パラメータ**に、次の2行を追加して保存します。既存8行は残します。
+
+   |パラメータ名|値|
+   |---|---|
+   |`video_id`|`{{DLV - kd_video_id}}`|
+   |`video_title`|`{{DLV - kd_video_title}}`|
+
+3. サイトが本番反映された後、GTMの **プレビュー** で本番LPへ接続し、PRの再生ボタン・YouTubeリンク、トップとアーカイブの動画を操作します。`kd_content_click` の発生が操作1回につき1件、上記タグが1回発火し、動画ID・タイトル・下表の値が入ることを確認します。続けて「ほかの動画も見る」を押すと `kd_sns_click` となり、動画ID・タイトルが空になることも確認します。
+
+   |操作|`placement`|`link_target`|`destination_type`|
+   |---|---|---|---|
+   |PRプレーヤーを開く|`top_pr_video`|`pr_video`|`player`|
+   |PRのYouTubeリンク|`top_pr_video`|`pr_video`|`external`|
+   |トップの新着プレーヤーを開く|`top_youtube_videos`|`youtube_video`|`player`|
+   |アーカイブの新着プレーヤーを開く|`archive_youtube_videos`|`youtube_video`|`player`|
+   |各動画タイトルのYouTubeリンク|上記の設置位置|`youtube_video`|`external`|
+
+4. GA4のDebugViewでも値を確認し、GTMで **公開 → バージョンを公開** を実行します。バージョン名例：`LP動画ID・タイトル計測追加`。プレビュー操作もGA4へ記録され得ます。
+5. GA4の **管理 → データの表示 → カスタム定義 → カスタムディメンションを作成** で、次の2個をイベントスコープで作ります。既に同名パラメータが登録されている場合は再利用します。
+
+   |ディメンション名|範囲|イベント パラメータ|
+   |---|---|---|
+   |LP 動画ID|イベント|`video_id`|
+   |LP 動画タイトル|イベント|`video_title`|
+
+6. 同じ画面で、既存の `placement`（LP 設置位置）と `destination_type`（LP 遷移先種別）もイベントスコープで登録済みか確認します。未登録の場合だけ作成します。
+7. GA4の **探索 → 自由形式**で、行に「LP 動画タイトル」（必要に応じて「LP 動画ID」も追加）、列に「LP 遷移先種別」、値に「イベント数」を配置します。フィルタは「イベント名が `kd_content_click` に完全一致」かつ「LP 動画IDが空ではない（正規表現 `.+`）」とします。「LP 設置位置」をフィルタに追加するとトップとアーカイブを比較できます。
+
+集計列の `player` はLP内プレーヤーを開いた回数、`external` はYouTubeへのクリック数です。視聴回数・ユニーク人数・クリック率ではありません。カードの掲載位置や表示回数を補正していないため、クリック数だけで動画の人気を断定しません。タイトル変更前後は別行になり得ますが、動画IDで同じ動画として集計できます。RSSで動画が追加されても個別のGTM設定は不要です。
+
+カスタムディメンションの利用には編集者以上の権限が必要で、送信・登録からレポート反映まで24〜48時間かかる場合があります。設定前のデータを新しいディメンションで遡って集計する前提にしないでください。[Google公式手順](https://support.google.com/analytics/answer/14239696?hl=ja)
+
+以下は既存8項目を初めて設定する場合の手順です。動画追加分は上記の2変数・2パラメータを合わせて設定してください。
 
 以下はこのLP用の入力値を含む手順です。画面名は表示言語・Google側の更新で多少変わる場合があります。実際の管理画面の既存設定はまだ確認していません。
 

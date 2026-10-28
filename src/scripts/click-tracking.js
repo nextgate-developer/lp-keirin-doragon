@@ -39,6 +39,8 @@ export function payloadFor(action, pagePath, placement, destinationType) {
     kd_topic_slug: action.topicSlug || '',
     kd_faq_number: action.faqNumber || '',
     kd_faq_category: action.faqCategory || '',
+    kd_video_id: action.videoId || '',
+    kd_video_title: Array.from(action.videoTitle || '').slice(0,100).join(''),
   };
 }
 
@@ -73,6 +75,16 @@ export function mountTracking(doc, location, emit) {
     if (!element || element.disabled || element.getAttribute('aria-disabled') === 'true') return;
     const key = element.getAttribute('data-link');
     const href = element.getAttribute('href');
+    const videoAction = element.getAttribute('data-track-video-action');
+    if (videoAction === 'open' || videoAction === 'external') {
+      const video = element.closest('[data-track-video-id]')?.dataset;
+      if (!video || !/^[-\w]{11}$/.test(video.trackVideoId) ||
+          !['pr_video','youtube_video'].includes(video.trackVideoKind)) return;
+      safelyEmit(payloadFor({name:'content_click',target:video.trackVideoKind,
+        videoId:video.trackVideoId,videoTitle:video.trackVideoTitle},
+        location.pathname,placementFor(element),videoAction === 'open' ? 'player' : 'external'));
+      return;
+    }
     const pending = element.hasAttribute('data-coming-soon');
     if (!pending && !href) return;
     let destination;

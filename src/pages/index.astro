@@ -2,21 +2,32 @@
 import Base from '../layouts/Base.astro';
 import TopicTeasers from '../components/TopicTeasers.astro';
 import FloatingRegistration from '../components/FloatingRegistration.astro';
-import { site } from '../lib/data.mjs';
+import LiveClipsPreview from '../components/LiveClipsPreview.astro';
+import PromoVideoPreview from '../components/PromoVideoPreview.astro';
+import { site,topics as allTopics } from '../lib/data.mjs';
 import hero from '../fragments/home-hero.html?raw';
 import topics from '../fragments/home-topics.html?raw';
 const sections=import.meta.glob('../fragments/home-*.html',{query:'?raw',import:'default',eager:true});
 const heading=`<span class="topic-heading-full">${site.topicsHeading.full}</span><span class="topic-heading-mobile">${site.topicsHeading.mobile}</span>`;
 const [before,after]=topics.replace('<!-- TOPICS_HEADING -->',heading).split('<!-- TOPIC_TEASERS -->');
+const topicNames=JSON.stringify(Object.fromEntries(allTopics.map(topic=>[
+  `/topics/${topic.slug}.html`,
+  {full:topic.teaserTitle||`${topic.grade} ${topic.title}`,mobile:topic.shortTitle||topic.teaserTitle||`${topic.grade} ${topic.title}`},
+]))).replaceAll('<','\\u003c');
 ---
 <Base>
   <div class="kd-asset-bg-sky-background lp-canvas">
     <a class="skip-link" href="#about">サービス紹介へ進む</a>
     <main class="lp" id="top">
       <Fragment set:html={hero}/>
+      <PromoVideoPreview/>
       <Fragment set:html={before}/><TopicTeasers/><Fragment set:html={after}/>
-      {['about','live','contents','people','registration','footer'].map(name=><Fragment set:html={sections[`../fragments/home-${name}.html`]}/>)}
+      <script id="kd-home-topics-data" type="application/json" is:inline set:html={topicNames}></script>
+      {['about','live'].map(name=><Fragment set:html={sections[`../fragments/home-${name}.html`]}/>)}
+      <LiveClipsPreview/>
+      {['contents','people','registration','footer'].map(name=><Fragment set:html={sections[`../fragments/home-${name}.html`]}/>)}
     </main>
     <FloatingRegistration/>
   </div>
 </Base>
+<script>import '../scripts/home-topics.js';</script>

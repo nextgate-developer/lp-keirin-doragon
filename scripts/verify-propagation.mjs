@@ -37,7 +37,7 @@ assert.equal(archive('.archive-card').length,1);
 assert.equal(archive('.archive-empty').length,0);
 assert.equal(archive('[data-archive-count]').text(),'1本の公開動画');
 assert.equal(archive('.archive-player iframe').length,0);
-assert.equal(archive('[data-archive-player-src]').attr('data-archive-player-src'),'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0');
+assert.equal(archive('.archive-grid [data-archive-player-src]').attr('data-archive-player-src'),'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0');
 fs.writeFileSync('test-results/propagation-latest.json',JSON.stringify({output}));
 assert.deepEqual(JSON.parse(fs.readFileSync('src/data/topics/'+topic.slug+'.json','utf8')),topics[0]);
 console.log('One-session change propagated to homepage, countdown, list, detail and search. Nonempty archive generation passed. Source data unchanged.');
