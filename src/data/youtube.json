@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-10-27",
+  "snapshotDate": "2026-10-30",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -11,46 +11,46 @@
   },
   "videos": [
     {
+      "id": "OdZXZfnqRnM",
+      "title": "お酒の強さと競輪の強さ、平原康多さんが語る経験談【競輪ドラゴン】",
+      "publishedAt": "2026-10-30T08:04:11.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/OdZXZfnqRnM",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/OdZXZfnqRnM/hqdefault.jpg"
+    },
+    {
+      "id": "4zrQgNjR9R4",
+      "title": "電気代が月10万〜15万円!? 後閑信一さんの保護猫トーク【競輪ドラゴン】",
+      "publishedAt": "2026-10-29T12:04:20.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/4zrQgNjR9R4",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/4zrQgNjR9R4/hqdefault.jpg"
+    },
+    {
+      "id": "VlUslTWFi9I",
+      "title": "「偉くないもん」三宅伸さんの先輩ぶらない一面【競輪ドラゴン】",
+      "publishedAt": "2026-10-29T09:05:25.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/VlUslTWFi9I",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/VlUslTWFi9I/hqdefault.jpg"
+    },
+    {
+      "id": "JNVWMyngKCE",
+      "title": "後ろのダンプとの距離が音で分かる？後閑信一さんの街道練習トーク【競輪ドラゴン】",
+      "publishedAt": "2026-10-29T03:02:29.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/JNVWMyngKCE",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/JNVWMyngKCE/hqdefault.jpg"
+    },
+    {
+      "id": "_AbkC5CGzm4",
+      "title": "賞金を現金で持ち帰った三宅伸さん、その夜は…【競輪ドラゴン】",
+      "publishedAt": "2026-10-29T00:03:24.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/_AbkC5CGzm4",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/_AbkC5CGzm4/hqdefault.jpg"
+    },
+    {
       "id": "wxkrT3j5ArE",
       "title": "「俺のこと知ってる？」後閑信一さんが視聴者に聞いてみた【競輪ドラゴン】",
-      "publishedAt": "2026-10-27T09:12:50+00:00",
+      "publishedAt": "2026-10-27T09:12:50.000Z",
       "videoUrl": "https://www.youtube.com/shorts/wxkrT3j5ArE",
       "thumbnailUrl": "https://i4.ytimg.com/vi/wxkrT3j5ArE/hqdefault.jpg"
-    },
-    {
-      "id": "QVwcouS2k6s",
-      "title": "大声よりこたえる？三宅伸さんが語る「ささやきヤジ」【競輪ドラゴン】",
-      "publishedAt": "2026-10-27T09:09:52+00:00",
-      "videoUrl": "https://www.youtube.com/shorts/QVwcouS2k6s",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/QVwcouS2k6s/hqdefault.jpg"
-    },
-    {
-      "id": "3--TnEorEpk",
-      "title": "後閑信一さんがレース前に洗濯物を畳んでいた理由【競輪ドラゴン】",
-      "publishedAt": "2026-10-27T09:07:11+00:00",
-      "videoUrl": "https://www.youtube.com/shorts/3--TnEorEpk",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/3--TnEorEpk/hqdefault.jpg"
-    },
-    {
-      "id": "sekdx-cB8uA",
-      "title": "平原康多さんの弱点は？ 三宅伸さんが探してみた【競輪ドラゴン】",
-      "publishedAt": "2026-10-26T05:31:05+00:00",
-      "videoUrl": "https://www.youtube.com/shorts/sekdx-cB8uA",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/sekdx-cB8uA/hqdefault.jpg"
-    },
-    {
-      "id": "yGuNMek8sl0",
-      "title": "芦澤選手に「まだ間に合うよ」後閑信一さんのエール【競輪ドラゴン】",
-      "publishedAt": "2026-10-26T04:15:50+00:00",
-      "videoUrl": "https://www.youtube.com/shorts/yGuNMek8sl0",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/yGuNMek8sl0/hqdefault.jpg"
-    },
-    {
-      "id": "PZMZQrTfTVc",
-      "title": "5着権利でも狙うのは1着！平原康多さんが明かす心構え【競輪ドラゴン】",
-      "publishedAt": "2026-10-26T03:02:41+00:00",
-      "videoUrl": "https://www.youtube.com/shorts/PZMZQrTfTVc",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/PZMZQrTfTVc/hqdefault.jpg"
     }
   ]
 }
