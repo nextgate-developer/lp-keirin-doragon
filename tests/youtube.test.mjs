@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import configured from '../src/data/youtube.json' with {type:'json'};
 import {CHANNEL_ID} from '../src/lib/youtube.mjs';
-import {parseYoutubeFeed,fetchYoutube,syncYoutube} from '../scripts/lib/youtube-rss.mjs';
+import {parseYoutubeFeed,fetchYoutube,syncYoutube,RSS_RETRY_DELAYS_MS,RSS_REQUEST_TIMEOUT_MS} from '../scripts/lib/youtube-rss.mjs';
 
 // Stable fixtures: future channel uploads must not change test assumptions.
 const data={...configured,videos:Array.from({length:6},(_,i)=>({
@@ -37,10 +37,25 @@ test('malformed, empty, wrong-channel and unsafe RSS are rejected',()=>{
   }
 });
 
-test('404 and invalid XML retry twice with backoff before success',async()=>{
-  let calls=0;const waits=[];
-  const result=await fetchYoutube(data,{fetchImpl:async()=>++calls===1?new Response('',{status:404}):calls===2?new Response('<broken>'):ok(),sleep:async ms=>waits.push(ms)});
-  assert.equal(calls,3);assert.deepEqual(waits,[2000,4000]);assert.equal(result.length,6);
+test('404, 500 and invalid XML recover after minute-scale retries without an extra wait',async()=>{
+  let calls=0;const waits=[],retries=[];
+  const result=await fetchYoutube(data,{fetchImpl:async()=>{
+    calls++;
+    return calls===1?new Response('',{status:404}):calls===2?new Response('',{status:500}):calls===3?new Response('<broken>'):ok();
+  },sleep:async ms=>waits.push(ms),onRetry:(retry,error,meta)=>retries.push({retry,...meta})});
+  assert.equal(calls,4);assert.deepEqual(waits,[60000,180000,300000]);assert.equal(result.length,6);
+  assert.deepEqual(retries.map(r=>[r.retry,r.waitMs,r.maxRetries]),[[1,60000,3],[2,180000,3],[3,300000,3]]);
+});
+
+test('healthy feed returns immediately; retry budget fits inside the Actions step and job',async()=>{
+  const result=await fetchYoutube(data,{fetchImpl:async()=>ok(),sleep:async()=>assert.fail('healthy RSS must not wait')});
+  assert.equal(result.length,6);
+  const workflow=await readFile(new URL('../.github/workflows/update-youtube.yml',import.meta.url),'utf8');
+  const jobMinutes=Number(workflow.match(/^    timeout-minutes: (\d+)$/m)?.[1]);
+  const stepMinutes=Number(workflow.match(/run: npm run sync:youtube\s*\n(?:\s*#[^\n]*\n)*\s*timeout-minutes: (\d+)/)?.[1]);
+  const budget=RSS_RETRY_DELAYS_MS.reduce((a,b)=>a+b,0)+(RSS_RETRY_DELAYS_MS.length+1)*RSS_REQUEST_TIMEOUT_MS;
+  assert.ok(budget+60000<=stepMinutes*60000,'allow a minute of overhead before the RSS step timeout');
+  assert.ok(jobMinutes-stepMinutes>=15,'leave at least 15 minutes for setup, verification and saving');
 });
 
 test('all failures preserve file bytes; no-op/check do not write; valid changes preserve PR',async()=>{
@@ -51,7 +66,7 @@ test('all failures preserve file bytes; no-op/check do not write; valid changes 
     for(const failure of [async()=>new Response('',{status:404}),async()=>new Response(feed([])),async()=>{throw new DOMException('Timeout','TimeoutError');}]){
       let calls=0;
       await assert.rejects(syncYoutube(file,{fetchImpl:async()=>{calls++;return failure();},sleep:async()=>{}}));
-      assert.equal(calls,3);assert.equal(await readFile(file,'utf8'),original);
+      assert.equal(calls,4);assert.equal(await readFile(file,'utf8'),original);
     }
     assert.equal((await syncYoutube(file,{fetchImpl:async()=>ok()})).changed,false);
     assert.equal(await readFile(file,'utf8'),original);

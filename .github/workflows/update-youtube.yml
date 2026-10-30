@@ -12,7 +12,7 @@ jobs:
   update:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     permissions:
       contents: write
       actions: write
@@ -27,7 +27,10 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - run: npm run sync:youtube
+      - name: Fetch YouTube RSS with retries
+        run: npm run sync:youtube
+        # 9 minutes of backoff + 4 requests × 15 seconds = 10 minutes.
+        timeout-minutes: 11
       - name: Detect video changes
         id: changes
         shell: bash

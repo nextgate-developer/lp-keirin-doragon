@@ -7,6 +7,8 @@ import {setTimeout as delay} from 'node:timers/promises';
 import {CHANNEL_ID,validateVideo,validateYoutube} from '../../src/lib/youtube.mjs';
 
 const MAX_BYTES=1024*1024;
+export const RSS_RETRY_DELAYS_MS=Object.freeze([60000,180000,300000]);
+export const RSS_REQUEST_TIMEOUT_MS=15000;
 
 export function parseYoutubeFeed(xml,promotionId){
   if(Buffer.byteLength(xml)>MAX_BYTES||/<!DOCTYPE|<!ENTITY/i.test(xml)||XMLValidator.validate(xml)!==true)throw new Error('Invalid RSS XML');
@@ -49,15 +51,16 @@ async function readBounded(response){
 
 export async function fetchYoutube(data,{fetchImpl=fetch,sleep=delay,onRetry=()=>{}}={}){
   validateYoutube(data);
-  for(let attempt=0;attempt<3;attempt++){
+  for(let attempt=0;attempt<=RSS_RETRY_DELAYS_MS.length;attempt++){
     try{
-      const response=await fetchImpl(data.sourceUrl,{signal:AbortSignal.timeout(15000),redirect:'error',headers:{Accept:'application/atom+xml, application/xml'}});
+      const response=await fetchImpl(data.sourceUrl,{signal:AbortSignal.timeout(RSS_REQUEST_TIMEOUT_MS),redirect:'error',headers:{Accept:'application/atom+xml, application/xml'}});
       if(!response.ok){await response.body?.cancel();throw new Error(`RSS HTTP ${response.status}`);}
       return parseYoutubeFeed(await readBounded(response),data.promotion.id);
     }catch(error){
-      if(attempt===2)throw error;
-      onRetry(attempt+1,error);
-      await sleep(2000*2**attempt);
+      if(attempt===RSS_RETRY_DELAYS_MS.length)throw error;
+      const waitMs=RSS_RETRY_DELAYS_MS[attempt];
+      onRetry(attempt+1,error,{waitMs,maxRetries:RSS_RETRY_DELAYS_MS.length});
+      await sleep(waitMs);
     }
   }
 }

@@ -4,7 +4,7 @@ try{
   if(process.argv.slice(2).some(arg=>arg!=='--check'))throw new Error('Supported option: --check');
   const check=process.argv.includes('--check');
   const result=await syncYoutube(new URL('../src/data/youtube.json',import.meta.url),{
-    check,onRetry:(retry,error)=>console.warn(`RSS retry ${retry}/2: ${error.message}`)
+    check,onRetry:(retry,error,{waitMs,maxRetries})=>console.warn(`RSS retry ${retry}/${maxRetries} in ${waitMs/1000}s: ${error.message}`)
   });
   console.log(`YouTube RSS: ${result.count} videos; ${result.changed?(check?'changes available (check only)':'updated'):'unchanged'}`);
 }catch(error){
