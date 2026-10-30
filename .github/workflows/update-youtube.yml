@@ -29,8 +29,8 @@ jobs:
       - run: npm ci
       - name: Fetch YouTube RSS with retries
         run: npm run sync:youtube
-        # 9 minutes of backoff + 4 requests × 15 seconds = 10 minutes.
-        timeout-minutes: 11
+        # 9 minutes backoff + 4 rounds × 2 sources × 15 seconds = 11 minutes.
+        timeout-minutes: 12
       - name: Detect video changes
         id: changes
         shell: bash

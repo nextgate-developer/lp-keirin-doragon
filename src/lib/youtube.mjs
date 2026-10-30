@@ -1,5 +1,6 @@
 export const CHANNEL_ID='UC_O34vySXuFXrXhbSy1Z23g';
 export const FEED_URL=`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+export const UPLOADS_FEED_URL=`https://www.youtube.com/feeds/videos.xml?playlist_id=UU${CHANNEL_ID.slice(2)}`;
 
 export function validateVideo(video,{dated=true}={}){
   if(!video||!/^[-\w]{11}$/.test(video.id)||typeof video.title!=='string'||!video.title.trim()||video.title.length>1000)throw new Error('Invalid YouTube video metadata');
