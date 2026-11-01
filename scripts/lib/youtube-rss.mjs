@@ -5,6 +5,7 @@ import {randomUUID} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {setTimeout as delay} from 'node:timers/promises';
 import {CHANNEL_ID,UPLOADS_FEED_URL,validateVideo,validateYoutube} from '../../src/lib/youtube.mjs';
+import {captureResponse} from './youtube-http-diagnostics.mjs';
 
 const MAX_BYTES=1024*1024;
 export const RSS_RETRY_DELAYS_MS=Object.freeze([60000,180000,300000]);
@@ -56,11 +57,17 @@ export async function fetchYoutube(data,{fetchImpl=fetch,sleep=delay,onRetry=()=
     for(const sourceUrl of [data.sourceUrl,UPLOADS_FEED_URL]){
       try{
       const response=await fetchImpl(sourceUrl,{signal:AbortSignal.timeout(RSS_REQUEST_TIMEOUT_MS),redirect:'error',headers:{Accept:'application/atom+xml, application/xml'}});
-      if(!response.ok){await response.body?.cancel();throw new Error(`RSS HTTP ${response.status}`);}
+      if(!response.ok){
+        const error=new Error(`RSS HTTP ${response.status}`);
+        try{error.httpDiagnostic=await captureResponse(response,sourceUrl);}catch(captureError){
+          error.httpDiagnostic={url:sourceUrl,status:response.status,captureError:captureError.name};
+        }
+        throw error;
+      }
       return parseYoutubeFeed(await readBounded(response),data.promotion.id);
       }catch(error){
         lastError=error;
-        onSourceFailure(sourceUrl,error);
+        await onSourceFailure(sourceUrl,error);
       }
     }
       if(attempt===RSS_RETRY_DELAYS_MS.length)throw lastError;

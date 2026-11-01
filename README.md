@@ -142,6 +142,12 @@ GitHub標準の `GITHUB_TOKEN` に、このジョブだけ `contents: write` と
 
 復旧確認は **Actions → Update YouTube RSS → Run workflow → main**。取得ジョブと公開ジョブの成功はそれぞれ確認します。公開前の検証失敗なら前回の公開内容が維持されます。公開リポジトリでは60日間リポジトリ活動がないと定期実行が無効になるため、その場合はActions画面で再有効化してください。RSSは最新分のみで、全過去動画の取得・削除の即時反映・埋め込み再生可否は保証できません。公開元リンクも残しています。
 
+### RSS障害の応答診断
+
+更新処理がHTTPエラーを受け取った場合、URL・取得日時・ステータス・応答ヘッダー・本文の先頭32KiB・本文サンプルのハッシュを `test-results/youtube-http/` に保存します。Cookie・認証ヘッダーは除外します。Actionsの `youtube-http-failures-...` 成果物は失敗時も保存し、7日間保持します。取得失敗を成功として扱う変更ではなく、前回データの保持と公開停止は継続します。診断追加前の失敗応答は復元できません。
+
+**Actions → Diagnose YouTube RSS → Run workflow** ではUbuntu／WindowsとNode.js／curlを比較します。curlでは接続先IP・HTTPバージョン・リダイレクト・所要時間も記録します。`negative control: trailing slash` は意図的な不正URLで、本番RSSの障害件数には含めません。`no-www` はリダイレクト比較用です。HTTPクライアントとUser-Agentも異なるため、両者の差だけで原因を断定しないでください。結果はログと `youtube-http-diagnostic-...` 成果物に保存します。手動診断で再現しない場合も、本番更新処理の失敗応答を次回以降取得できます。
+
 ## 本番切り替え（今回は未実施）
 
 DNS／Route 53の変更は必要ありません。対象はGitHubリポジトリ `nextgate-developer/lp-keirin-doragon` のPages公開設定です。
