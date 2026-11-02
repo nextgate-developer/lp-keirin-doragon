@@ -8,8 +8,12 @@ import {CHANNEL_ID,UPLOADS_FEED_URL,validateVideo,validateYoutube} from '../../s
 import {captureResponse} from './youtube-http-diagnostics.mjs';
 
 const MAX_BYTES=1024*1024;
-export const RSS_RETRY_DELAYS_MS=Object.freeze([60000,180000,300000]);
+export const RSS_RETRY_DELAYS_MS=Object.freeze([60000]);
 export const RSS_REQUEST_TIMEOUT_MS=15000;
+
+export class YoutubeRssUnavailableError extends Error{
+  constructor(message,options){super(message,options);this.name='YoutubeRssUnavailableError';}
+}
 
 export function parseYoutubeFeed(xml,promotionId){
   if(Buffer.byteLength(xml)>MAX_BYTES||/<!DOCTYPE|<!ENTITY/i.test(xml)||XMLValidator.validate(xml)!==true)throw new Error('Invalid RSS XML');
@@ -28,7 +32,9 @@ export function parseYoutubeFeed(xml,promotionId){
       videoUrl:node.children('link[rel="alternate"]').attr('href'),
       thumbnailUrl:node.find('media\\:thumbnail').first().attr('url')
     };
-    validateVideo(video);
+    try{validateVideo(video);}catch(error){
+      throw new YoutubeRssUnavailableError(`Invalid RSS video metadata: ${error.message}`,{cause:error});
+    }
     if(ids.has(video.id))throw new Error('Duplicate RSS entry');
     ids.add(video.id);
     video.publishedAt=new Date(video.publishedAt).toISOString();
@@ -56,16 +62,29 @@ export async function fetchYoutube(data,{fetchImpl=fetch,sleep=delay,onRetry=()=
     let lastError;
     for(const sourceUrl of [data.sourceUrl,UPLOADS_FEED_URL]){
       try{
-      const response=await fetchImpl(sourceUrl,{signal:AbortSignal.timeout(RSS_REQUEST_TIMEOUT_MS),redirect:'error',headers:{Accept:'application/atom+xml, application/xml'}});
+      let response;
+      try{
+        response=await fetchImpl(sourceUrl,{signal:AbortSignal.timeout(RSS_REQUEST_TIMEOUT_MS),redirect:'error',headers:{Accept:'application/atom+xml, application/xml'}});
+      }catch(error){
+        if(['TimeoutError','AbortError'].includes(error.name)||(error instanceof TypeError&&error.message==='fetch failed')){
+          throw new YoutubeRssUnavailableError(error.message,{cause:error});
+        }
+        throw error;
+      }
       if(!response.ok){
-        const error=new Error(`RSS HTTP ${response.status}`);
+        const error=new YoutubeRssUnavailableError(`RSS HTTP ${response.status}`);
         try{error.httpDiagnostic=await captureResponse(response,sourceUrl);}catch(captureError){
           error.httpDiagnostic={url:sourceUrl,status:response.status,captureError:captureError.name};
         }
         throw error;
       }
-      return parseYoutubeFeed(await readBounded(response),data.promotion.id);
+      try{return parseYoutubeFeed(await readBounded(response),data.promotion.id);}
+      catch(error){
+        if((error instanceof TypeError&&error.message!=='terminated')||error instanceof ReferenceError)throw error;
+        throw new YoutubeRssUnavailableError(error.message,{cause:error});
+      }
       }catch(error){
+        if(!(error instanceof YoutubeRssUnavailableError))throw error;
         lastError=error;
         await onSourceFailure(sourceUrl,error);
       }
