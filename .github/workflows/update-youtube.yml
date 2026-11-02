@@ -1,16 +1,16 @@
 name: Update YouTube RSS
 on:
   schedule:
-    - cron: '23 20 * * *' # 05:23 JST; GitHub may delay scheduled runs.
+    - cron: '23 2,8,14,20 * * *' # 05:23 / 11:23 / 17:23 / 23:23 JST; delays possible.
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: pages
+  group: ${{ github.ref == 'refs/heads/main' && 'pages' || 'youtube-rss-investigation' }}
   cancel-in-progress: false
 jobs:
   update:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/investigation/youtube-rss'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -21,16 +21,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: npm
       - run: npm ci
       - name: Fetch YouTube RSS with retries
-        run: npm run sync:youtube
-        # 9 minutes backoff + 4 rounds × 2 sources × 15 seconds = 11 minutes.
-        timeout-minutes: 12
+        id: rss
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: npm run sync:youtube -- --managed
+        # 1 minute backoff + 2 rounds × 2 sources × 15 seconds = 2 minutes,
+        # plus durable health-state reads/writes via GitHub.
+        timeout-minutes: 5
       - name: Save exact failed RSS HTTP responses
         if: always()
         uses: actions/upload-artifact@v4
@@ -39,7 +43,13 @@ jobs:
           path: test-results/youtube-http/
           if-no-files-found: ignore
           retention-days: 7
+      - name: Notify only after 24 hours without RSS success, at most once per 24 hours
+        if: steps.rss.outputs.notify == 'true'
+        run: |
+          echo '::error::YouTube RSS has not been fetched successfully for at least 24 hours. Existing videos are retained. See the fetch status summary and HTTP artifacts.'
+          exit 1
       - name: Detect video changes
+        if: github.ref == 'refs/heads/main' && steps.rss.outputs.available == 'true'
         id: changes
         shell: bash
         run: |
@@ -66,6 +76,7 @@ jobs:
       # GITHUB_TOKEN pushes do not trigger push workflows. Explicitly dispatch
       # deployment, also recovering a previous failed dispatch/deployment.
       - name: Request deployment if main is not yet deployed
+        if: github.ref == 'refs/heads/main' && steps.rss.outputs.available == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
