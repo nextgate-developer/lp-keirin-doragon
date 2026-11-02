@@ -148,6 +148,19 @@ GitHub標準の `GITHUB_TOKEN` に、このジョブだけ `contents: write` と
 
 **Actions → Diagnose YouTube RSS → Run workflow** ではUbuntu／WindowsとNode.js／curlを比較します。curlでは接続先IP・HTTPバージョン・リダイレクト・所要時間も記録します。`negative control: trailing slash` は意図的な不正URLで、本番RSSの障害件数には含めません。`no-www` はリダイレクト比較用です。HTTPクライアントとUser-Agentも異なるため、両者の差だけで原因を断定しないでください。結果はログと `youtube-http-diagnostic-...` 成果物に保存します。手動診断で再現しない場合も、本番更新処理の失敗応答を次回以降取得できます。
 
+#### 条件を固定した追加調査（検証用ブランチ）
+
+追加調査は `investigation/youtube-rss` で行い、手動実行時の **Use workflow from** もこのブランチを選びます。本番の取得方法・動画データは変更しません。`diagnose-youtube-controlled.mjs` はDNSで得たIPv4を最大2個選び、ホスト名・TLS検証を維持したまま接続先を固定します。curlのHTTP/1.1を基準に、User-Agent、圧縮設定、HTTP/2（対応環境のみ）、Node.jsのHTTPSクライアントを一つずつ比較し、2巡目は順序を逆転します。リクエストは各10秒、全体約3分で打ち切り、Actionsの比較ステップ4分・ジョブ10分以内に収めます。IP固定は調査専用で、本番の固定IP運用には使いません。
+
+2026-11-02 09:01〜09:02 JSTの [調査実行](https://github.com/nextgate-developer/lp-keirin-doragon/actions/runs/41364931589) は、このブランチの `15e3a41` を使用しています。
+
+- 競輪ドラゴンRSSの比較36回中、正常XMLは7回（Ubuntu 3/20、Windows 4/16）、残りは404／500。同じIP・同じヘッダー・同じクライアントでも、反復すると成功と失敗が入れ替わりました。設定変更だけで安定する傾向は確認できませんでした。
+- 同じIP・同じ取得条件で競輪ドラゴンと別チャンネル（Google公式ドキュメントに例示されたID）を交互に取得した8回も、すべて404／500でした。競輪ドラゴンだけのチャンネル設定が原因という説明には合いません。
+- ローカルでの先行試験は16/16成功しました。ただし実行場所と時刻が異なるため、これだけでGitHubのIP制限や地域差とは断定できません。
+- 確認できたのは、YouTube RSSからの応答が同条件でも変わることです。YouTube内部の障害・振り分け・制限・キャッシュのどれかは、この調査だけでは確定できません。HTTP/2、User-Agent、圧縮、接続先IPの変更を本番の修正策として採用する根拠は得られていません。
+
+比較用IDの出典：[Googleの公式ドキュメント](https://developers.google.com/youtube/data/getting-started)。APIは利用していません。診断ジョブの成功は証拠採取の完了を表し、RSSの正常取得率を表すものではありません。
+
 ## 本番切り替え（今回は未実施）
 
 DNS／Route 53の変更は必要ありません。対象はGitHubリポジトリ `nextgate-developer/lp-keirin-doragon` のPages公開設定です。
