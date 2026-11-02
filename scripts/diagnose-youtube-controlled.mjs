@@ -41,9 +41,9 @@ async function curlProbe(ip,variant){
   }
 }
 
-function nativeProbe(ip){
+function nativeProbe(ip,url=FEED_URL){
   return new Promise((resolve,reject)=>{
-    const request=https.get(FEED_URL,{headers,agent:false,family:4,autoSelectFamily:false,lookup:(_hostname,_options,callback)=>callback(null,ip,4)},response=>{
+    const request=https.get(url,{headers,agent:false,family:4,autoSelectFamily:false,lookup:(_hostname,_options,callback)=>callback(null,ip,4)},response=>{
       const chunks=[];let size=0;
       response.on('error',reject);
       response.on('data',chunk=>{
@@ -51,7 +51,7 @@ function nativeProbe(ip){
         if(size>1024*1024){response.destroy(new Error('Response too large'));return;}
         chunks.push(chunk);
       });
-      response.on('end',()=>resolve(summarizeResponse({url:FEED_URL,status:response.statusCode,headers:response.headers,
+      response.on('end',()=>resolve(summarizeResponse({url,status:response.statusCode,headers:response.headers,
         body:Buffer.concat(chunks).toString('utf8'),connection:{remoteIp:response.socket?.remoteAddress,httpVersion:response.httpVersion}})));
     });
     const timer=setTimeout(()=>request.destroy(new Error('10s request deadline')),10000);
@@ -87,3 +87,18 @@ outer:for(let round=1;round<=2;round++){
   }
 }
 await saveDiagnostic({kind:'controlled results',platform:process.platform,results});
+
+// A public channel ID from Google's own example, independent of Keirin Dragon:
+// https://developers.google.com/youtube/data/getting-started
+const referenceUrl='https://www.youtube.com/feeds/videos.xml?channel_id=UC_x5XG1OV2P6uZZ5FSM9Ttw';
+for(const url of [FEED_URL,referenceUrl,FEED_URL,referenceUrl]){
+  if(Date.now()-started>180000)break;
+  let report;
+  try{report=await nativeProbe(addresses[0],url);}
+  catch(error){report={url,error:error.message.slice(0,300)};}
+  report={...report,kind:'cross-channel',platform:process.platform,requestedIp:addresses[0]};
+  await saveDiagnostic(report);
+  const {body,...summary}=report;
+  console.log(JSON.stringify(summary));
+  await delay(500);
+}
