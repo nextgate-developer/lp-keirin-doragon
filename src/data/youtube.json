@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-01",
+  "snapshotDate": "2026-11-02",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "uz_HCdnWEmE",
+      "title": "競輪選手は職人！後閑信一さんが語る仕事観【競輪ドラゴン】",
+      "publishedAt": "2026-11-02T04:02:16.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/uz_HCdnWEmE",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/uz_HCdnWEmE/hqdefault.jpg"
+    },
+    {
+      "id": "n9RNI9KIgqo",
+      "title": "休みゼロをどう感じる？後閑信一さんが語る現役時代【競輪ドラゴン】",
+      "publishedAt": "2026-11-02T01:03:18.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/n9RNI9KIgqo",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/n9RNI9KIgqo/hqdefault.jpg"
+    },
+    {
+      "id": "uIotG9PYyzo",
+      "title": "昼2時から9時半まで!? 三宅伸さんの玉野ナイタートーク【競輪ドラゴン】",
+      "publishedAt": "2026-11-02T00:03:48.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/uIotG9PYyzo",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/uIotG9PYyzo/hqdefault.jpg"
+    },
     {
       "id": "fPGbt0szEt4",
       "title": "交換日記世代だった!? 三宅伸さんの高校時代トーク【競輪ドラゴン】",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-01T11:31:34.000Z",
       "videoUrl": "https://www.youtube.com/shorts/A238QvtmOdI",
       "thumbnailUrl": "https://i2.ytimg.com/vi/A238QvtmOdI/hqdefault.jpg"
-    },
-    {
-      "id": "fZ12bZEZGrM",
-      "title": "三宅伸さんが語る、大ギア時代のきつさ【競輪ドラゴン】",
-      "publishedAt": "2026-11-01T10:31:18.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/fZ12bZEZGrM",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/fZ12bZEZGrM/hqdefault.jpg"
-    },
-    {
-      "id": "EUsanjSkQPw",
-      "title": "レーパンの丈で何が変わる？平原康多さんのこだわり【競輪ドラゴン】",
-      "publishedAt": "2026-10-31T12:03:41.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/EUsanjSkQPw",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/EUsanjSkQPw/hqdefault.jpg"
-    },
-    {
-      "id": "VZ0M_LLm32U",
-      "title": "競輪は狂ってると思わせろ！【競輪ドラゴン】",
-      "publishedAt": "2026-10-31T10:05:08.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/VZ0M_LLm32U",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/VZ0M_LLm32U/hqdefault.jpg"
     }
   ]
 }
