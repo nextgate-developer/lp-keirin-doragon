@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-02",
+  "snapshotDate": "2026-11-03",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,34 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "UPZvTkPSj4c",
+      "title": "コンビニに寄らない!? 後閑信一さんの街道練習【競輪ドラゴン】",
+      "publishedAt": "2026-11-03T13:03:40.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/UPZvTkPSj4c",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/UPZvTkPSj4c/hqdefault.jpg"
+    },
+    {
+      "id": "KleR0QRQry4",
+      "title": "一番の敵は自分の脳 後閑信一さんが語る練習への向き合い方【競輪ドラゴン】",
+      "publishedAt": "2026-11-03T11:03:55.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/KleR0QRQry4",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/KleR0QRQry4/hqdefault.jpg"
+    },
+    {
+      "id": "ft6vFKJ_CVI",
+      "title": "トップ選手はどこまで見えてる？ 三宅伸さんが語るタイヤ抜き【競輪ドラゴン】",
+      "publishedAt": "2026-11-03T09:08:34.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/ft6vFKJ_CVI",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/ft6vFKJ_CVI/hqdefault.jpg"
+    },
+    {
+      "id": "K1aJjgoMG5I",
+      "title": "「夫と見てます」天木じゅんさんのコメントに後閑信一さんが反応【競輪ドラゴン】",
+      "publishedAt": "2026-11-03T07:08:41.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/K1aJjgoMG5I",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/K1aJjgoMG5I/hqdefault.jpg"
+    },
     {
       "id": "uz_HCdnWEmE",
       "title": "競輪選手は職人！後閑信一さんが語る仕事観【競輪ドラゴン】",
@@ -23,34 +51,6 @@
       "publishedAt": "2026-11-02T01:03:18.000Z",
       "videoUrl": "https://www.youtube.com/shorts/n9RNI9KIgqo",
       "thumbnailUrl": "https://i3.ytimg.com/vi/n9RNI9KIgqo/hqdefault.jpg"
-    },
-    {
-      "id": "uIotG9PYyzo",
-      "title": "昼2時から9時半まで!? 三宅伸さんの玉野ナイタートーク【競輪ドラゴン】",
-      "publishedAt": "2026-11-02T00:03:48.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/uIotG9PYyzo",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/uIotG9PYyzo/hqdefault.jpg"
-    },
-    {
-      "id": "fPGbt0szEt4",
-      "title": "交換日記世代だった!? 三宅伸さんの高校時代トーク【競輪ドラゴン】",
-      "publishedAt": "2026-11-01T13:31:42.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/fPGbt0szEt4",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/fPGbt0szEt4/hqdefault.jpg"
-    },
-    {
-      "id": "tlAT7HQXvcA",
-      "title": "「できすぎだと思ってます」平原康多さんが振り返るGⅠタイトル【競輪ドラゴン】",
-      "publishedAt": "2026-11-01T12:31:19.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/tlAT7HQXvcA",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/tlAT7HQXvcA/hqdefault.jpg"
-    },
-    {
-      "id": "A238QvtmOdI",
-      "title": "競輪場入りはリムジン!? 後閑信一さんが語る移動のこだわり【競輪ドラゴン】",
-      "publishedAt": "2026-11-01T11:31:34.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/A238QvtmOdI",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/A238QvtmOdI/hqdefault.jpg"
     }
   ]
 }
