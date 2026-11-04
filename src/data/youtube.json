@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-03",
+  "snapshotDate": "2026-11-04",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,34 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "3cOvMgrnqh0",
+      "title": "1兆円売れる競輪がなぜマイナー？ 後閑信一さん「料理人頼むよ」",
+      "publishedAt": "2026-11-04T14:55:12.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/3cOvMgrnqh0",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/3cOvMgrnqh0/hqdefault.jpg"
+    },
+    {
+      "id": "TYFmTHtJJD0",
+      "title": "三宅伸さん、引退して余った部品がメルカリで100万円",
+      "publishedAt": "2026-11-04T13:45:17.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/TYFmTHtJJD0",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/TYFmTHtJJD0/hqdefault.jpg"
+    },
+    {
+      "id": "yJT0H85eNzA",
+      "title": "後閑信一さん、落車した瞬間に浮かんだのは税金",
+      "publishedAt": "2026-11-04T12:38:05.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/yJT0H85eNzA",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/yJT0H85eNzA/hqdefault.jpg"
+    },
+    {
+      "id": "6e16nEhuSbo",
+      "title": "競輪ドラゴン のライブ配信",
+      "publishedAt": "2026-11-04T12:28:47.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=6e16nEhuSbo",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/6e16nEhuSbo/hqdefault.jpg"
+    },
     {
       "id": "UPZvTkPSj4c",
       "title": "コンビニに寄らない!? 後閑信一さんの街道練習【競輪ドラゴン】",
@@ -23,34 +51,6 @@
       "publishedAt": "2026-11-03T11:03:55.000Z",
       "videoUrl": "https://www.youtube.com/shorts/KleR0QRQry4",
       "thumbnailUrl": "https://i4.ytimg.com/vi/KleR0QRQry4/hqdefault.jpg"
-    },
-    {
-      "id": "ft6vFKJ_CVI",
-      "title": "トップ選手はどこまで見えてる？ 三宅伸さんが語るタイヤ抜き【競輪ドラゴン】",
-      "publishedAt": "2026-11-03T09:08:34.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/ft6vFKJ_CVI",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/ft6vFKJ_CVI/hqdefault.jpg"
-    },
-    {
-      "id": "K1aJjgoMG5I",
-      "title": "「夫と見てます」天木じゅんさんのコメントに後閑信一さんが反応【競輪ドラゴン】",
-      "publishedAt": "2026-11-03T07:08:41.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/K1aJjgoMG5I",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/K1aJjgoMG5I/hqdefault.jpg"
-    },
-    {
-      "id": "uz_HCdnWEmE",
-      "title": "競輪選手は職人！後閑信一さんが語る仕事観【競輪ドラゴン】",
-      "publishedAt": "2026-11-02T04:02:16.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/uz_HCdnWEmE",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/uz_HCdnWEmE/hqdefault.jpg"
-    },
-    {
-      "id": "n9RNI9KIgqo",
-      "title": "休みゼロをどう感じる？後閑信一さんが語る現役時代【競輪ドラゴン】",
-      "publishedAt": "2026-11-02T01:03:18.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/n9RNI9KIgqo",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/n9RNI9KIgqo/hqdefault.jpg"
     }
   ]
 }
