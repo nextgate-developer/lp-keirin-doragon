@@ -4,12 +4,18 @@
 
 ## 現在の状態と注意
 
-- Astro移行コードは追加済み。本番公開・GitHub設定変更はしていません。
-- ルートの `index.html` は移行前の公開用HTMLとして変更せず残しています。旧 `assets/app.*.js` も保管しています。
-- **新しいサイトは `src/` を編集します。ルートの `index.html` や生成された `dist/` の直接編集は新サイトに反映されません。**
-- 現在のPagesの公開元がbranch/rootなら、引き続き旧HTMLが公開されます。本番切り替え後はActionsが生成した `dist/` だけを公開します。
-- `_headers` / `_redirects` は元納品物のNetlify用設定です。新しいGitHub Pagesの公開物には含めていません。
-- アーカイブは現在0件です。架空の動画は本番データへ追加していません。
+- Astro版を https://lp.keirin-dragon.com/ で本番公開しています。
+- **mainへのpushは自動公開を開始します。** GitHub Pagesの公開元はGitHub Actionsで、`deploy.yml` の検証成功後に生成された `dist/` を公開します。
+- **サイトの修正は `src/` を編集します。** ルートの `index.html` と旧 `assets/app.*.js` は移行前の保管用です。生成された `dist/` はビルドで作り直されます。
+- `_headers` / `_redirects` は元納品物のNetlify用設定です。現在のGitHub Pagesの公開物には含めていません。
+- YouTubeの新着動画は `src/data/youtube.json` で管理し、RSSで自動更新します。手動登録アーカイブは別の `src/data/archives.json` で管理します。
+
+## 修正作業のルール
+
+1. 最新のmainから `feature/修正内容` ブランチを作成し、そのブランチで作業します。
+2. デザイン修正はAstroの構成と共通部品を維持し、依頼された範囲のCSS・HTML断片・Astro表示部品を編集します。日程処理、自動更新、計測、公開設定の変更が必要な場合は、理由と影響を担当者へ確認します。
+3. ローカルでPC・スマホの表示を確認し、`npm run verify` と `npm run test:browser` を実行します。
+4. 編集担当者は変更内容・確認結果・作業ブランチ名を本番反映の担当者へ共有します。本番反映の担当者が確認後にmainへ取り込み・pushします。
 
 ## 初回準備・プレビュー
 
@@ -104,7 +110,7 @@ CSSは既存の指定順を保っています。後ろの指定が前の指定�
 
 ## 検証
 
-優先度「中」までのクリック計測をGTMのdataLayerへ送信するコードを追加しています。対象、送信情報、GTM／GA4側で必要な設定は [docs/CLICK_TRACKING.md](docs/CLICK_TRACKING.md) を参照してください。GTM読み込みだけでは独自イベントはGA4に記録されません。管理画面の設定・公開は未実施です。
+優先度「中」までのクリック計測をGTMのdataLayerへ送信します。対象、送信情報、GTM／GA4側で必要な設定は [docs/CLICK_TRACKING.md](docs/CLICK_TRACKING.md) を参照してください。GTM／GA4の現在の設定・公開状態は、それぞれの管理画面で確認します。
 
 ```sh
 npm run validate
@@ -138,7 +144,7 @@ npm run test:browser
 
 HTTPエラー（404を含む）・タイムアウト・不正XML・必須項目欠落・0件応答は、1分待って1回再試行します。各回で通常のチャンネルRSSが失敗したらアップロード一覧RSSを試します。最大2回×2経路＝4リクエスト、各15秒、待機込み約2分です。Actionsの取得ステップは状態保存も含め5分、ジョブ全体は30分で打ち切ります。正常な動画データに差分がなければ書き込みません。チャンネルID・動画ID・URL・日時を検証し、取得サイズも制限します。正常データは一時ファイルから置換します。ローカルの `npm run sync:youtube` は全試行失敗時に従来どおり終了コード1になります。
 
-`.github/workflows/update-youtube.yml` は6時間ごと（05:23／11:23／17:23／23:23 JST、GitHub側の遅延あり）に取得する設定です。定期実行はデフォルトブランチだけで動くため、**検証用ブランチにある間は本番の実行間隔は変わりません**。mainへ反映後に有効になります。正常取得して差分があれば入力・生成HTML・ブラウザ検証後に動画データだけをbotがコミット・pushし、既存の `deploy.yml` を明示的に起動します。取得失敗時は動画データの保存・公開に進みません。保存後の公開起動や公開が失敗した場合は、次回の正常取得時に未公開のmainを再度公開要求します。
+`.github/workflows/update-youtube.yml` は本番運用中で、6時間ごと（05:23／11:23／17:23／23:23 JST、GitHub側の遅延あり）に取得します。定期実行はデフォルトブランチのmain上で動きます。正常取得して差分があれば入力・生成HTML・ブラウザ検証後に動画データだけをbotがコミット・pushし、既存の `deploy.yml` を明示的に起動します。取得失敗時は動画データの保存・公開に進みません。保存後の公開起動や公開が失敗した場合は、次回の正常取得時に未公開のmainを再度公開要求します。
 
 Actionsでは `--managed` を付け、最後の正常取得・通知判定時刻を `automation/youtube-rss-health` ブランチの `state.json` に保存します。新着なしでも正常なRSSなら成功時刻を更新します。24時間以上正常取得できず、前回の通知判定からも24時間以上経過した実行だけ、状態保存後に専用ステップを失敗させます。それ以外のRSS取得失敗はジョブを失敗させず、ログ・Summary・HTTP成果物に残します。GitHub標準のActions失敗通知を利用し、直接メールは送信しません。メール配送はユーザーのGitHub通知設定に従います。1日1回とはJSTの日付区切りではなく、前回の通知判定から24時間以上です。コード不具合・入力不備・状態保存失敗・ビルド／公開失敗はこの抑制対象にせず、通常の失敗とします。
 
@@ -169,18 +175,17 @@ GitHub標準の `GITHUB_TOKEN` に、このジョブだけ `contents: write` と
 
 比較用IDの出典：[Googleの公式ドキュメント](https://developers.google.com/youtube/data/getting-started)。APIは利用していません。診断ジョブの成功は証拠採取の完了を表し、RSSの正常取得率を表すものではありません。
 
-## 本番切り替え（今回は未実施）
+## 本番公開と確認
 
-DNS／Route 53の変更は必要ありません。対象はGitHubリポジトリ `nextgate-developer/lp-keirin-doragon` のPages公開設定です。
+GitHubリポジトリは `nextgate-developer/lp-keirin-doragon`、公開先は https://lp.keirin-dragon.com/ です。GitHub Pagesの **Settings → Pages → Build and deployment → Source** は **GitHub Actions** に設定済みです。
 
-1. 移行コードをレビューし、ローカル検証とActionsの検証が成功したことを確認。
-2. 現在のPages公開元、カスタムドメイン、HTTPS設定をGitHub画面で記録する（現在の公開元は未確認）。
-3. リポジトリの **Settings → Pages → Build and deployment → Source** を **GitHub Actions** にする。カスタムドメイン `lp.keirin-dragon.com` とHTTPSは維持する。
-4. 承認後にコミットし、mainへpush。**Actions → Verify and deploy Astro to GitHub Pages** が自動実行され、検証成功後に `dist/` だけが公開される。
-5. 本番でトップ、詳細URLへの直アクセス／再読み込み、旧 `/#/faq.html` と詳細リンク、PDF、登録リンク、PC／スマホ、canonical、サイトマップを確認。
+1. 作業ブランチで修正し、ローカル検証と変更内容の確認を行います。
+2. 本番反映の担当者がmainへ取り込み・pushすると、**Actions → Verify and deploy Astro to GitHub Pages** が自動実行されます。
+3. `build` と `deploy` の両方が成功したことを確認します。
+4. 本番で変更した箇所を確認します。ページ構造を変更した場合は、PC・スマホ表示、リンク、詳細URLへの直アクセス・再読み込みも確認します。
 
-日常更新はデータを編集→ローカル検証→コミット→mainへpushで自動公開されます。Run workflowは毎回不要です。再実行が必要なときだけ、Actions画面のRe-run jobs、またはmainを選んだRun workflowを使用できます。main以外からの手動実行は公開しません。
+通常の公開はmainへのpushで始まります。再実行が必要なときは、Actions画面のRe-run jobs、またはmainを選んだRun workflowを使用できます。
 
-ビルド・検証に失敗すると公開ジョブはスキップされ、最後に正常公開できたサイトが維持されます。GitHubにはpushしたコミットが残るため、修正して再pushしてください。公開処理自体の途中で失敗した場合はActionsのログと実際の公開状態を確認します。Pagesをブランチ公開のままにすると、従来の公開処理はこの検証とは別に走るため、初回のSource変更が必要です。
+ビルド・検証に失敗すると公開ジョブはスキップされ、最後に正常公開できたサイトが維持されます。GitHubにはpushしたコミットが残るため、修正して再pushしてください。公開処理自体の途中で失敗した場合はActionsのログと実際の公開状態を確認します。
 
-問題があれば、記録した旧Pages公開元へ戻すことで旧HTMLへ戻せます（再デプロイの時間は必要）。ロールバック確認が済むまではルートの旧HTMLと旧資産を消さないでください。GTMは本番ホストでのみ読み込み、ローカルプレビューでは送信しません（JavaScript有効時）。本番計測・外部登録先・動画再生・GitHub公開設定はローカルテストだけでは検証できません。
+公開済みの変更を取り消す場合は、担当者が該当変更を取り消すコミットをmainへ反映し、公開Actionsの成功と本番表示を確認します。GTMは本番ホストでのみ読み込みます。本番計測・外部登録先・動画再生の確認は、本番環境でも行ってください。
