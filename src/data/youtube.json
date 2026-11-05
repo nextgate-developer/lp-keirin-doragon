@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-04",
+  "snapshotDate": "2026-11-05",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,13 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "Nve02-pG5DA",
+      "title": "【11/4 21:30開始】競輪ドラゴン｜泗水杯争奪戦GⅢ 初日前夜LIVE",
+      "publishedAt": "2026-11-05T03:11:40.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=Nve02-pG5DA",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/Nve02-pG5DA/hqdefault.jpg"
+    },
     {
       "id": "3cOvMgrnqh0",
       "title": "1兆円売れる競輪がなぜマイナー？ 後閑信一さん「料理人頼むよ」",
@@ -44,13 +51,6 @@
       "publishedAt": "2026-11-03T13:03:40.000Z",
       "videoUrl": "https://www.youtube.com/shorts/UPZvTkPSj4c",
       "thumbnailUrl": "https://i2.ytimg.com/vi/UPZvTkPSj4c/hqdefault.jpg"
-    },
-    {
-      "id": "KleR0QRQry4",
-      "title": "一番の敵は自分の脳 後閑信一さんが語る練習への向き合い方【競輪ドラゴン】",
-      "publishedAt": "2026-11-03T11:03:55.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/KleR0QRQry4",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/KleR0QRQry4/hqdefault.jpg"
     }
   ]
 }
