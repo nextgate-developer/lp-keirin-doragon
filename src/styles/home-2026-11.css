@@ -1,0 +1,286 @@
+/* 競輪ドラゴン トップ（2026-11 刷新）。トップだけに効く：index.astro で読み込み、body.kd-top の下だけを指定する。
+   本文は src/fragments/home-*.html、動画は PromoVideoPreview・LiveClipsPreview、追従バーは FloatingRegistration（下のページと共通。見た目はトップだけ変える）。
+   見た目：ミリタリーの基地の空気（ステンシルの数字・注意の斜線・リベット・ワッペン・部外秘の判）。
+   色は龍の体の青・黄・赤を、龍と同じ割合（約5:3:2）で。登録ボタンは赤（白いカードの中で赤い面の上にあるものだけ黄）。
+   龍の顔は Sunburst で生成（/assets/images/rd/dragon-face-360.webp・-96.webp）。コードでは描かない。
+   色の名前は legacy.css の --navy などとぶつからないよう --k- を付ける。 */
+
+body.kd-top{
+  --k-ink:#111318;--k-paper:#fff;--k-blue:#1f4fd8;--k-navy:#0e2566;--k-wall:#0a1a4a;
+  --k-yellow:#f5c400;--k-red:#d8261f;--k-red-press:#b51d17;--k-mute:#4b5160;--k-rule:#d6d9df;--k-night-mute:#bccaf0;
+  --k-num:"Saira Stencil One","Zen Kaku Gothic New",sans-serif;
+  --k-disp:"Dela Gothic One","Zen Kaku Gothic New",sans-serif;
+  background:var(--k-wall);color:var(--k-ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-weight:500;line-height:1.8
+}
+body.kd-top .lp-canvas{background:var(--k-wall)}
+body.kd-top .lp{width:auto;max-width:none;margin:0;padding:0;background:var(--k-paper);overflow-x:clip;font-feature-settings:"palt";letter-spacing:.03em}
+body.kd-top .lp[data-floating-registration]{padding-bottom:0}
+body.kd-top .lp :is(h1,h2,h3){letter-spacing:0}
+body.kd-top .lp :is(a,button):focus-visible{outline:3px solid var(--k-yellow);outline-offset:3px}
+body.kd-top .section{margin-top:0}
+
+/* 番号と帯の見出し（段の共通） */
+body.kd-top .kd-head,body.kd-top .kd-label{display:flex;align-items:flex-start;gap:10px;margin:0 0 16px;font-size:23px;font-weight:400;line-height:1.5;text-align:left}
+body.kd-top .kd-no{flex:none;min-width:1.2em;font-family:var(--k-num);font-style:normal;font-size:50px;font-weight:400;line-height:.9;color:var(--k-red)}
+body.kd-top .kd-band{display:flex;flex-direction:column;align-items:flex-start;gap:2px;line-height:1.5}
+body.kd-top .kd-band>span,body.kd-top .kd-label-text{display:block;padding:0 10px;background:var(--k-ink);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:23px;line-height:1.5}
+body.kd-top .kd-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:14px;font-weight:700}
+body.kd-top .kd-links a{color:inherit;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+
+/* 龍の顔のワッペンと、小さい龍の顔 */
+body.kd-top .kd-patch{position:absolute;z-index:3;display:grid;place-items:center;border-radius:50%;background:var(--k-navy);border:3px solid var(--k-ink);box-shadow:0 0 0 6px var(--k-yellow),0 0 0 8px var(--k-ink);overflow:hidden}
+body.kd-top .kd-patch::after{content:"";position:absolute;inset:6px;border-radius:50%;border:2px dashed #ffffffa0}
+body.kd-top .kd-patch img{position:relative;z-index:1;width:88%;height:88%;object-fit:contain}
+body.kd-top .kd-ico{display:inline-block;width:26px;height:26px;margin:0 14px;object-fit:contain}
+body.kd-top .kd-rivet{background-image:radial-gradient(circle,#0a1a4a 0 2.6px,transparent 3.2px),radial-gradient(circle,#0a1a4a 0 2.6px,transparent 3.2px),radial-gradient(circle,#0a1a4a 0 2.6px,transparent 3.2px),radial-gradient(circle,#0a1a4a 0 2.6px,transparent 3.2px);
+  background-size:10px 10px;background-repeat:no-repeat;background-position:5px 5px,calc(100% - 5px) 5px,5px calc(100% - 5px),calc(100% - 5px) calc(100% - 5px)}
+
+/* 赤い登録ボタン（最初の画面・最後の登録）。名前（hero-cta・registration-cta・cta-label）は計測と追従バーの判定に使う */
+body.kd-top .trial-offer{position:static;top:auto;left:auto;transform:none;width:auto;max-width:none;min-width:0;margin:0;padding:0;border-radius:0;background:none;box-shadow:none;color:inherit;text-align:left}
+body.kd-top .trial-offer .cta{display:flex;align-items:center;justify-content:center;width:100%;max-width:none;min-height:60px;margin:0;padding:0 22px;aspect-ratio:auto;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff;box-shadow:none;cursor:pointer;transition:background-color .2s}
+body.kd-top .trial-offer .cta:hover{background:var(--k-red-press);filter:none}
+body.kd-top .cta::before{content:none}
+body.kd-top .trial-offer .cta::after{inset:0;border-radius:8px}
+body.kd-top .trial-offer .cta-label{padding:0;font-family:var(--k-disp);font-weight:400;font-size:19px;line-height:1.35;letter-spacing:.04em}
+
+/* 最初の画面 */
+body.kd-top .hero{overflow:visible;padding:10px 10px 0;background:none}
+body.kd-top .kd-topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 10px 8px 14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy)}
+body.kd-top .kd-logo img{display:block;width:auto;height:28px}
+body.kd-top .kd-topbar-cta{padding:6px 14px;border-radius:4px;background:var(--k-red);color:#fff;font-family:var(--k-disp);font-size:13px;letter-spacing:.04em;cursor:pointer}
+body.kd-top .kd-topbar-cta:hover{background:var(--k-red-press)}
+body.kd-top .kd-hero-card{position:relative;margin-top:12px;padding:18px 14px 14px;border:2px solid var(--k-ink);border-radius:10px;background-color:var(--k-blue);color:#fff}
+body.kd-top .hero h1{max-width:calc(100% - 112px);margin:2px 0 0;font-family:var(--k-disp);font-weight:400;font-size:clamp(32px,9.2vw,36px);line-height:1.28;color:#fff;letter-spacing:-.01em}
+body.kd-top .hero h1 span{display:block}
+body.kd-top .hero h1 mark{margin-left:-.08em;padding:0 .08em;background:var(--k-yellow);color:var(--k-ink)}
+body.kd-top .kd-hero-lead{margin-top:12px;font-size:15px;font-weight:900;line-height:1.7;word-break:auto-phrase}
+body.kd-top .kd-patch--hero{top:22px;right:8px;width:112px;height:112px;transform:rotate(-8deg)}
+body.kd-top .kd-zoom{margin:16px 0 0;border:2px solid var(--k-ink);border-radius:10px;overflow:hidden;background:var(--k-ink)}
+body.kd-top .kd-zoom-bar{display:flex;align-items:center;gap:8px;height:28px;padding:0 10px;background:var(--k-ink);color:#fff}
+body.kd-top .kd-zoom-dots{display:flex;gap:5px}
+body.kd-top .kd-zoom-dots i{width:8px;height:8px;border-radius:50%;background:#ff5f57}
+body.kd-top .kd-zoom-dots i:nth-child(2){background:#febc2e}
+body.kd-top .kd-zoom-dots i:nth-child(3){background:#28c840}
+body.kd-top .kd-zoom-title{flex:1;font-size:11px;font-weight:700;letter-spacing:.04em}
+body.kd-top .kd-zoom-live{padding:0 6px;border-radius:4px;background:#ffffff26;font-family:var(--k-num);font-size:12px;letter-spacing:.08em}
+body.kd-top .kd-zoom-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:2px;height:min(60vw,240px)}
+body.kd-top .kd-tile{position:relative;overflow:hidden;background:#000}
+body.kd-top .kd-tile img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+body.kd-top .kd-tile-names{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:2px;margin:0;padding:0;list-style:none}
+body.kd-top .kd-tile--name{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 10px;background:var(--k-navy);color:#fff}
+body.kd-top .kd-tile--name strong{font-size:16px;font-weight:900;line-height:1.3}
+body.kd-top .kd-tile--name strong small{margin-left:1px;font-size:11px}
+body.kd-top .kd-tile--name span{color:var(--k-night-mute);font-size:10.5px;font-weight:700}
+body.kd-top .kd-nametag{position:absolute;left:5px;bottom:5px;padding:0 6px;border-radius:4px;background:#000000b8;color:#fff;font-size:11px;font-weight:700;line-height:1.7}
+body.kd-top .trial-offer--hero{margin-top:12px}
+body.kd-top .kd-cta-note{margin-top:7px;color:var(--k-mute);font-size:12px}
+body.kd-top .kd-cta-note strong{color:var(--k-ink);font-weight:900}
+@media (max-width:359px){/* 幅320の小さいスマホでも見出しを3行に収める */
+  body.kd-top .kd-patch--hero{width:88px;height:88px}
+  body.kd-top .hero h1{max-width:calc(100% - 88px);font-size:28px}
+}
+
+/* 注意の斜線と電光掲示板（区切りは龍の顔） */
+body.kd-top .kd-hazard{height:16px;margin-top:22px;border-block:2px solid var(--k-ink);background:repeating-linear-gradient(-45deg,var(--k-yellow) 0 12px,var(--k-ink) 12px 24px)}
+body.kd-top .kd-ticker{overflow:hidden;background:var(--k-ink);color:var(--k-yellow)}
+body.kd-top .kd-ticker-track{display:flex;width:max-content;animation:kd-tick 60s linear infinite}
+body.kd-top .kd-ticker-track span{display:flex;align-items:center;padding:8px 0 8px 14px;white-space:nowrap;font-family:var(--k-disp);font-size:14px;letter-spacing:.06em}
+body.kd-top .kd-ticker-track .kd-ico:last-child{margin-right:0}
+@keyframes kd-tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){body.kd-top .kd-ticker-track{animation:none}}
+
+/* はじめての方へ（紹介動画。PromoVideoPreview） */
+body.kd-top .promo-video{padding:28px 12px 0}
+body.kd-top .promo-panel{padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);box-shadow:none}
+body.kd-top .promo-content{grid-template-columns:38% minmax(0,1fr);gap:14px;max-width:none}
+body.kd-top .promo-media{border:2px solid var(--k-ink);border-radius:8px;box-shadow:none}
+body.kd-top .promo-kicker{margin-bottom:8px;padding:1px 8px;border-radius:4px;background:var(--k-yellow);color:var(--k-ink);font-size:11px;font-weight:900}
+body.kd-top .promo-video h2{margin:0 0 8px;font-family:var(--k-disp);font-weight:400;font-size:19px;line-height:1.45;letter-spacing:0}
+body.kd-top .promo-description{font-size:13px;font-weight:700;line-height:1.75}
+body.kd-top .promo-caption{margin-top:6px;color:var(--k-mute);font-size:12px;line-height:1.75}
+body.kd-top .promo-original{min-height:40px;margin-top:4px;font-size:12px}
+body.kd-top .promo-play{width:42px;height:42px;border-color:var(--k-ink);background:#fff;color:var(--k-ink)}
+
+/* 01 配信予定（TopicTeasers） */
+body.kd-top .topics-home{margin-top:0;padding:44px 12px 0}
+body.kd-top .kd-label{margin-bottom:12px}
+body.kd-top .topics-panel{border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);overflow:hidden}
+body.kd-top .topics-panel>h2{padding:10px 14px;background:var(--k-navy);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:17px;line-height:1.55;text-align:left}
+body.kd-top .topic-heading-full{display:none}
+body.kd-top .topic-heading-mobile,body.kd-top .topic-heading-mobile>span{display:block}
+body.kd-top .topics-panel-body{display:block;padding:4px 14px 14px}
+body.kd-top .topics-public-note{margin-top:8px;color:var(--k-mute);font-size:12px}
+body.kd-top .topic-teasers li+li{border-top:1px solid var(--k-rule)}
+body.kd-top .topic-teasers a{grid-template-columns:minmax(0,1fr) 12px;gap:2px 8px;padding:12px 0;color:var(--k-ink)}
+body.kd-top .teaser-date{grid-column:1;font-size:12px;font-weight:700}
+body.kd-top .teaser-title{grid-column:1;font-size:15px;font-weight:900}
+body.kd-top .teaser-title small{color:var(--k-mute);font-weight:700}
+body.kd-top .teaser-category{color:var(--k-red)}
+body.kd-top .teaser-name-full{display:none}
+body.kd-top .teaser-name-mobile{display:inline}
+body.kd-top .teaser-arrow{grid-column:2;grid-row:1/3;color:var(--k-ink)}
+body.kd-top .topics-action{display:block;margin-top:12px}
+body.kd-top .topic-button{display:flex;width:100%;max-width:none;min-height:50px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:16px}
+body.kd-top .topic-button:hover{background:var(--k-wall);border-color:var(--k-ink)}
+
+/* 02 この部屋でGETできるもの：紺の壁に掲示。上下に注意の斜線。1つめに龍のワッペン、2つめに部外秘の判 */
+body.kd-top .about{position:relative;margin-top:44px;padding:52px 12px 56px;background:var(--k-navy);color:#fff}
+body.kd-top .about::before,body.kd-top .about::after{content:"";position:absolute;left:0;right:0;height:16px;border-block:2px solid var(--k-ink);background:repeating-linear-gradient(-45deg,var(--k-yellow) 0 12px,var(--k-ink) 12px 24px)}
+body.kd-top .about::before{top:0}
+body.kd-top .about::after{bottom:0}
+body.kd-top .about .kd-no{color:var(--k-yellow)}
+body.kd-top .about .kd-band>span{background:#fff;color:var(--k-navy)}
+body.kd-top .about-panel{margin:0;padding:0;overflow:visible;background:none}
+body.kd-top .kd-get-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+body.kd-top .kd-get{position:relative;padding:14px 16px 16px;border:2px solid var(--k-ink);border-radius:4px;background:#fff;color:var(--k-ink)}
+body.kd-top .kd-get:first-child h3{padding-right:72px}
+body.kd-top .kd-get-no{color:var(--k-red);font-size:12px;font-weight:900}
+body.kd-top .kd-get h3{margin-top:2px;font-family:var(--k-disp);font-weight:400;font-size:21px;line-height:1.45}
+body.kd-top .kd-get p:not(.kd-get-no){margin-top:6px;color:var(--k-mute);font-size:14px;line-height:1.85}
+body.kd-top .kd-get:nth-child(2){padding-bottom:46px}
+body.kd-top .kd-get:nth-child(2)::after{content:"部外秘";position:absolute;right:12px;bottom:12px;padding:1px 7px 2px;border:3px solid var(--k-red);border-radius:4px;color:var(--k-red);font-family:var(--k-disp);font-size:17px;line-height:1.5;transform:rotate(-9deg)}
+body.kd-top .kd-patch--get{top:-16px;right:-8px;width:82px;height:82px;transform:rotate(6deg)}
+body.kd-top .kd-slogan{margin-top:20px;color:var(--k-yellow);font-family:var(--k-disp);font-size:18px}
+
+/* 03 配信の様子：次の配信・ライブ配信を見る・切り抜き（LiveClipsPreview） */
+body.kd-top .live{padding:44px 12px 0}
+body.kd-top .live-panel{margin:0;padding:0;background:none}
+body.kd-top .live-panel::before{content:none}
+body.kd-top .live-description{margin:0;padding:0;border:0;border-radius:0;background:none;color:var(--k-ink);box-shadow:none}
+body.kd-top .live-body{margin:0 0 14px;font-size:15px;font-weight:500;line-height:1.9}
+body.kd-top .next-live{margin:0 0 12px;padding:14px 16px 16px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink)}
+body.kd-top .next-live [hidden]{display:none}
+body.kd-top .next-live-label{display:inline-block;padding:0 7px;border-radius:4px;background:var(--k-red);color:#fff;font-size:11px;font-weight:700;line-height:1.8}
+body.kd-top .next-live-datetime{gap:0 12px;margin-top:6px;font-size:20px;line-height:1.4}
+body.kd-top .next-live-datetime [data-next-live-time]{font-family:var(--k-num);font-weight:400;font-size:28px;line-height:1.2}
+body.kd-top .next-live-datetime small{color:var(--k-mute);font-size:11px}
+body.kd-top .next-live-title{margin-top:2px;font-size:16px;font-weight:900}
+body.kd-top .next-live-countdown{display:inline-block;margin-top:8px;padding:0 6px;background:var(--k-yellow);color:var(--k-ink);font-size:13px}
+body.kd-top .next-live-countdown[hidden]{display:none}
+body.kd-top .next-live-note{margin-top:4px;color:var(--k-mute);font-size:11px}
+body.kd-top .next-live-link{min-height:0;margin-top:6px;font-size:13px;font-weight:700}
+body.kd-top .live-cta{min-height:56px;padding:0 18px;gap:10px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy);color:#fff;box-shadow:none;font-family:var(--k-disp);font-weight:400;font-size:18px}
+body.kd-top .live-cta[href]:hover{background:var(--k-wall);transform:none}
+body.kd-top .live-cta::after{border-radius:8px}
+body.kd-top .live-play{width:26px;height:26px}
+body.kd-top .kd-links :is(.live-schedule-link,.live-preview-link){display:inline;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:none;color:inherit;font-size:14px;text-align:left}
+body.kd-top .live-clips{padding:28px 12px 0}
+body.kd-top .clips-panel{padding:16px 14px 18px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);box-shadow:none}
+body.kd-top .clips-panel::before{content:none}
+body.kd-top .clips-header{text-align:left}
+body.kd-top .clips-eyebrow{justify-content:flex-start;font-size:13px}
+body.kd-top .live-clips h2{margin:10px 0 8px;font-family:var(--k-disp);font-weight:400;font-size:20px;line-height:1.5}
+body.kd-top .live-clips h2 span{display:block}
+body.kd-top .clips-intro{font-size:12px}
+body.kd-top .clips-mobile-break{display:block}
+body.kd-top .clips-swipe{display:block;margin-top:12px;color:var(--k-mute);font-size:10px;font-weight:700;text-align:right}
+body.kd-top .clips-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:46%;justify-content:start;gap:10px;margin:8px -4px 0;padding:0 4px 8px;overflow-x:auto;scroll-snap-type:x mandatory}
+body.kd-top .clip-card{scroll-snap-align:start;border:2px solid var(--k-ink);border-radius:10px;box-shadow:none}
+body.kd-top .clip-copy{padding:10px 10px 12px}
+body.kd-top .live-clips h3{font-size:12px;line-height:1.7}
+body.kd-top .clip-category{display:none}
+body.kd-top .clip-play{width:44px;height:44px;border-color:var(--k-ink);background:#fff;color:var(--k-ink)}
+body.kd-top .clip-play svg{width:22px;height:22px}
+body.kd-top .clip-watch{font-size:12px}
+body.kd-top .clips-footer{flex-direction:column;align-items:stretch;gap:8px;margin-top:14px}
+body.kd-top .clips-footer p{font-size:12px}
+body.kd-top .clips-channel{width:100%;max-width:none;border-color:var(--k-ink);border-radius:10px;background:var(--k-ink);font-size:13px}
+
+/* 04 配信のほかにも：公式LINE・オフ会・会員限定MOVIE */
+body.kd-top .more{padding:44px 12px 0}
+body.kd-top .community-cards-layout{padding:0}
+body.kd-top .community-grid{gap:10px}
+body.kd-top .content-card{display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:148px;padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);box-shadow:none;cursor:pointer}
+body.kd-top .content-card-line{background:var(--k-yellow)}
+body.kd-top .content-card[href]:hover{transform:none}
+body.kd-top .kd-card-text{font-size:13.5px;font-weight:700;line-height:1.7}
+body.kd-top .content-card-cta{position:static;display:block;min-height:0;margin:0;padding:0;background:none;color:inherit;text-align:left}
+body.kd-top .content-card-cta>span{position:static;font-size:inherit;line-height:inherit}
+body.kd-top .content-card-label{font-family:var(--k-disp);font-weight:400;font-size:16px;line-height:1.35}
+body.kd-top .movie-card{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy);color:#fff;cursor:pointer}
+body.kd-top .movie-card[href]:hover{transform:none;box-shadow:none}
+body.kd-top .movie-card-title{position:static;display:flex;flex-direction:column;gap:2px;padding:0;background:none;color:inherit;text-align:left;text-shadow:none}
+body.kd-top .movie-members-label{padding:0;background:none;color:var(--k-yellow);font-size:11px;font-weight:900;transform:none}
+body.kd-top .movie-card-title strong{margin:0;font-size:16px;font-weight:900;line-height:1.5}
+body.kd-top .movie-card-watch{position:static;flex:none;padding:4px 10px;border-radius:4px;background:var(--k-yellow);color:var(--k-ink);font-size:12px;font-weight:900}
+body.kd-top .movie-feature{margin:12px 0 0;color:var(--k-ink);font-size:13px;font-weight:700;text-align:left}
+body.kd-top .movie-teaser-link{text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* 05 スターたち：黄色の面に認識票。MCのこうちゃん */
+body.kd-top .people{position:relative;margin-top:44px;padding:40px 12px;background:var(--k-yellow);border-block:2px solid var(--k-ink)}
+body.kd-top .people::before{content:none}
+body.kd-top .people .kd-no{color:var(--k-ink)}
+body.kd-top .kd-lineup{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+body.kd-top .kd-runner{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;padding:14px;border:2px solid var(--k-ink);border-radius:16px;background:#fff}
+body.kd-top .kd-runner::before{content:"";position:absolute;top:12px;right:12px;width:12px;height:12px;border:2px solid var(--k-ink);border-radius:50%;background:var(--k-yellow)}
+body.kd-top .kd-runner-no{display:grid;place-items:center;width:48px;height:48px;border-radius:4px;background:var(--k-navy);color:var(--k-yellow);font-family:var(--k-num);font-size:26px;line-height:1}
+body.kd-top .kd-runner h3{font-family:var(--k-disp);font-weight:400;font-size:25px;line-height:1.2}
+body.kd-top .kd-runner h3 small{margin-left:2px;font-size:13px}
+body.kd-top .kd-runner-nick{margin-top:2px;font-size:13px;font-weight:900}
+body.kd-top .kd-runner-note{margin-top:4px;font-size:14px;font-weight:700;line-height:1.6}
+body.kd-top .kd-foot-note{margin-top:12px;font-size:13px;font-weight:700}
+body.kd-top .person-kochan{display:block;margin-top:16px;padding:0;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);text-align:left;overflow:hidden}
+body.kd-top .kd-host-top{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:14px 14px 12px;border-bottom:2px solid var(--k-ink)}
+body.kd-top .kd-host-photo{width:112px;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--k-ink);border-radius:4px}
+body.kd-top .person-kochan .role{color:var(--k-red);font-size:12px;font-weight:900;line-height:1.5;text-align:left}
+body.kd-top .person-kochan h3{grid-column:auto;grid-row:auto;margin:0;text-align:left;font-family:var(--k-disp);font-weight:400;font-size:24px;line-height:1.3;color:var(--k-ink)}
+body.kd-top .kd-host-quote{margin-top:6px;font-size:14px;font-weight:900;line-height:1.55}
+body.kd-top .kd-host-quote span{display:block;white-space:nowrap}
+body.kd-top .person-kochan .person-copy{display:block;padding:12px 14px 14px;border:0;font-size:14.5px;font-weight:500;line-height:1.85}
+body.kd-top .person-kochan .person-copy p+p{margin-top:8px}
+
+/* 06 11月30日まで無料：赤の面。入るまでの手順と登録 */
+body.kd-top .registration{position:relative;padding:44px 12px;background:var(--k-red);color:#fff;text-align:left}
+body.kd-top .registration .kd-no{color:var(--k-yellow)}
+body.kd-top .kd-offer-card{position:relative;padding:16px 14px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink)}
+body.kd-top .kd-patch--offer{top:-40px;right:-4px;width:124px;height:124px;transform:rotate(7deg)}
+body.kd-top .kd-steps{display:grid;gap:12px;margin:0 0 18px;padding:0;list-style:none}
+body.kd-top .kd-steps li{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:start}
+body.kd-top .kd-steps li:first-child{padding-right:116px}
+body.kd-top .kd-steps li:not(:last-child)::after{content:"";position:absolute;left:19px;top:40px;bottom:-12px;border-left:2px dashed var(--k-ink)}
+body.kd-top .kd-step-no{display:grid;place-items:center;width:40px;height:40px;border-radius:4px;background:var(--k-navy);color:var(--k-yellow);font-family:var(--k-num);font-size:24px;line-height:1}
+body.kd-top .kd-steps h3{font-size:16px;font-weight:900;line-height:1.45}
+body.kd-top .kd-steps h3 span{display:inline-block}
+body.kd-top .kd-steps p{margin-top:2px;color:var(--k-mute);font-size:13.5px;line-height:1.75}
+body.kd-top .trial-offer--final .trial-deadline{margin:0 0 10px;color:var(--k-ink);font-size:14px;font-weight:900}
+body.kd-top .trial-offer--final .cta{background:var(--k-yellow);color:var(--k-ink)}
+body.kd-top .trial-offer--final .cta:hover{background:#ffd52e}
+body.kd-top .trial-offer--final .trial-terms{margin-top:8px;color:var(--k-mute);font-size:12px;line-height:1.7}
+body.kd-top .trial-offer--final .trial-terms strong{color:var(--k-ink)}
+body.kd-top .registration-benefit{max-width:none;margin:12px 0 0;color:var(--k-ink);font-size:13px;font-weight:700;line-height:1.7}
+body.kd-top .social-links{justify-content:flex-start;gap:18px;margin-top:20px}
+body.kd-top .social-link{width:40px;height:40px}
+
+/* 足元 */
+body.kd-top .footer{padding:22px 16px 112px;border-top:2px solid var(--k-ink);background:var(--k-navy);color:var(--k-night-mute)}
+body.kd-top .footer-nav{display:flex;flex-wrap:wrap;gap:6px 16px;max-width:none;margin:0 0 12px}
+body.kd-top .footer-nav-link{display:inline;min-height:0;padding:0;border:0;color:inherit;font-size:12px;text-align:left}
+body.kd-top .footer-nav-link[href]:hover{color:#fff}
+body.kd-top .footer-bottom{display:block;padding:0;border:0;text-align:left}
+body.kd-top .footer-bottom small{font-size:12px}
+
+/* 追従の登録バー（FloatingRegistration。トップだけ、下の帯に龍の顔を付けた形にする） */
+body.kd-top .floating-registration{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));flex-direction:row;align-items:center;gap:10px;width:auto;max-width:none;padding:8px 8px 8px 10px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy);color:#fff;pointer-events:auto}
+body.kd-top .floating-dragon-frame{flex:none;width:34px;height:34px;background:url(/assets/images/rd/dragon-face-96.webp) center/contain no-repeat}
+body.kd-top .floating-dragon-frame .floating-dragon{display:none}
+body.kd-top .floating-offer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:0 10px;flex:1;min-width:0;width:auto;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;text-align:left}
+body.kd-top .floating-offer .trial-deadline{grid-column:1;grid-row:1;margin:0;color:#fff;font-size:12px;font-weight:700;line-height:1.5;white-space:nowrap}
+body.kd-top .floating-offer .trial-terms,body.kd-top .floating-age-note{grid-column:1;margin:0;padding:0;border:0;color:var(--k-night-mute);font-size:9.5px;font-weight:500;line-height:1.5;text-align:left}
+body.kd-top .floating-offer .trial-terms strong{color:var(--k-night-mute);font-weight:700}
+body.kd-top .floating-registration .floating-registration-cta{grid-column:2;grid-row:1/4;width:auto;min-width:0;min-height:44px;margin:0;padding:0 10px;border:0;border-radius:6px;background:var(--k-red);color:#fff;box-shadow:none}
+body.kd-top .floating-registration-cta .cta-label{padding:0;font-family:var(--k-disp);font-weight:400;font-size:13px;letter-spacing:0;white-space:nowrap}
+body.kd-top .floating-registration-cta .floating-arrow{display:none}
+
+/* スマホより広い画面：スマホの幅の柱を中央に置く */
+@media (min-width:600px){
+  body.kd-top .lp{max-width:480px;margin:0 auto;border-inline:2px solid var(--k-ink)}
+  body.kd-top .kd-zoom-grid{height:240px}
+  body.kd-top .floating-registration{left:calc(50% - 232px);right:auto;width:464px}
+}
+/* PC：壁は青・黄・赤の斜めの帯（機体や車両の塗り分けのように）を龍の割合（5:3:2）で */
+@media (min-width:1100px){
+  body.kd-top .lp-canvas{background:linear-gradient(118deg,var(--k-navy) 0 40%,var(--k-ink) 40% calc(40% + 4px),var(--k-yellow) calc(40% + 4px) 76%,var(--k-ink) 76% calc(76% + 4px),var(--k-red) calc(76% + 4px) 100%) fixed}
+  body.kd-top .lp{max-width:440px}
+  body.kd-top .floating-registration{left:calc(50% - 212px);width:424px}
+}

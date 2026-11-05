@@ -42,6 +42,7 @@ npm run preview
 |登録・LINE・SNSなどのリンク|ルート `site-config.js`|
 |見た目の共通CSS|`src/styles/legacy.css`|
 |トップの各セクション本文・画像|`src/fragments/home-*.html`|
+|トップの見た目（2026-11 刷新。トップだけに効く）|`src/styles/home-2026-11.css`（`body.kd-top` の下だけを指定。龍の顔などの画像は `assets/images/rd/`）|
 |配信一覧・詳細・トップ抜粋の表示部品|`src/components/TopicCard.astro` / `BroadcastSchedule.astro` / `TopicTeasers.astro`|
 |共通ヘッダー・メタ・スクリプト|`src/layouts/Base.astro`|
 |下層ページの共通フッター|`src/components/PageFooter.astro`|
