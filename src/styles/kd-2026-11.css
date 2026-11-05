@@ -1,0 +1,201 @@
+/* 競輪ドラゴン 2026-11 刷新：トップと下のページ（配信予定・配信の詳細・アーカイブ・視聴方法・よくある質問）で共通の指定と、下のページの見た目。
+   読み込みは src/components/KdHead.astro（書体と一緒に）。トップだけの見た目は home-2026-11.css。
+   トップは body.kd-top、下のページは body.kd-page の下だけを指定するので、404 など刷新していないページは legacy.css のまま。
+   下のページはスマホの幅の柱に、黒い2pxの線のカード。見出しは黒い帯、番号や時刻はステンシル。登録は赤い面に黄色のボタン。
+   色の面はトップの修正案（11/5 石田さんの本命）と同じ並び：上の題は白、本文は黄・紺・赤の面に白いカード、足元は紺。
+   色の名前は legacy.css の --navy などとぶつからないよう --k- を付ける。 */
+
+body:is(.kd-top,.kd-page){
+  --k-ink:#111318;--k-paper:#fff;--k-blue:#1f4fd8;--k-navy:#0e2566;--k-wall:#0a1a4a;
+  --k-yellow:#f5c400;--k-red:#d8261f;--k-red-press:#b51d17;--k-mute:#4b5160;--k-rule:#d6d9df;--k-night-mute:#bccaf0;--k-note:#fff3bf;
+  --k-num:"Saira Stencil One","Zen Kaku Gothic New",sans-serif;
+  --k-disp:"Dela Gothic One","Zen Kaku Gothic New",sans-serif
+}
+
+/* 追従の登録バー（FloatingRegistration。下の帯に龍の顔を付けた形） */
+body:is(.kd-top,.kd-page) .floating-registration{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));flex-direction:row;align-items:center;gap:10px;width:auto;max-width:none;padding:8px 8px 8px 10px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy);color:#fff;pointer-events:auto}
+body:is(.kd-top,.kd-page) .floating-dragon-frame{flex:none;width:34px;height:34px;background:url(/assets/images/rd/dragon-face-96.webp) center/contain no-repeat}
+body:is(.kd-top,.kd-page) .floating-dragon-frame .floating-dragon{display:none}
+body:is(.kd-top,.kd-page) .floating-offer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:0 10px;flex:1;min-width:0;width:auto;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;text-align:left}
+body:is(.kd-top,.kd-page) .floating-offer .trial-deadline{grid-column:1;grid-row:1;margin:0;color:#fff;font-size:12px;font-weight:700;line-height:1.5;white-space:nowrap}
+body:is(.kd-top,.kd-page) .floating-offer .trial-terms,body:is(.kd-top,.kd-page) .floating-age-note{grid-column:1;margin:0;padding:0;border:0;color:var(--k-night-mute);font-size:9.5px;font-weight:500;line-height:1.5;text-align:left}
+body:is(.kd-top,.kd-page) .floating-offer .trial-terms strong{color:var(--k-night-mute);font-weight:700}
+body:is(.kd-top,.kd-page) .floating-registration .floating-registration-cta{grid-column:2;grid-row:1/4;width:auto;min-width:0;min-height:44px;margin:0;padding:0 10px;border:0;border-radius:6px;background:var(--k-red);color:#fff;box-shadow:none}
+body:is(.kd-top,.kd-page) .floating-registration-cta .cta-label{padding:0;font-family:var(--k-disp);font-weight:400;font-size:13px;letter-spacing:0;white-space:nowrap}
+body:is(.kd-top,.kd-page) .floating-registration-cta .floating-arrow{display:none}
+body:is(.kd-top,.kd-page) .floating-registration-cta::before{content:none}
+@media (min-width:600px){body:is(.kd-top,.kd-page) .floating-registration{left:calc(50% - 232px);right:auto;width:464px}}
+@media (min-width:1100px){body:is(.kd-top,.kd-page) .floating-registration{left:calc(50% - 212px);width:424px}}
+
+/* ここから下のページ。柱・上の帯・題 */
+body.kd-page{background:var(--k-wall);color:var(--k-ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-weight:500;line-height:1.8}
+body.kd-page .news-shell{display:flex;flex-direction:column;width:auto;max-width:none;min-height:100svh;margin:0;padding:10px 10px 0;background:var(--k-paper);overflow-x:clip;font-feature-settings:"palt";letter-spacing:.03em}
+body.kd-page .news-shell>main{flex:1}
+body.kd-page .news-shell[data-floating-registration]{padding-bottom:0}
+body.kd-page :is(h1,h2,h3){letter-spacing:0;word-break:auto-phrase}
+body.kd-page :is(a,button,input,select,summary,[tabindex]):focus-visible{outline:3px solid var(--k-blue);outline-offset:3px}
+/* 上の帯：トップの帯と同じ紺に、ロゴ（よくある質問は題の中にロゴがあるので付けない） */
+body.kd-page:not(.faq-page) .news-shell::before{content:"";display:block;height:48px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy) url(/assets/images/faq-logo-640.webp) 14px center/auto 28px no-repeat}
+body.kd-page .breadcrumbs{gap:4px 8px;padding:12px 4px 0;color:var(--k-mute);font-size:12px;font-weight:700}
+body.kd-page .breadcrumbs a{color:var(--k-ink);text-decoration-thickness:1.5px}
+body.kd-page .news-title{max-width:none;padding:14px 4px 16px}
+body.kd-page .eyebrow{margin:0 0 6px;color:var(--k-red);font-family:var(--k-num);font-size:15px;font-weight:400;letter-spacing:.06em}
+body.kd-page .news-title h1{display:inline;margin:0;padding:1px 10px;background:var(--k-ink);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:24px;line-height:1.75;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+body.kd-page .news-title>p:not(.eyebrow){margin-top:12px;color:var(--k-mute);font-size:14px;line-height:1.85}
+body.kd-page :is(.topic-list-card,.topic-detail,.service-panel,.archive-card,.faq-item,.topic-filters){border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink)}
+
+/* 配信予定・トピック一覧 */
+body.kd-page .topic-filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:14px}
+body.kd-page .topic-filters label{gap:4px;font-size:12px;font-weight:900}
+body.kd-page .topic-filters label:first-child,body.kd-page .topic-filters button{grid-column:1/-1}
+body.kd-page .topic-filters :is(input,select){height:44px;border:2px solid var(--k-ink);border-radius:6px;color:var(--k-ink)}
+body.kd-page .topic-filters button{min-height:44px;border:2px solid var(--k-ink);border-radius:6px;background:#fff;color:var(--k-ink);font-weight:700}
+body.kd-page .topic-count{margin:18px 4px 10px;color:var(--k-mute);font-size:12px;font-weight:700}
+/* 件数から下の一覧は黄色の面 */
+body.kd-page .topic-count[data-topic-count]{margin:22px -10px 0;padding:18px 14px 10px;border-top:2px solid var(--k-ink);background:var(--k-yellow);color:var(--k-ink)}
+body.kd-page .topic-list{margin:0 -10px;padding:0 10px 4px;background:var(--k-yellow)}
+body.kd-page .topic-list{gap:12px}
+body.kd-page .topic-list-card{padding:14px 14px 8px}
+body.kd-page .topic-meta{gap:8px;color:var(--k-mute);font-size:12px;font-weight:700}
+body.kd-page .category{padding:1px 8px;border-radius:4px;background:var(--k-navy);color:#fff;font-size:11px;font-weight:900}
+body.kd-page .grade{color:var(--k-red);font-weight:900}
+body.kd-page .topic-list-card h2{font-family:var(--k-disp);font-weight:400;font-size:19px;line-height:1.5}
+/* 大会ごとのカードは、頭（種類・グレード・競輪場・大会名）を紺の帯にする（修正案の配信予定と同じ） */
+body.kd-page :is(.topic-list-card,.topic-detail) .topic-meta{margin:-14px -14px 0;padding:12px 14px 2px;border-radius:8px 8px 0 0;background:var(--k-navy);color:var(--k-night-mute)}
+body.kd-page :is(.topic-list-card,.topic-detail) .category{background:var(--k-yellow);color:var(--k-ink)}
+body.kd-page :is(.topic-list-card,.topic-detail) .grade{color:var(--k-yellow)}
+body.kd-page .topic-list-card h2{margin:0 -14px 10px;padding:4px 14px 12px;border-bottom:2px solid var(--k-ink);background:var(--k-navy);color:#fff}
+body.kd-page .broadcast-days{grid-template-columns:1fr;gap:6px;margin:10px 0;font-size:13px}
+body.kd-page .broadcast-days dt{padding:0;color:var(--k-ink);font-size:12px;font-weight:900}
+body.kd-page .broadcast-days time{padding:2px 8px;border:2px solid var(--k-ink);border-radius:4px;background:#fff;font-size:13px;font-weight:700}
+body.kd-page .broadcast-time{margin:8px 0;font-size:14px;font-weight:900}
+body.kd-page .broadcast-time>span{color:var(--k-mute);font-weight:500}
+body.kd-page .source-note{margin:10px 0;padding:10px 12px;border-left:4px solid var(--k-ink);background:var(--k-note);color:var(--k-ink);font-size:12.5px}
+body.kd-page .article-more{gap:6px;min-height:40px;color:var(--k-ink);font-weight:900;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+body.kd-page .empty-topics{margin:0;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);box-shadow:0 0 0 100vmax var(--k-yellow);clip-path:inset(0 -100vmax)}
+body.kd-page .news-source{margin:0 -10px;padding:12px 14px 24px;background:var(--k-yellow)}
+body.kd-page .news-source>p{color:var(--k-ink)}
+
+/* 配信の詳細（topics/*.html） */
+/* 配信の詳細のカードは、一覧と同じ黄色の面に置く（カード1枚なので、影を左右に伸ばして地にする。上の黒い線も同じ考え） */
+body.kd-page .topic-detail{position:relative;margin:36px 0 24px;padding:16px 14px;box-shadow:0 0 0 100vmax var(--k-yellow);clip-path:inset(-26px -100vmax -24px)}
+body.kd-page .topic-detail::before{content:"";position:absolute;top:-26px;left:-100vmax;right:-100vmax;height:2px;background:var(--k-ink)}
+body.kd-page .topic-detail h1{margin:0 -14px 14px;padding:4px 14px 14px;border-bottom:2px solid var(--k-ink);background:var(--k-navy);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:22px;line-height:1.5}
+body.kd-page .topic-detail .topic-meta{margin-top:-16px;padding-top:14px}
+body.kd-page .broadcast-schedule{margin:16px 0}
+body.kd-page .broadcast-schedule h2{display:inline-block;padding:0 10px;background:var(--k-ink);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:18px;line-height:1.6}
+body.kd-page .schedule-timezone{margin:6px 0 10px;color:var(--k-mute)}
+body.kd-page .broadcast-schedule ol{border-top:2px solid var(--k-ink)}
+body.kd-page .broadcast-schedule li{grid-template-columns:minmax(0,1fr);gap:6px;padding:12px 0;border-bottom:1px solid var(--k-rule);font-size:14px}
+body.kd-page .session-when{flex-direction:row;align-items:baseline;flex-wrap:wrap;gap:2px 12px;font-weight:900}
+body.kd-page .session-time{color:var(--k-ink);font-family:var(--k-num);font-size:18px;font-weight:400;letter-spacing:.04em}
+body.kd-page .session-stage{border:2px solid var(--k-ink);border-radius:4px;font-size:11px;font-weight:900}
+body.kd-page .session-guest{color:var(--k-red);font-weight:900}
+body.kd-page .race-facts{grid-template-columns:1fr;margin:16px 0;font-size:14px}
+body.kd-page .race-facts>div{padding:10px 0;border-bottom:1px solid var(--k-rule)}
+body.kd-page .race-facts dt{flex-basis:80px;color:var(--k-mute);font-size:12.5px}
+body.kd-page .back-to-list{margin-top:14px;padding-top:12px;border-top:2px solid var(--k-ink);color:var(--k-ink);font-size:14px;font-weight:900}
+
+/* 視聴方法・アーカイブ：関連ページの文字リンク、白いカード、手順、赤い登録の面 */
+body.kd-page .service-nav{gap:0 20px;margin:0 4px 6px}
+body.kd-page .service-nav a{display:inline-flex;min-height:36px;padding:0;border:0;border-radius:0;color:var(--k-ink);font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+body.kd-page .service-nav a:hover{background:none}
+body.kd-page .service-panel{margin:12px 0;padding:16px 14px}
+/* 視聴方法の手順のカードは黄色の面（上下に黒い線） */
+body.kd-page .service-nav+.service-panel{position:relative;margin:30px 0;box-shadow:0 0 0 100vmax var(--k-yellow);clip-path:inset(-26px -100vmax)}
+body.kd-page .service-nav+.service-panel::before,body.kd-page .service-nav+.service-panel::after{content:"";position:absolute;left:-100vmax;right:-100vmax;height:2px;background:var(--k-ink)}
+body.kd-page .service-nav+.service-panel::before{top:-26px}
+body.kd-page .service-nav+.service-panel::after{bottom:-26px}
+body.kd-page .service-panel h2{margin-bottom:10px;font-family:var(--k-disp);font-weight:400;font-size:20px;line-height:1.5}
+body.kd-page .service-panel p{font-size:14px;line-height:1.85}
+body.kd-page .service-plan-note{color:var(--k-mute)}
+body.kd-page .service-panel .service-plan-note{font-size:12.5px}
+body.kd-page .viewing-steps{grid-template-columns:1fr;gap:12px;margin:16px 0}
+body.kd-page .viewing-steps li{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:10px;padding:0;border:0;border-radius:0;background:none}
+body.kd-page .viewing-steps li::before{grid-row:1/3;width:40px;height:40px;margin:0;border-radius:4px;background:var(--k-navy);color:var(--k-yellow);font-family:var(--k-num);font-size:24px;font-weight:400;line-height:1}
+body.kd-page .viewing-steps li:not(:last-child)::after{content:"";position:absolute;left:19px;top:40px;bottom:-12px;border-left:2px dashed var(--k-ink)}
+body.kd-page .viewing-steps h3{grid-column:2;margin:0;font-size:16px;font-weight:900;line-height:1.45}
+body.kd-page .viewing-steps p{grid-column:2;margin-top:2px;color:var(--k-mute);font-size:13.5px;line-height:1.75}
+body.kd-page .service-trial-offer{margin-top:16px;padding:16px 14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff;text-align:left}
+body.kd-page .service-panel .service-trial-offer .trial-deadline{margin:0 0 10px;color:#fff;font-family:var(--k-disp);font-size:17px;font-weight:400;line-height:1.55}
+body.kd-page .service-trial-offer .service-register{display:flex;width:100%;max-width:none;min-height:56px;margin:0;padding:0 16px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-yellow);color:var(--k-ink);box-shadow:none;font-family:var(--k-disp);font-weight:400;font-size:18px;cursor:pointer}
+body.kd-page .service-trial-offer .service-register:hover{background:#ffd52e;filter:none}
+body.kd-page .service-panel .service-trial-offer .trial-terms{margin-top:8px;color:#fff;font-size:12px;line-height:1.7}
+body.kd-page .service-panel .service-trial-offer .trial-terms strong{color:#fff}
+body.kd-page .service-help details{padding:12px 0;border-top:1px solid var(--k-rule)}
+body.kd-page .service-help details:last-of-type{border-bottom:1px solid var(--k-rule)}
+body.kd-page .service-help summary{font-size:15px;font-weight:900}
+body.kd-page .service-help details p{margin-top:8px;color:var(--k-mute);font-size:13.5px}
+body.kd-page .support-link{color:var(--k-ink);font-weight:900;text-decoration-thickness:1.5px}
+
+/* アーカイブ：切り抜き（LiveClipsPreview の archive。部品の中の指定より強くするため .live-clips.clips-archive から書く）と公開動画 */
+/* 切り抜きは紺の面（上に注意の斜線）、その下の登録は赤の面 */
+body.kd-page .live-clips.clips-archive{margin:22px -10px 0;padding:46px 10px 26px;border-top:2px solid var(--k-ink);background:linear-gradient(var(--k-ink),var(--k-ink)) 0 16px/100% 2px no-repeat,repeating-linear-gradient(-45deg,var(--k-yellow) 0 12px,var(--k-ink) 12px 24px) 0 0/100% 16px no-repeat,var(--k-navy)}
+body.kd-page .live-clips.clips-archive .clips-panel{padding:16px 14px 18px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);box-shadow:none}
+body.kd-page .live-clips.clips-archive .clips-panel::before{content:none}
+body.kd-page .live-clips.clips-archive h2{margin:0 0 10px;font-family:var(--k-disp);font-weight:400;font-size:20px;line-height:1.5}
+body.kd-page .live-clips.clips-archive .clips-swipe{color:var(--k-mute)}
+body.kd-page .live-clips.clips-archive .clip-scroll-button{border:2px solid var(--k-ink);background:var(--k-navy)}
+body.kd-page .live-clips.clips-archive .clip-scroll-button:disabled{background:#fff;color:var(--k-rule)}
+body.kd-page .live-clips.clips-archive .clips-grid{grid-auto-columns:78%;gap:10px}
+body.kd-page .live-clips.clips-archive .clip-card{border:2px solid var(--k-ink);border-radius:10px;box-shadow:none}
+body.kd-page .live-clips.clips-archive .clip-category{display:none}
+body.kd-page .live-clips.clips-archive .clip-play{border-color:var(--k-ink);background:#fff;color:var(--k-ink)}
+body.kd-page .live-clips.clips-archive .clips-footer{flex-direction:column;align-items:stretch;gap:8px;margin-top:14px}
+body.kd-page .live-clips.clips-archive .clips-footer p{font-size:12px}
+body.kd-page .live-clips.clips-archive .clips-channel{width:100%;max-width:none;border-color:var(--k-ink);border-radius:10px;background:var(--k-ink);font-size:13px}
+body.kd-page .archive-grid{grid-template-columns:1fr;gap:12px;margin:0 -10px;padding:0 10px;background:var(--k-navy)}
+body.kd-page .archive-grid:not(:empty){padding-bottom:26px}
+body.kd-page #archive-clips~.service-panel{margin:24px 0;box-shadow:0 0 0 100vmax var(--k-red);clip-path:inset(-24px -100vmax)}
+body.kd-page .archive-player{background:var(--k-ink)}
+body.kd-page .archive-watch{border:2px solid var(--k-ink);border-radius:6px;background:var(--k-yellow);color:var(--k-ink);font-weight:900}
+body.kd-page .archive-card-body{padding:14px}
+body.kd-page .archive-card time{color:var(--k-mute);font-size:12px}
+body.kd-page .archive-card h2{margin:4px 0 8px;font-family:var(--k-disp);font-weight:400;font-size:18px;line-height:1.5}
+body.kd-page .archive-card p{color:var(--k-mute);font-size:13.5px}
+body.kd-page .archive-original{color:var(--k-ink)}
+
+/* よくある質問：題は紺の札にロゴ。項目の一覧は1枚の表、各段は黒い帯、質問の番号は赤いステンシル */
+body.kd-page .faq-top-link{min-height:40px;padding:0 4px;color:var(--k-ink);font-size:13px;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+body.kd-page .faq-hero{padding:16px 14px 18px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy);color:#fff}
+body.kd-page .faq-brand-logo{width:80%;margin:4px auto 10px}
+body.kd-page .faq-eyebrow{margin-bottom:2px;color:var(--k-yellow);font-family:var(--k-num);font-size:22px;font-weight:400}
+body.kd-page .faq-hero h1{font-family:var(--k-disp);font-weight:400;font-size:26px}
+body.kd-page .faq-intro{margin-top:8px;color:var(--k-night-mute);font-size:13px}
+body.kd-page .faq-categories{grid-template-columns:1fr;gap:0;margin:14px 0 8px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;overflow:hidden}
+body.kd-page .faq-categories a{min-height:46px;padding:10px 14px;border:0;border-radius:0;color:var(--k-ink);font-size:14px;font-weight:900}
+body.kd-page .faq-categories a+a{border-top:1px solid var(--k-rule)}
+body.kd-page .faq-categories a:hover{background:var(--k-note);border-color:var(--k-rule)}
+body.kd-page .faq-categories .faq-jump-arrow{color:var(--k-red)}
+/* 質問の段から下は黄色の面 */
+body.kd-page .faq-group{margin:0 -10px;padding:26px 10px 4px;background:var(--k-yellow)}
+body.kd-page .faq-categories+.faq-group{margin-top:24px;border-top:2px solid var(--k-ink)}
+/* 段の名前はローマ数字（Ⅰ．など）で始まり、見出しの書体にその字がないので、本文の書体の太字で帯にする */
+body.kd-page .faq-group h2{width:fit-content;margin:0 0 12px;padding:1px 10px;border:0;background:var(--k-ink);color:#fff;font-weight:900;font-size:17px;line-height:1.65}
+body.kd-page .faq-item{margin:0 0 8px}
+body.kd-page .faq-item summary{gap:8px;min-height:56px;padding:12px;font-size:15px;font-weight:900;line-height:1.6}
+body.kd-page .faq-question-no{min-width:42px;color:var(--k-red);font-family:var(--k-num);font-size:16px;font-weight:400;line-height:25px}
+body.kd-page .faq-toggle{color:var(--k-ink)}
+body.kd-page .faq-item[open] summary{border-bottom:1px solid var(--k-rule)}
+body.kd-page .faq-item summary:focus-visible{outline-color:var(--k-blue)}
+body.kd-page .faq-answer{padding:14px 14px 16px;color:var(--k-ink);font-size:14.5px;line-height:1.9}
+body.kd-page .faq-related{gap:0 20px;margin:0 -10px;padding:18px 14px 26px;background:var(--k-yellow)}
+body.kd-page .faq-related a{min-height:36px;padding:0;border:0;border-radius:0;color:var(--k-ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+body.kd-page .faq-related a:hover{background:none}
+
+/* 足元：トップと同じ紺。追従バーが出るページは、その分だけ下を空ける */
+body.kd-page .news-footer{flex-direction:column;align-items:flex-start;gap:2px;margin:28px -10px 0;padding:16px 14px 22px;border-top:2px solid var(--k-ink);background:var(--k-navy);color:var(--k-night-mute)}
+body.kd-page .news-footer>a{min-height:40px;color:#fff;font-size:13px;font-weight:700}
+body.kd-page .news-footer>small{color:var(--k-night-mute)}
+body.kd-page .news-shell[data-floating-registration] .news-footer{padding-bottom:112px}
+/* 色の面で終わるページは、面と足元の間に白を挟まない */
+body.kd-page .news-shell:is(:has(.topic-list),:has(.topic-detail),:has(#archive-clips),:has(.faq-related)) .news-footer{margin-top:0}
+
+/* スマホより広い画面：トップと同じく、スマホの幅の柱を中央に置く */
+@media (min-width:600px){
+  body.kd-page .news-shell{max-width:480px;margin:0 auto;border-inline:2px solid var(--k-ink)}
+}
+@media (min-width:1100px){
+  body.kd-page{background:linear-gradient(118deg,var(--k-navy) 0 40%,var(--k-ink) 40% calc(40% + 4px),var(--k-yellow) calc(40% + 4px) 76%,var(--k-ink) 76% calc(76% + 4px),var(--k-red) calc(76% + 4px) 100%) fixed}
+  body.kd-page .news-shell{max-width:440px}
+}

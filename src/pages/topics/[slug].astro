@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import KdHead from '../../components/KdHead.astro';
 import PageFooter from '../../components/PageFooter.astro';
 import BroadcastSchedule from '../../components/BroadcastSchedule.astro';
 import { topics } from '../../lib/data.mjs';
@@ -7,7 +8,8 @@ export function getStaticPaths(){return topics.map(topic=>({params:{slug:topic.s
 const { topic }=Astro.props;
 const facts=[topic.facts.find(f=>f.label==='開催日数'),{label:'競輪場',value:topic.venue},{label:'グレード',value:topic.grade},...topic.facts.filter(f=>f.label!=='開催日数'),{label:'配信本数',value:topic.sessions.length+'本'}].filter(Boolean);
 ---
-<Base title={`${topic.title}｜競輪ドラゴン`} description={`${topic.title}（${topic.venue}競輪場）のオンライン配信予定。配信日時と各回のゲストをご確認いただけます。`} bodyClass="topics-page">
+<Base title={`${topic.title}｜競輪ドラゴン`} description={`${topic.title}（${topic.venue}競輪場）のオンライン配信予定。配信日時と各回のゲストをご確認いただけます。`} bodyClass="topics-page kd-page">
+  <KdHead slot="head"/>
   <a class="skip-link" href="#main-content">本文へ進む</a>
   <div class="news-shell"><main id="main-content">
     <nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true">/</span><a href="/topics.html">配信予定・トピック一覧</a></nav>

@@ -1,11 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import KdHead from '../components/KdHead.astro';
 import PageFooter from '../components/PageFooter.astro';
 import TopicCard from '../components/TopicCard.astro';
 import FloatingRegistration from '../components/FloatingRegistration.astro';
 import { topics,months,categories } from '../lib/data.mjs';
 ---
-<Base title="配信予定・トピック一覧｜競輪ドラゴン" description="競輪ドラゴンの配信日時、レース情報とゲストをご案内します。月やキーワードで配信予定を検索できます。" bodyClass="topics-page">
+<Base title="配信予定・トピック一覧｜競輪ドラゴン" description="競輪ドラゴンの配信日時、レース情報とゲストをご案内します。月やキーワードで配信予定を検索できます。" bodyClass="topics-page kd-page">
+  <KdHead slot="head"/>
   <a class="skip-link" href="#main-content">本文へ進む</a>
   <div class="news-shell" data-floating-page>
     <main id="main-content">

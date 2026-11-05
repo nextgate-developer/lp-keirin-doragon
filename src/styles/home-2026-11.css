@@ -1,15 +1,12 @@
 /* 競輪ドラゴン トップ（2026-11 刷新）。トップだけに効く：index.astro で読み込み、body.kd-top の下だけを指定する。
-   本文は src/fragments/home-*.html、動画は PromoVideoPreview・LiveClipsPreview、追従バーは FloatingRegistration（下のページと共通。見た目はトップだけ変える）。
+   色の名前・書体・追従バーなど下のページと共通の指定は kd-2026-11.css（KdHead.astro で読み込む）。
+   本文は src/fragments/home-*.html、動画は PromoVideoPreview・LiveClipsPreview、追従バーは FloatingRegistration。
    見た目：ミリタリーの基地の空気（ステンシルの数字・注意の斜線・リベット・ワッペン・部外秘の判）。
    色は龍の体の青・黄・赤を、龍と同じ割合（約5:3:2）で。登録ボタンは赤（白いカードの中で赤い面の上にあるものだけ黄）。
    龍の顔は Sunburst で生成（/assets/images/rd/dragon-face-360.webp・-96.webp）。コードでは描かない。
-   色の名前は legacy.css の --navy などとぶつからないよう --k- を付ける。 */
+   色の名前（--k-）は kd-2026-11.css で決めている。 */
 
 body.kd-top{
-  --k-ink:#111318;--k-paper:#fff;--k-blue:#1f4fd8;--k-navy:#0e2566;--k-wall:#0a1a4a;
-  --k-yellow:#f5c400;--k-red:#d8261f;--k-red-press:#b51d17;--k-mute:#4b5160;--k-rule:#d6d9df;--k-night-mute:#bccaf0;
-  --k-num:"Saira Stencil One","Zen Kaku Gothic New",sans-serif;
-  --k-disp:"Dela Gothic One","Zen Kaku Gothic New",sans-serif;
   background:var(--k-wall);color:var(--k-ink);
   font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-weight:500;line-height:1.8
 }
@@ -90,8 +87,9 @@ body.kd-top .kd-ticker-track .kd-ico:last-child{margin-right:0}
 @keyframes kd-tick{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){body.kd-top .kd-ticker-track{animation:none}}
 
-/* はじめての方へ（紹介動画。PromoVideoPreview） */
-body.kd-top .promo-video{padding:28px 12px 0}
+/* はじめての方へ（紹介動画。PromoVideoPreview）と 01 配信予定は、黄色の面にまとめる。
+   修正案（11/5 石田さんの本命）と同じく、最初の画面のすぐ下から色の面が来るように（白い段を続けない） */
+body.kd-top .promo-video{padding:28px 12px 0;background:var(--k-yellow)}
 body.kd-top .promo-panel{padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);box-shadow:none}
 body.kd-top .promo-content{grid-template-columns:38% minmax(0,1fr);gap:14px;max-width:none}
 body.kd-top .promo-media{border:2px solid var(--k-ink);border-radius:8px;box-shadow:none}
@@ -103,7 +101,8 @@ body.kd-top .promo-original{min-height:40px;margin-top:4px;font-size:12px}
 body.kd-top .promo-play{width:42px;height:42px;border-color:var(--k-ink);background:#fff;color:var(--k-ink)}
 
 /* 01 配信予定（TopicTeasers） */
-body.kd-top .topics-home{margin-top:0;padding:44px 12px 0}
+body.kd-top .topics-home{margin-top:0;padding:44px 12px 48px;background:var(--k-yellow)}
+body.kd-top .topics-home .kd-no{color:var(--k-ink)}
 body.kd-top .kd-label{margin-bottom:12px}
 body.kd-top .topics-panel{border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);overflow:hidden}
 body.kd-top .topics-panel>h2{padding:10px 14px;background:var(--k-navy);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:17px;line-height:1.55;text-align:left}
@@ -125,7 +124,7 @@ body.kd-top .topic-button{display:flex;width:100%;max-width:none;min-height:50px
 body.kd-top .topic-button:hover{background:var(--k-wall);border-color:var(--k-ink)}
 
 /* 02 この部屋でGETできるもの：紺の壁に掲示。上下に注意の斜線。1つめに龍のワッペン、2つめに部外秘の判 */
-body.kd-top .about{position:relative;margin-top:44px;padding:52px 12px 56px;background:var(--k-navy);color:#fff}
+body.kd-top .about{position:relative;margin-top:0;padding:52px 12px 56px;background:var(--k-navy);color:#fff}
 body.kd-top .about::before,body.kd-top .about::after{content:"";position:absolute;left:0;right:0;height:16px;border-block:2px solid var(--k-ink);background:repeating-linear-gradient(-45deg,var(--k-yellow) 0 12px,var(--k-ink) 12px 24px)}
 body.kd-top .about::before{top:0}
 body.kd-top .about::after{bottom:0}
@@ -260,27 +259,13 @@ body.kd-top .footer-nav-link[href]:hover{color:#fff}
 body.kd-top .footer-bottom{display:block;padding:0;border:0;text-align:left}
 body.kd-top .footer-bottom small{font-size:12px}
 
-/* 追従の登録バー（FloatingRegistration。トップだけ、下の帯に龍の顔を付けた形にする） */
-body.kd-top .floating-registration{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));flex-direction:row;align-items:center;gap:10px;width:auto;max-width:none;padding:8px 8px 8px 10px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy);color:#fff;pointer-events:auto}
-body.kd-top .floating-dragon-frame{flex:none;width:34px;height:34px;background:url(/assets/images/rd/dragon-face-96.webp) center/contain no-repeat}
-body.kd-top .floating-dragon-frame .floating-dragon{display:none}
-body.kd-top .floating-offer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:0 10px;flex:1;min-width:0;width:auto;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;text-align:left}
-body.kd-top .floating-offer .trial-deadline{grid-column:1;grid-row:1;margin:0;color:#fff;font-size:12px;font-weight:700;line-height:1.5;white-space:nowrap}
-body.kd-top .floating-offer .trial-terms,body.kd-top .floating-age-note{grid-column:1;margin:0;padding:0;border:0;color:var(--k-night-mute);font-size:9.5px;font-weight:500;line-height:1.5;text-align:left}
-body.kd-top .floating-offer .trial-terms strong{color:var(--k-night-mute);font-weight:700}
-body.kd-top .floating-registration .floating-registration-cta{grid-column:2;grid-row:1/4;width:auto;min-width:0;min-height:44px;margin:0;padding:0 10px;border:0;border-radius:6px;background:var(--k-red);color:#fff;box-shadow:none}
-body.kd-top .floating-registration-cta .cta-label{padding:0;font-family:var(--k-disp);font-weight:400;font-size:13px;letter-spacing:0;white-space:nowrap}
-body.kd-top .floating-registration-cta .floating-arrow{display:none}
-
-/* スマホより広い画面：スマホの幅の柱を中央に置く */
+/* スマホより広い画面：スマホの幅の柱を中央に置く（追従バーの位置は kd-2026-11.css） */
 @media (min-width:600px){
   body.kd-top .lp{max-width:480px;margin:0 auto;border-inline:2px solid var(--k-ink)}
   body.kd-top .kd-zoom-grid{height:240px}
-  body.kd-top .floating-registration{left:calc(50% - 232px);right:auto;width:464px}
 }
 /* PC：壁は青・黄・赤の斜めの帯（機体や車両の塗り分けのように）を龍の割合（5:3:2）で */
 @media (min-width:1100px){
   body.kd-top .lp-canvas{background:linear-gradient(118deg,var(--k-navy) 0 40%,var(--k-ink) 40% calc(40% + 4px),var(--k-yellow) calc(40% + 4px) 76%,var(--k-ink) 76% calc(76% + 4px),var(--k-red) calc(76% + 4px) 100%) fixed}
   body.kd-top .lp{max-width:440px}
-  body.kd-top .floating-registration{left:calc(50% - 212px);width:424px}
 }

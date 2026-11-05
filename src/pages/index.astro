@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import KdHead from '../components/KdHead.astro';
 import TopicTeasers from '../components/TopicTeasers.astro';
 import FloatingRegistration from '../components/FloatingRegistration.astro';
 import LiveClipsPreview from '../components/LiveClipsPreview.astro';
@@ -17,11 +18,7 @@ const topicNames=JSON.stringify(Object.fromEntries(allTopics.map(topic=>[
 ]))).replaceAll('<','\\u003c');
 ---
 <Base bodyClass="kd-top">
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Saira+Stencil+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap"/>
-  </Fragment>
+  <KdHead slot="head"/>
   <div class="kd-asset-bg-sky-background lp-canvas">
     <a class="skip-link" href="#about">サービス紹介へ進む</a>
     <main class="lp" id="top">
