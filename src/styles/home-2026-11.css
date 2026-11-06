@@ -69,13 +69,21 @@ body.kd-top .kd-tile--name{display:flex;flex-direction:column;justify-content:ce
 body.kd-top .kd-tile--name strong{font-size:16px;font-weight:900;line-height:1.3}
 body.kd-top .kd-tile--name strong small{margin-left:1px;font-size:11px}
 body.kd-top .kd-tile--name span{color:var(--k-night-mute);font-size:10.5px;font-weight:700}
-body.kd-top .kd-nametag{position:absolute;left:5px;bottom:5px;padding:0 6px;border-radius:4px;background:#000000b8;color:#fff;font-size:11px;font-weight:700;line-height:1.7}
+/* 名札は配信のZoomと同じ紺の板に黄色の文字。幅が足りない時は下の一行を「！」で2行に折る */
+body.kd-top .kd-nametag{position:absolute;left:0;bottom:6px;max-width:calc(100% - 6px);padding:2px 8px 4px 7px;border-left:4px solid var(--k-yellow);background:#08112ee6;color:#fff;line-height:1.2}
+body.kd-top .kd-nametag b{display:block;font-family:var(--k-disp);font-weight:400;font-size:clamp(15px,4.9vw,19px);color:var(--k-yellow);text-shadow:0 2px 0 #000}
+body.kd-top .kd-nametag small{display:block;font-size:9px;font-weight:700}
+body.kd-top .kd-nametag small span{display:inline-block}
 body.kd-top .trial-offer--hero{margin-top:12px}
 body.kd-top .kd-cta-note{margin-top:7px;color:var(--k-mute);font-size:12px}
 body.kd-top .kd-cta-note strong{color:var(--k-ink);font-weight:900}
 @media (max-width:359px){/* 幅320の小さいスマホでも見出しを3行に収める */
   body.kd-top .kd-patch--hero{width:88px;height:88px}
   body.kd-top .hero h1{max-width:calc(100% - 88px);font-size:28px}
+  /* 右の名前が3行に折れても、こうちゃんの名札と後閑さんの札が枠で切れないよう高さを中身に合わせる */
+  body.kd-top .kd-zoom-grid{height:auto;min-height:60vw}
+  body.kd-top .kd-tile--name{padding:0 7px}
+  body.kd-top .kd-tile--name span{font-size:10px}
 }
 
 /* 注意の斜線と電光掲示板（区切りは龍の顔） */
