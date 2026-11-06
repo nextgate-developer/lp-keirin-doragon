@@ -138,7 +138,7 @@ body.kd-top .kd-get-no{color:var(--k-red);font-size:12px;font-weight:900}
 body.kd-top .kd-get h3{margin-top:2px;font-family:var(--k-disp);font-weight:400;font-size:21px;line-height:1.45}
 body.kd-top .kd-get p:not(.kd-get-no){margin-top:6px;color:var(--k-mute);font-size:14px;line-height:1.85}
 /* 句読点のない文は、語の途中で折れないよう文節で折り返す */
-body.kd-top :is(.kd-get h3,.kd-get p,.kd-card-text,.movie-card-title strong){word-break:auto-phrase}
+body.kd-top :is(p,h2,h3,li,strong,.kd-card-text){word-break:auto-phrase}
 body.kd-top .kd-get:nth-child(2){padding-bottom:46px}
 body.kd-top .kd-get:nth-child(2)::after{content:"部外秘";position:absolute;right:12px;bottom:12px;padding:1px 7px 2px;border:3px solid var(--k-red);border-radius:4px;color:var(--k-red);font-family:var(--k-disp);font-size:17px;line-height:1.5;transform:rotate(-9deg)}
 body.kd-top .kd-patch--get{top:-16px;right:-8px;width:82px;height:82px;transform:rotate(6deg)}

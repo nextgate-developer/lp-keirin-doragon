@@ -12,10 +12,10 @@ const date=new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'2-digit',day:'
     {!isArchive&&<header class="clips-header">
       <p class="clips-eyebrow"><span class="clips-youtube" aria-hidden="true">▶</span> YouTube <span class="clips-free">無料公開中</span></p>
       <h2 id="live-clips-title"><span>スターたちの素顔を</span><span>ちょっと覗き見</span></h2>
-      <p class="clips-intro">笑い話も、ここだけの本音も。<br class="clips-mobile-break"/>実際の配信の雰囲気をのぞいてみよう！</p>
+      <p class="clips-intro">笑い話もここだけの本音も<br class="clips-mobile-break"/>実際の配信の雰囲気をのぞいてみよう</p>
     </header>}
     <div class:list={['clips-navigation',{'clips-navigation-archive':isArchive}]}>
-      <p class="clips-swipe">{isArchive?'横に送って、ほかの動画も見る':'左右にスワイプして見る'} <span aria-hidden="true">↔</span></p>
+      <p class="clips-swipe">{isArchive?'横に送ってほかの動画も見る':'左右にスワイプして見る'} <span aria-hidden="true">↔</span></p>
       {isArchive&&<div class="clip-scroll-buttons">
         <button type="button" class="clip-scroll-button" data-clip-scroll="-1" aria-controls={listId} aria-label="前の動画を表示">←</button>
         <button type="button" class="clip-scroll-button" data-clip-scroll="1" aria-controls={listId} aria-label="次の動画を表示">→</button>
