@@ -1,10 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
+import KdHead from '../components/KdHead.astro';
 import PageFooter from '../components/PageFooter.astro';
 import { faq } from '../lib/data.mjs';
 import hero from '../fragments/faq-hero.html?raw';
 ---
-<Base title="よくあるご質問｜競輪ドラゴン" description="競輪ドラゴンの参加方法、配信、会費、退会など、よくあるご質問と回答をご案内します。" bodyClass="topics-page faq-page">
+<Base title="よくあるご質問｜競輪ドラゴン" description="競輪ドラゴンの参加方法、配信、会費、退会など、よくあるご質問と回答をご案内します。" bodyClass="topics-page faq-page kd-page">
+  <KdHead slot="head"/>
   <a class="skip-link" href="#faq-main">本文へ進む</a>
   <div class="news-shell">
     <header><a class="faq-top-link" href="/">← 競輪ドラゴン トップへ</a></header>

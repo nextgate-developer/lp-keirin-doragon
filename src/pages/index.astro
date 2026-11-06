@@ -1,10 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
+import KdHead from '../components/KdHead.astro';
 import TopicTeasers from '../components/TopicTeasers.astro';
 import FloatingRegistration from '../components/FloatingRegistration.astro';
 import LiveClipsPreview from '../components/LiveClipsPreview.astro';
 import PromoVideoPreview from '../components/PromoVideoPreview.astro';
 import { site,topics as allTopics } from '../lib/data.mjs';
+import '../styles/home-2026-11.css';
 import hero from '../fragments/home-hero.html?raw';
 import topics from '../fragments/home-topics.html?raw';
 const sections=import.meta.glob('../fragments/home-*.html',{query:'?raw',import:'default',eager:true});
@@ -15,7 +17,8 @@ const topicNames=JSON.stringify(Object.fromEntries(allTopics.map(topic=>[
   {full:topic.teaserTitle||`${topic.grade} ${topic.title}`,mobile:topic.shortTitle||topic.teaserTitle||`${topic.grade} ${topic.title}`},
 ]))).replaceAll('<','\\u003c');
 ---
-<Base>
+<Base bodyClass="kd-top">
+  <KdHead slot="head"/>
   <div class="kd-asset-bg-sky-background lp-canvas">
     <a class="skip-link" href="#about">サービス紹介へ進む</a>
     <main class="lp" id="top">

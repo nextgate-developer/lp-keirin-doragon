@@ -31,6 +31,7 @@ const sessions=JSON.stringify(allSessions(topics)).replaceAll('<','\\u003c');
     <meta property="og:image" content={new URL(site.ogImage,site.site).href}/>
     <meta name="twitter:card" content="summary_large_image"/>
     <script src="/site-config.js" is:inline defer></script>
+    <slot name="head"/>
   </head>
   <body class={bodyClass}>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8P92CGH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
