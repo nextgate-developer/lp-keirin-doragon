@@ -11,7 +11,7 @@ const date=new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'2-digit',day:'
     {isArchive&&<h2 id="archive-clips-title">ライブの魅力を切り抜きで</h2>}
     {!isArchive&&<header class="clips-header">
       <p class="clips-eyebrow"><span class="clips-youtube" aria-hidden="true">▶</span> YouTube <span class="clips-free">無料公開中</span></p>
-      <h2 id="live-clips-title"><span>スターたちの素顔を、</span><span>ちょっとだけ。</span></h2>
+      <h2 id="live-clips-title"><span>スターたちの素顔を</span><span>覗き見</span></h2>
       <p class="clips-intro">笑い話も、ここだけの本音も。<br class="clips-mobile-break"/>実際の配信の雰囲気をのぞいてみよう！</p>
     </header>}
     <div class:list={['clips-navigation',{'clips-navigation-archive':isArchive}]}>
@@ -40,7 +40,7 @@ const date=new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'2-digit',day:'
       </li>)}
     </ul>
     <footer class="clips-footer">
-      <p>この続きも、YouTubeで。</p>
+      <p>この続きもYouTubeで</p>
       <a class="clips-channel" data-link="youtube" href={preview.channelUrl} target="_blank" rel="noopener noreferrer">ほかの動画も見る <span aria-hidden="true">↗</span><span class="clips-sr-only">（YouTube・別タブ）</span></a>
     </footer>
   </div>
