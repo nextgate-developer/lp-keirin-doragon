@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-06",
+  "snapshotDate": "2026-11-07",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,13 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "0SG_UrEUEHc",
+      "title": "後閑信一さん、品川駅でタメ語の駅員にキレたら警察官だった",
+      "publishedAt": "2026-11-07T07:00:19.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/0SG_UrEUEHc",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/0SG_UrEUEHc/hqdefault.jpg"
+    },
     {
       "id": "SSgw81VdUPg",
       "title": "平原康多さん、競輪の古いしきたり「自転車取り」は必要ない儀式？",
@@ -44,13 +51,6 @@
       "publishedAt": "2026-11-05T10:00:32.000Z",
       "videoUrl": "https://www.youtube.com/shorts/nIm5mQ_j7-4",
       "thumbnailUrl": "https://i3.ytimg.com/vi/nIm5mQ_j7-4/hqdefault.jpg"
-    },
-    {
-      "id": "Nve02-pG5DA",
-      "title": "【11/4 21:30開始】競輪ドラゴン｜泗水杯争奪戦GⅢ 初日前夜LIVE",
-      "publishedAt": "2026-11-05T03:11:40.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=Nve02-pG5DA",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/Nve02-pG5DA/hqdefault.jpg"
     }
   ]
 }
