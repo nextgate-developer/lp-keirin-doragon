@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-07",
+  "snapshotDate": "2026-11-08",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -11,18 +11,32 @@
   },
   "videos": [
     {
+      "id": "I0JGVLHztAU",
+      "title": "平原康多さん「気にしなくても気にしちゃう」競輪祭は賞金の順位が毎日、新聞全紙に",
+      "publishedAt": "2026-11-08T09:00:01.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/I0JGVLHztAU",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/I0JGVLHztAU/hqdefault.jpg"
+    },
+    {
+      "id": "jl_KhyitI0w",
+      "title": "三宅伸さん、地元・玉野競輪場で誰にも気づかれずシャッター係に",
+      "publishedAt": "2026-11-08T07:00:33.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/jl_KhyitI0w",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/jl_KhyitI0w/hqdefault.jpg"
+    },
+    {
+      "id": "AoRKBhCMetg",
+      "title": "【11/7 21:30開始】競輪ドラゴン｜泗水杯争奪戦GⅢ 決勝前夜LIVE｜競輪選手とパチンコ",
+      "publishedAt": "2026-11-08T01:19:08.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=AoRKBhCMetg",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/AoRKBhCMetg/hqdefault.jpg"
+    },
+    {
       "id": "NdA3QFfgxlQ",
       "title": "【11/6 22:00開始】競輪ドラゴン｜泗水杯争奪戦GⅢ 準決勝前夜LIVE",
       "publishedAt": "2026-11-07T15:39:07.000Z",
       "videoUrl": "https://www.youtube.com/watch?v=NdA3QFfgxlQ",
       "thumbnailUrl": "https://i3.ytimg.com/vi/NdA3QFfgxlQ/hqdefault.jpg"
-    },
-    {
-      "id": "AoRKBhCMetg",
-      "title": "【11/7 21:30開始】競輪ドラゴン｜泗水杯争奪戦GⅢ 決勝前夜LIVE｜競輪選手とパチンコ",
-      "publishedAt": "2026-11-07T12:31:49.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=AoRKBhCMetg",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/AoRKBhCMetg/hqdefault.jpg"
     },
     {
       "id": "x0aW297HCz0",
@@ -37,20 +51,6 @@
       "publishedAt": "2026-11-07T09:00:08.000Z",
       "videoUrl": "https://www.youtube.com/shorts/PpM6-L4zPqQ",
       "thumbnailUrl": "https://i1.ytimg.com/vi/PpM6-L4zPqQ/hqdefault.jpg"
-    },
-    {
-      "id": "0SG_UrEUEHc",
-      "title": "後閑信一さん、品川駅でタメ語の駅員にキレたら警察官だった",
-      "publishedAt": "2026-11-07T07:00:19.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/0SG_UrEUEHc",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/0SG_UrEUEHc/hqdefault.jpg"
-    },
-    {
-      "id": "SSgw81VdUPg",
-      "title": "平原康多さん、競輪の古いしきたり「自転車取り」は必要ない儀式？",
-      "publishedAt": "2026-11-06T13:00:14.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/SSgw81VdUPg",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/SSgw81VdUPg/hqdefault.jpg"
     }
   ]
 }
