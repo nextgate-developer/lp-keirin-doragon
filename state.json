@@ -1,9 +1,9 @@
 {
   "version": 1,
   "firstObservedAt": "2026-11-02T08:14:01.003Z",
-  "lastAttemptAt": "2026-11-07T23:44:00.528Z",
-  "lastSuccessAt": "2026-11-07T18:54:29.096Z",
+  "lastAttemptAt": "2026-11-08T09:14:03.139Z",
+  "lastSuccessAt": "2026-11-08T09:14:03.139Z",
   "lastNotifiedAt": null,
-  "outcome": "unavailable",
-  "lastError": "RSS HTTP 404"
+  "outcome": "available",
+  "lastError": null
 }
