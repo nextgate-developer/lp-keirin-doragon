@@ -5,8 +5,8 @@
   "grade": "GⅢ",
   "venue": "川崎",
   "featuredOrder": null,
-  "tentative": true,
-  "note": "開催区分は確認中のため、配信時刻は暫定です。",
+  "tentative": false,
+  "note": "ゲストの登場は配信の後半1時間（22:00〜23:00）です。",
   "facts": [
     {
       "label": "開催日数",
@@ -14,41 +14,41 @@
     },
     {
       "label": "開催区分",
-      "value": "デイ（暫定）"
+      "value": "ナイター"
     }
   ],
   "sessions": [
     {
       "startsAt": "2026-12-18T21:30:00+09:00",
       "endsAt": "2026-12-18T23:00:00+09:00",
-      "approximate": true,
-      "stage": "前検日",
+      "approximate": false,
+      "stage": "初日の前夜祭",
       "target": "初日（12/19）",
-      "guest": "豪華レジェンド"
+      "guest": "三宅伸"
     },
     {
       "startsAt": "2026-12-19T21:30:00+09:00",
       "endsAt": "2026-12-19T23:00:00+09:00",
-      "approximate": true,
-      "stage": "初日",
+      "approximate": false,
+      "stage": "2日目の前夜祭",
       "target": "2日目（12/20）",
-      "guest": "豪華レジェンド"
+      "guest": "平原康多"
     },
     {
       "startsAt": "2026-12-20T21:30:00+09:00",
       "endsAt": "2026-12-20T23:00:00+09:00",
-      "approximate": true,
-      "stage": "2日目",
+      "approximate": false,
+      "stage": "準決勝の前夜祭",
       "target": "準決勝（12/21）",
-      "guest": "豪華レジェンド"
+      "guest": "平原康多"
     },
     {
       "startsAt": "2026-12-21T21:30:00+09:00",
       "endsAt": "2026-12-21T23:00:00+09:00",
-      "approximate": true,
-      "stage": "準決勝日",
+      "approximate": false,
+      "stage": "決勝の前夜祭",
       "target": "決勝（12/22）",
-      "guest": "豪華レジェンド"
+      "guest": "後閑信一"
     }
   ]
 }

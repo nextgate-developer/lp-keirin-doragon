@@ -5,8 +5,8 @@
   "grade": "GP",
   "venue": "いわき平",
   "featuredOrder": null,
-  "tentative": true,
-  "note": "開催区分は確認中のため、配信時刻は暫定です。 GPは準決勝がないため、最終日（12/30）の前夜までの3夜を配信予定です。",
+  "tentative": false,
+  "note": "ゲストの登場は配信の後半1時間（22:00〜23:00）です。12/30のグランプリ当日は後閑信一×三宅伸のWゲストでぶっ通し配信します。時間は決まりしだいお知らせします。",
   "facts": [
     {
       "label": "開催日数",
@@ -21,26 +21,26 @@
     {
       "startsAt": "2026-12-27T21:30:00+09:00",
       "endsAt": "2026-12-27T23:00:00+09:00",
-      "approximate": true,
-      "stage": "前検日",
-      "target": "初日（12/28）",
-      "guest": "豪華レジェンド"
+      "approximate": false,
+      "stage": "シリーズ初日の前夜祭",
+      "target": "シリーズ初日（12/28）",
+      "guest": "三宅伸"
     },
     {
       "startsAt": "2026-12-28T21:30:00+09:00",
       "endsAt": "2026-12-28T23:00:00+09:00",
-      "approximate": true,
-      "stage": "初日",
-      "target": "2日目（12/29）",
-      "guest": "豪華レジェンド"
+      "approximate": false,
+      "stage": "シリーズ2日目の前夜祭",
+      "target": "シリーズ2日目（12/29）",
+      "guest": "三宅伸"
     },
     {
       "startsAt": "2026-12-29T21:30:00+09:00",
       "endsAt": "2026-12-29T23:00:00+09:00",
-      "approximate": true,
-      "stage": "2日目",
-      "target": "最終日（GP）（12/30）",
-      "guest": "豪華レジェンド"
+      "approximate": false,
+      "stage": "グランプリの前夜祭",
+      "target": "KEIRINグランプリ（12/30）",
+      "guest": "三宅伸"
     }
   ]
 }
