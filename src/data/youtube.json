@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-08",
+  "snapshotDate": "2026-11-09",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,20 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "oM9Fjmbkg3E",
+      "title": "平原康多さんが驚いた松本貴治選手のメンタル　6着以内でグランプリでも先行",
+      "publishedAt": "2026-11-09T09:00:23.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/oM9Fjmbkg3E",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/oM9Fjmbkg3E/hqdefault.jpg"
+    },
+    {
+      "id": "EaZMvl3BMZo",
+      "title": "後閑信一さん、ベンツSクラスを買ったらポイントでAクラスがもう1台ついてきた",
+      "publishedAt": "2026-11-09T07:00:11.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/EaZMvl3BMZo",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/EaZMvl3BMZo/hqdefault.jpg"
+    },
     {
       "id": "4iS2JJFZAeY",
       "title": "平原康多さん、引退の理由の一つは毎年の高額納税「めちゃくちゃしんどかった」",
@@ -37,20 +51,6 @@
       "publishedAt": "2026-11-08T07:00:33.000Z",
       "videoUrl": "https://www.youtube.com/shorts/jl_KhyitI0w",
       "thumbnailUrl": "https://i3.ytimg.com/vi/jl_KhyitI0w/hqdefault.jpg"
-    },
-    {
-      "id": "AoRKBhCMetg",
-      "title": "【11/7 21:30開始】競輪ドラゴン｜泗水杯争奪戦GⅢ 決勝前夜LIVE｜競輪選手とパチンコ",
-      "publishedAt": "2026-11-08T01:19:08.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=AoRKBhCMetg",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/AoRKBhCMetg/hqdefault.jpg"
-    },
-    {
-      "id": "NdA3QFfgxlQ",
-      "title": "【11/6 22:00開始】競輪ドラゴン｜泗水杯争奪戦GⅢ 準決勝前夜LIVE",
-      "publishedAt": "2026-11-07T15:39:07.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=NdA3QFfgxlQ",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/NdA3QFfgxlQ/hqdefault.jpg"
     }
   ]
 }
