@@ -196,6 +196,6 @@ body.kd-page .news-shell:is(:has(.topic-list),:has(.topic-detail),:has(#archive-
   body.kd-page .news-shell{max-width:480px;margin:0 auto;border-inline:2px solid var(--k-ink)}
 }
 @media (min-width:1100px){
-  body.kd-page{background:linear-gradient(118deg,var(--k-navy) 0 40%,var(--k-ink) 40% calc(40% + 4px),var(--k-yellow) calc(40% + 4px) 76%,var(--k-ink) 76% calc(76% + 4px),var(--k-red) calc(76% + 4px) 100%) fixed}
+  body.kd-page{background:url(/assets/images/rd/bike-tile-white.webp) 0 0/360px 270px fixed,linear-gradient(118deg,var(--k-navy) 0 40%,var(--k-ink) 40% calc(40% + 4px),var(--k-yellow) calc(40% + 4px) 76%,var(--k-ink) 76% calc(76% + 4px),var(--k-red) calc(76% + 4px) 100%) fixed}
   body.kd-page .news-shell{max-width:440px}
 }

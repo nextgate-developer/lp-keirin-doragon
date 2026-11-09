@@ -269,6 +269,17 @@ body.kd-top .footer-nav-link[href]:hover{color:#fff}
 body.kd-top .footer-bottom{display:block;padding:0;border:0;text-align:left}
 body.kd-top .footer-bottom small{font-size:12px}
 
+/* 自転車を仕込む（11/10 石田さん「競輪のサイトだとイメージさせられるように」）。
+   絵は Codex（Sunburst）の自転車の線画1台を色違い・並べ替えしただけ（/assets/images/rd/bike-*.webp）。コードでは描かない */
+body.kd-top :is(.promo-video,.topics-home,.people){background-image:url(/assets/images/rd/bike-tile-ink.webp);background-size:240px 180px}
+body.kd-top .about{background-image:url(/assets/images/rd/bike-tile-white.webp);background-size:240px 180px}
+body.kd-top .kd-ico--bike{width:48px}
+/* 最初の画面の下の斜線を走る1台と、足元の線を縦に並んで走る3台（競輪のライン） */
+body.kd-top .kd-hazard{position:relative}
+body.kd-top .kd-hazard::after{content:"";position:absolute;right:20px;bottom:calc(100% + 2px);width:52px;height:29px;background:url(/assets/images/rd/bike-ink-120.webp) center/contain no-repeat}
+body.kd-top .footer{position:relative}
+body.kd-top .footer::before{content:"";position:absolute;right:16px;bottom:calc(100% + 2px);width:168px;height:30px;background:url(/assets/images/rd/bike-line-360.webp) center/contain no-repeat}
+
 /* スマホより広い画面：スマホの幅の柱を中央に置く（追従バーの位置は kd-2026-11.css） */
 @media (min-width:600px){
   body.kd-top .lp{max-width:480px;margin:0 auto;border-inline:2px solid var(--k-ink)}
@@ -276,6 +287,6 @@ body.kd-top .footer-bottom small{font-size:12px}
 }
 /* PC：壁は青・黄・赤の斜めの帯（機体や車両の塗り分けのように）を龍の割合（5:3:2）で */
 @media (min-width:1100px){
-  body.kd-top .lp-canvas{background:linear-gradient(118deg,var(--k-navy) 0 40%,var(--k-ink) 40% calc(40% + 4px),var(--k-yellow) calc(40% + 4px) 76%,var(--k-ink) 76% calc(76% + 4px),var(--k-red) calc(76% + 4px) 100%) fixed}
+  body.kd-top .lp-canvas{background:url(/assets/images/rd/bike-tile-white.webp) 0 0/360px 270px fixed,linear-gradient(118deg,var(--k-navy) 0 40%,var(--k-ink) 40% calc(40% + 4px),var(--k-yellow) calc(40% + 4px) 76%,var(--k-ink) 76% calc(76% + 4px),var(--k-red) calc(76% + 4px) 100%) fixed}
   body.kd-top .lp{max-width:440px}
 }
