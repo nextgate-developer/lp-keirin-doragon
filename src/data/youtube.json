@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-09",
+  "snapshotDate": "2026-11-10",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,20 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "6tugtLGkWho",
+      "title": "平原康多さん、宿舎で相部屋の宿口陽一選手は「のび太なんですよ」",
+      "publishedAt": "2026-11-10T09:00:31.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/6tugtLGkWho",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/6tugtLGkWho/hqdefault.jpg"
+    },
+    {
+      "id": "TyD2DvvRCS4",
+      "title": "後閑信一さん、グランプリ「幻の優勝」 1着と2着の差は8000万円",
+      "publishedAt": "2026-11-10T07:00:06.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/TyD2DvvRCS4",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/TyD2DvvRCS4/hqdefault.jpg"
+    },
     {
       "id": "0DzV2fu4t04",
       "title": "【11/22(日)21:30】競輪祭（小倉GⅠ）決勝の前夜祭｜競輪ドラゴン",
@@ -37,20 +51,6 @@
       "publishedAt": "2026-11-09T16:32:01.000Z",
       "videoUrl": "https://www.youtube.com/watch?v=lC7TfKnaWWk",
       "thumbnailUrl": "https://i1.ytimg.com/vi/lC7TfKnaWWk/hqdefault.jpg"
-    },
-    {
-      "id": "WkcTL6kFxmw",
-      "title": "【11/18(水)21:30】競輪祭（小倉GⅠ）2日目の前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-09T16:29:05.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=WkcTL6kFxmw",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/WkcTL6kFxmw/hqdefault.jpg"
-    },
-    {
-      "id": "VwD1Poe5K9k",
-      "title": "【11/17(火)21:30】競輪祭（小倉GⅠ）初日の前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-09T16:26:44.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=VwD1Poe5K9k",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/VwD1Poe5K9k/hqdefault.jpg"
     }
   ]
 }
