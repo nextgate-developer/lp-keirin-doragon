@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-10",
+  "snapshotDate": "2026-11-11",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,20 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "Y4TE6CxzDfU",
+      "title": "平原康多さん、引退してからは言いたいことを言う。でも「言い方でイラッとさせない」",
+      "publishedAt": "2026-11-11T09:00:22.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/Y4TE6CxzDfU",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/Y4TE6CxzDfU/hqdefault.jpg"
+    },
+    {
+      "id": "naEO64ueXSo",
+      "title": "後閑信一さん「鎖骨骨折は筋肉痛みたいなもん」 中3日で針金を入れて優勝",
+      "publishedAt": "2026-11-11T07:00:34.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/naEO64ueXSo",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/naEO64ueXSo/hqdefault.jpg"
+    },
     {
       "id": "k7eMbTjCuSw",
       "title": "平原康多さん、橋本悠督さんとハイボール15杯 翌朝のロビーで「この人強ー」",
@@ -37,20 +51,6 @@
       "publishedAt": "2026-11-10T07:00:06.000Z",
       "videoUrl": "https://www.youtube.com/shorts/TyD2DvvRCS4",
       "thumbnailUrl": "https://i1.ytimg.com/vi/TyD2DvvRCS4/hqdefault.jpg"
-    },
-    {
-      "id": "0DzV2fu4t04",
-      "title": "【11/22(日)21:30】競輪祭（小倉GⅠ）決勝の前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-09T16:39:48.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=0DzV2fu4t04",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/0DzV2fu4t04/hqdefault.jpg"
-    },
-    {
-      "id": "o9Ks-vAULMU",
-      "title": "【11/21(土)21:30】競輪祭（小倉GⅠ）準決勝の前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-09T16:37:20.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=o9Ks-vAULMU",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/o9Ks-vAULMU/hqdefault.jpg"
     }
   ]
 }
