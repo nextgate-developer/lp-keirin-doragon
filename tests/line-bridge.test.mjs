@@ -7,9 +7,9 @@ const androidX = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (K
 const pc = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
 const mac = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15';
 
-test('LINE bridge opens the LINE app by scheme on iPhone and by intent on Android', () => {
-  assert.equal(lineAppUrl(iphoneX, 'iPhone', 5), 'line://ti/p/@683pdsif');
-  assert.equal(lineAppUrl(mac, 'MacIntel', 5), 'line://ti/p/@683pdsif', 'iPadOS reports a Mac user agent');
+test('LINE bridge keeps https on iPhone and uses intent on Android', () => {
+  assert.equal(lineAppUrl(iphoneX, 'iPhone', 5), null);
+  assert.equal(lineAppUrl(mac, 'MacIntel', 5), null, 'iPadOS reports a Mac user agent');
   assert.equal(lineAppUrl(androidX, 'Linux armv8l', 5),
     'intent://ti/p/@683pdsif#Intent;scheme=line;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=jp.naver.line.android;end');
 });
