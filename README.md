@@ -54,6 +54,7 @@ npm run preview
 |配信一覧・詳細・トップ抜粋の表示部品|`src/components/TopicCard.astro` / `BroadcastSchedule.astro` / `TopicTeasers.astro`|
 |共通ヘッダー・メタ・スクリプト|`src/layouts/Base.astro`|
 |下層ページの共通フッター|`src/components/PageFooter.astro`|
+|X広告から公式LINEへ通す中継ページ（`/line.html`。検索・メニュー・サイトマップに出さない）|`src/pages/line.astro`（文・見た目）と `src/scripts/line-bridge.js`（iPhoneは `line://`、Androidは `intent://` でLINEアプリを開く）。QRは `assets/images/rd/line-add-qr.png`。押した数は `kd_line_click` の `line_bridge_app`／`line_bridge_web`|
 |元画像・PDF|ルート `assets/`|
 
 CSSは既存の指定順を保っています。後ろの指定が前の指定を上書きする箇所があります。デザイン変更は生成HTMLではなく、この共通CSSと部品／セクションへ反映します。
@@ -126,7 +127,7 @@ npm run test:browser
 - GitHub Actionsの `verify.yml` はmain以外へのpush／PRで検証のみ実行し、公開しません。
 - mainへのpushは `deploy.yml` がビルド・入力検証・HTML検証・ブラウザ検証を実行し、すべて成功した場合だけ `dist/` を自動公開します。検証用成果物の保存は失敗時にも試みますが、公開処理は進みません。
 
-静的HTMLはトップ・一覧・11件の詳細・FAQ・アーカイブ・視聴方法、計16ページ（別途404ページ）を生成します。各ページのtitle・description・canonical・OGP、`sitemap.xml` / `robots.txt` を出力します。FAQ本文はJavaScriptなしでもHTMLに含まれます。検索表示と次回予定の時刻更新、旧ハッシュURLの移動にはJavaScriptを使用します。
+静的HTMLはトップ・一覧・11件の詳細・FAQ・アーカイブ・視聴方法、計16ページ（別途404ページと、検索に出さない公式LINEへの中継ページ）を生成します。各ページのtitle・description・canonical・OGP、`sitemap.xml` / `robots.txt` を出力します。FAQ本文はJavaScriptなしでもHTMLに含まれます。検索表示と次回予定の時刻更新、旧ハッシュURLの移動にはJavaScriptを使用します。
 
 ## YouTubeのRSS自動更新
 

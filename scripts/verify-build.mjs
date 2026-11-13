@@ -52,4 +52,10 @@ assert.equal(load(fs.readFileSync('dist/faq.html','utf8'))('.faq-item').length,f
 assert.equal((fs.readFileSync('dist/sitemap.xml','utf8').match(/<loc>/g)||[]).length,routes.length);
 assert.equal(load(fs.readFileSync('dist/archives.html','utf8'))('.archive-grid').length,1);
 assert.equal(load(fs.readFileSync('dist/404.html','utf8'))('meta[name="robots"]').attr('content'),'noindex,follow');
+// 公式LINEへの中継ページ（X広告用）：検索に出さず、サイトマップに載せず、2つのボタンを別々に数える
+const bridge=load(fs.readFileSync('dist/line.html','utf8'));
+assert.equal(bridge('meta[name="robots"]').attr('content'),'noindex,follow');
+assert.ok(!fs.readFileSync('dist/sitemap.xml','utf8').includes('/line.html'),'line.html must stay out of the sitemap');
+for(const placement of ['line_bridge_app','line_bridge_web'])assert.equal(bridge(`a[data-link="line"][data-track-placement="${placement}"][href^="https://line.me/"]`).length,1,placement);
+assert.ok(fs.existsSync('dist/assets/images/rd/line-add-qr.png'),'LINE QR image missing');
 console.log(`Generated HTML verified: ${routes.length} routes, ${topics.length} topics, all session displays and metadata.`);

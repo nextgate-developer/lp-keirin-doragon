@@ -1,0 +1,42 @@
+---
+// X広告から公式LINEへ通す中継ページ（/line.html）。検索に出さず、メニュー・サイトマップにも載せない。
+// Xのアプリ内ブラウザで line.me を開くとQRの画面で止まるので、ここでLINEアプリを直接呼ぶ（src/scripts/line-bridge.js）。
+// ボタンの href は data-link="line" で site-config.js の line に置き換わる（押した数を kd_line_click で数えるため）。
+// site-config.js の line をエルメなど別のURLに変えると、ここの「開かないときはこちら」もそのURLになる。
+import Base from '../layouts/Base.astro';
+import KdHead from '../components/KdHead.astro';
+const web='https://line.me/R/ti/p/@683pdsif';
+---
+<Base title="公式LINE｜競輪ドラゴン" description="11/16(月)21時 佐藤慎太郎選手のスペシャル配信の参加リンクは公式LINEに届きます" bodyClass="kd-page line-bridge-page" noindex>
+  <KdHead slot="head"/>
+  <div class="news-shell">
+    <header class="news-title"><h1>競輪ドラゴン公式LINE</h1></header>
+    <main class="lb-main">
+      <p class="lb-lead"><strong>11/16(月)21時</strong>佐藤慎太郎選手のスペシャル配信の参加リンクは公式LINEに届きます</p>
+      <div class="lb-open">
+        <a class="lb-app" href={web} data-link="line" data-line-app data-track-placement="line_bridge_app">LINEアプリで開く</a>
+        <a class="lb-web" href={web} data-link="line" data-track-placement="line_bridge_web">開かないときはこちら</a>
+        <p>それでも開かないときは右上の「…」から「ブラウザで開く」を押してからボタンを押してください</p>
+      </div>
+      <div class="lb-qr">
+        <img src="/assets/images/rd/line-add-qr.png" width="120" height="120" alt="競輪ドラゴン公式LINEの友だち追加QRコード"/>
+        <p>パソコンで見ているときはスマホのカメラで読み取ってください</p>
+      </div>
+    </main>
+  </div>
+</Base>
+<script>import '../scripts/line-bridge.js';</script>
+<style>
+  .lb-main{display:flex;flex-direction:column}
+  .lb-lead{margin:0;padding:0 4px 16px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.75;word-break:auto-phrase}
+  .lb-lead strong{display:block;color:var(--k-red);font-family:var(--k-disp);font-size:21px;font-weight:400;line-height:1.5}
+  .lb-open{padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff}
+  .lb-open a{display:flex;align-items:center;justify-content:center;border:2px solid var(--k-ink);color:var(--k-ink);text-decoration:none}
+  .lb-app{min-height:66px;border-radius:10px;background:var(--k-yellow);font-family:var(--k-disp);font-size:22px}
+  .lb-app:hover{background:#ffd52e}
+  .lb-web{width:fit-content;min-height:44px;margin-top:12px;padding:0 16px;border-radius:6px;background:#fff;font-size:15px;font-weight:700}
+  .lb-open p{margin:12px 2px 0;font-size:13px;font-weight:700;line-height:1.75;word-break:auto-phrase}
+  .lb-qr{flex:1;display:flex;align-items:flex-start;gap:14px;margin:18px -10px 0;padding:16px 14px 24px;border-top:2px solid var(--k-ink);background:var(--k-yellow)}
+  .lb-qr img{flex:none;width:120px;height:120px;border:2px solid var(--k-ink);border-radius:8px;background:#fff}
+  .lb-qr p{margin:0;padding-top:4px;color:var(--k-ink);font-size:13px;font-weight:700;line-height:1.75;word-break:auto-phrase}
+</style>

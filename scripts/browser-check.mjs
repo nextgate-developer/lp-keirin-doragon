@@ -262,6 +262,9 @@ try{
     assert.equal((await events()).at(-1).kd_faq_number,'','FAQ context must not leak into the next click');
     await open('/viewing-guide.html');
     await check('.service-register','registration_click','service_registration','registration','external');
+    await open('/line.html');
+    await check('.lb-app','line_click','line_bridge_app','line','external');
+    await check('.lb-web','line_click','line_bridge_web','line','external');
     await open('/archives.html');
     await check('.service-register','registration_click','service_registration','registration','external');
     await check('.service-nav a[href="/viewing-guide.html"]','viewing_guide_click','service_nav','viewing_guide','internal');
