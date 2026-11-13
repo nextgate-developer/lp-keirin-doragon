@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-12",
+  "snapshotDate": "2026-11-13",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "qtDqaopEKik",
+      "title": "平原康多さん、宿口陽一選手がGⅠを取った夜 号泣の電話で何を言っているか分からない",
+      "publishedAt": "2026-11-13T09:00:06.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/qtDqaopEKik",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/qtDqaopEKik/hqdefault.jpg"
+    },
+    {
+      "id": "H8z_f6Qal1M",
+      "title": "後閑信一さん、車を40台乗り換えた理由は竹内力さんの「ミナミの帝王」",
+      "publishedAt": "2026-11-13T07:00:14.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/H8z_f6Qal1M",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/H8z_f6Qal1M/hqdefault.jpg"
+    },
+    {
+      "id": "DJIlJmOxPfo",
+      "title": "【11/12】競輪レジェンドがぶっちゃけ「ボクシングジムでケンカの修行をしていた」｜後閑信一さん｜立川GⅢ2日目前夜祭｜競輪ドラゴン",
+      "publishedAt": "2026-11-13T01:12:56.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=DJIlJmOxPfo",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/DJIlJmOxPfo/hqdefault.jpg"
+    },
     {
       "id": "1lcVTBmprJ4",
       "title": "平原康多さん、解説席の足元にはマッサージ機 腰痛対策で「全く分からないようにやってます」",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-12T09:00:22.000Z",
       "videoUrl": "https://www.youtube.com/shorts/M5HGRqrYkmM",
       "thumbnailUrl": "https://i2.ytimg.com/vi/M5HGRqrYkmM/hqdefault.jpg"
-    },
-    {
-      "id": "GqrjqA8derM",
-      "title": "三宅伸さん、80キロの安全運転で後輩に「もっと踏み込んでください」",
-      "publishedAt": "2026-11-12T07:00:38.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/GqrjqA8derM",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/GqrjqA8derM/hqdefault.jpg"
-    },
-    {
-      "id": "NrxiIlpfx6o",
-      "title": "【11/11】ボートで謎の1360万円買い｜立川GⅢ初日前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-12T01:12:49.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=NrxiIlpfx6o",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/NrxiIlpfx6o/hqdefault.jpg"
-    },
-    {
-      "id": "E2huPP9BZI0",
-      "title": "平原康多さんが話す、競輪選手がSNSを上げない理由「お金が直接かかってるから」",
-      "publishedAt": "2026-11-11T13:00:06.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/E2huPP9BZI0",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/E2huPP9BZI0/hqdefault.jpg"
     }
   ]
 }
