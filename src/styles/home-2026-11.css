@@ -96,12 +96,21 @@ body.kd-top .kd-ticker-track .kd-ico:last-child{margin-right:0}
 @media (prefers-reduced-motion:reduce){body.kd-top .kd-ticker-track{animation:none}}
 
 /* お知らせカード（src/fragments/home-special.html。11/16 スペシャル配信など）。最初の画面のすぐ下に赤い面を1段はさむ。
-   出演者の顔写真は置かず、文字の大きさと色の面で目立たせる。白いカードの中なのでボタンは赤。
-   data-show-until を過ぎたら hidden になる（scripts/home-special.js） */
+   ふだんは出演者の顔写真を置かず、文字の大きさと色の面で目立たせる（11/16の回だけ社長の判断でゲストの写真を紺の見出しの右に）。
+   白いカードの中なのでボタンは赤。data-show-until を過ぎたら hidden になる（scripts/home-special.js） */
 body.kd-top .kd-special{padding:26px 12px 30px;background:var(--k-red) url(/assets/images/rd/bike-tile-ink.webp) 0 0/240px 180px}
 body.kd-top .kd-special[hidden]{display:none}
-body.kd-top .kd-special-card{border:3px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);overflow:hidden}
+body.kd-top .kd-special-card{border:3px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);overflow:hidden;container-type:inline-size}
+/* 紺の見出し：左に題とゲスト、右にゲストの写真（白いふち付きの切り抜き）。写真は文字の後ろに重ね、文字にかからない位置と大きさにする。
+   大きさはカードの幅（cqw）で決めるので、スマホでもPCの柱でも同じ組みになる */
+body.kd-top .kd-special-head{display:grid;background:var(--k-navy) url(/assets/images/rd/bike-tile-white.webp) 0 0/240px 180px;overflow:hidden}
+body.kd-top .kd-special-head>*{grid-area:1/1}
+body.kd-top .kd-special-lead{position:relative;z-index:1;align-self:start;padding-bottom:14px}
+body.kd-top .kd-special-photo{justify-self:end;align-self:end;width:68cqw;max-width:none;height:auto;margin:6px -12cqw 0 0}
 body.kd-top .kd-special-title{margin:0;padding:10px 14px 11px;background:var(--k-navy);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:clamp(19px,5.6vw,22px);line-height:1.4;text-align:left}
+body.kd-top .kd-special-head .kd-special-title{background:none;font-size:clamp(16px,5.9cqw,22px)}
+/* 写真があるときは、ゲストの札を拳のすぐ上に（題との間をカードの幅に合わせて空ける） */
+body.kd-top .kd-special-head:has(.kd-special-photo) .kd-special-guest{margin-top:max(12px,calc(41cqw - 95px))}
 body.kd-top .kd-special-title>span{display:block}
 body.kd-top .kd-special-title>span+span{color:var(--k-yellow)}
 /* 見出しの書体（Dela Gothic One）にローマ数字の字がないので、Ⅰ だけ本文の書体の太字にする */
@@ -111,8 +120,11 @@ body.kd-top .kd-special-when time{display:grid;grid-template-columns:auto auto;j
 body.kd-top .kd-special-day{font-family:var(--k-num);font-size:58px;line-height:.9;color:var(--k-red);letter-spacing:.01em}
 body.kd-top .kd-special-dow{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--k-ink);border-radius:4px;background:var(--k-yellow);font-family:var(--k-disp);font-size:19px;line-height:1;transform:rotate(-7deg)}
 body.kd-top .kd-special-time{grid-column:1/-1;justify-self:start;padding:1px 10px 2px;background:var(--k-ink);color:var(--k-yellow);font-family:var(--k-num);font-size:27px;line-height:1.25;letter-spacing:.02em}
-body.kd-top .kd-special-guest{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:17px;font-weight:900;line-height:1.5}
+body.kd-top .kd-special-guest{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:2px 0 0;padding:0 14px;color:#fff;font-size:13px;font-weight:900;line-height:1.5}
 body.kd-top .kd-special-guest b{padding:0 7px;border-radius:4px;background:var(--k-red);color:#fff;font-size:12px;font-weight:700;line-height:1.8}
+body.kd-top .kd-special-epithet{color:var(--k-yellow)}
+body.kd-top .kd-special-name{flex-basis:100%;font-family:var(--k-disp);font-weight:400;font-size:clamp(18px,6.7cqw,26px);line-height:1.3}
+body.kd-top .kd-special-name small{margin-left:2px;font-size:.62em}
 body.kd-top .kd-special-catch{margin-top:14px;padding-top:12px;border-top:2px dashed var(--k-ink);font-family:var(--k-disp);font-weight:400;line-height:1.3}
 body.kd-top .kd-special-catch span{display:block}
 body.kd-top .kd-special-catch span:first-child{font-size:17px}
