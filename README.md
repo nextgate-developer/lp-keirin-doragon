@@ -48,6 +48,7 @@ npm run preview
 |登録・LINE・SNSなどのリンク|ルート `site-config.js`|
 |見た目の共通CSS|`src/styles/legacy.css`|
 |トップの各セクション本文・画像|`src/fragments/home-*.html`|
+|トップのお知らせカード（スペシャル配信など。最初の画面のすぐ下）|`src/fragments/home-special.html`（文と `data-show-until` の日時を書き換える。日時を過ぎると、ビルドでは `src/pages/index.astro` が出さず、開いたままの画面では `src/scripts/home-special.js` が隠す。配信の回は `src/data/topics/*.json` にも入れる）|
 |トップの見た目（2026-11 刷新。トップだけに効く）|`src/styles/home-2026-11.css`（`body.kd-top` の下だけを指定。龍の顔などの画像は `assets/images/rd/`）|
 |下のページ（配信予定・配信の詳細・アーカイブ・視聴方法・よくある質問）の見た目と、トップとの共通部分（2026-11 刷新）|`src/styles/kd-2026-11.css`（`body.kd-page` と共通の色・追従バー。書体と一緒に `src/components/KdHead.astro` で読み込む。404 は刷新していないので legacy.css のまま）|
 |配信一覧・詳細・トップ抜粋の表示部品|`src/components/TopicCard.astro` / `BroadcastSchedule.astro` / `TopicTeasers.astro`|

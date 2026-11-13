@@ -11,6 +11,10 @@ import hero from '../fragments/home-hero.html?raw';
 import topics from '../fragments/home-topics.html?raw';
 const sections=import.meta.glob('../fragments/home-*.html',{query:'?raw',import:'default',eager:true});
 const heading=`<span class="topic-heading-full">${site.topicsHeading.full}</span><span class="topic-heading-mobile">${site.topicsHeading.mobile}</span>`;
+// トップのお知らせカード（home-special.html）は data-show-until を過ぎてからのビルドでは出さない（開いたままの画面は scripts/home-special.js が隠す）
+const special=sections['../fragments/home-special.html']||'';
+const specialUntil=special.match(/data-show-until="([^"]+)"/)?.[1];
+const showSpecial=Boolean(special)&&!(specialUntil&&Date.now()>=Date.parse(specialUntil));
 const [before,after]=topics.replace('<!-- TOPICS_HEADING -->',heading).split('<!-- TOPIC_TEASERS -->');
 const topicNames=JSON.stringify(Object.fromEntries(allTopics.map(topic=>[
   `/topics/${topic.slug}.html`,
@@ -23,6 +27,7 @@ const topicNames=JSON.stringify(Object.fromEntries(allTopics.map(topic=>[
     <a class="skip-link" href="#about">サービス紹介へ進む</a>
     <main class="lp" id="top">
       <Fragment set:html={hero}/>
+      {showSpecial&&<Fragment set:html={special}/>}
       <PromoVideoPreview/>
       <Fragment set:html={before}/><TopicTeasers/><Fragment set:html={after}/>
       <script id="kd-home-topics-data" type="application/json" is:inline set:html={topicNames}></script>
@@ -33,4 +38,4 @@ const topicNames=JSON.stringify(Object.fromEntries(allTopics.map(topic=>[
     <FloatingRegistration/>
   </div>
 </Base>
-<script>import '../scripts/home-topics.js';</script>
+<script>import '../scripts/home-topics.js';import '../scripts/home-special.js';</script>

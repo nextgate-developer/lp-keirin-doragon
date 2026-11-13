@@ -95,6 +95,35 @@ body.kd-top .kd-ticker-track .kd-ico:last-child{margin-right:0}
 @keyframes kd-tick{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){body.kd-top .kd-ticker-track{animation:none}}
 
+/* お知らせカード（src/fragments/home-special.html。11/16 スペシャル配信など）。最初の画面のすぐ下に赤い面を1段はさむ。
+   出演者の顔写真は置かず、文字の大きさと色の面で目立たせる。白いカードの中なのでボタンは赤。
+   data-show-until を過ぎたら hidden になる（scripts/home-special.js） */
+body.kd-top .kd-special{padding:26px 12px 30px;background:var(--k-red) url(/assets/images/rd/bike-tile-ink.webp) 0 0/240px 180px}
+body.kd-top .kd-special[hidden]{display:none}
+body.kd-top .kd-special-card{border:3px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);overflow:hidden}
+body.kd-top .kd-special-title{margin:0;padding:10px 14px 11px;background:var(--k-navy);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:clamp(19px,5.6vw,22px);line-height:1.4;text-align:left}
+body.kd-top .kd-special-title>span{display:block}
+body.kd-top .kd-special-title>span+span{color:var(--k-yellow)}
+/* 見出しの書体（Dela Gothic One）にローマ数字の字がないので、Ⅰ だけ本文の書体の太字にする */
+body.kd-top .kd-special-title .kd-special-roman{display:inline;margin-inline:-.2em -.12em;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900}
+body.kd-top .kd-special-body{padding:14px 14px 16px}
+body.kd-top .kd-special-when time{display:grid;grid-template-columns:auto auto;justify-content:start;align-items:center;gap:8px 10px}
+body.kd-top .kd-special-day{font-family:var(--k-num);font-size:58px;line-height:.9;color:var(--k-red);letter-spacing:.01em}
+body.kd-top .kd-special-dow{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--k-ink);border-radius:4px;background:var(--k-yellow);font-family:var(--k-disp);font-size:19px;line-height:1;transform:rotate(-7deg)}
+body.kd-top .kd-special-time{grid-column:1/-1;justify-self:start;padding:1px 10px 2px;background:var(--k-ink);color:var(--k-yellow);font-family:var(--k-num);font-size:27px;line-height:1.25;letter-spacing:.02em}
+body.kd-top .kd-special-guest{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:17px;font-weight:900;line-height:1.5}
+body.kd-top .kd-special-guest b{padding:0 7px;border-radius:4px;background:var(--k-red);color:#fff;font-size:12px;font-weight:700;line-height:1.8}
+body.kd-top .kd-special-catch{margin-top:14px;padding-top:12px;border-top:2px dashed var(--k-ink);font-family:var(--k-disp);font-weight:400;line-height:1.3}
+body.kd-top .kd-special-catch span{display:block}
+body.kd-top .kd-special-catch span:first-child{font-size:17px}
+body.kd-top .kd-special-catch span:nth-child(2){margin-top:4px;font-size:22px}
+body.kd-top .kd-special-catch mark{margin-right:2px;padding:0 .06em;background:var(--k-yellow);color:var(--k-ink);font-size:clamp(34px,11vw,44px);line-height:1.15}
+body.kd-top .kd-special-catch span:last-child{margin-top:4px;font-size:clamp(21px,7.2vw,27px)}
+body.kd-top .kd-special-cta{display:flex;align-items:center;justify-content:center;min-height:58px;margin-top:16px;padding:0 18px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff;font-family:var(--k-disp);font-weight:400;font-size:19px;line-height:1.35;letter-spacing:.04em;cursor:pointer;transition:background-color .2s}
+body.kd-top .kd-special-cta:hover{background:var(--k-red-press)}
+body.kd-top .kd-special-note{margin-top:8px;color:var(--k-mute);font-size:12px;line-height:1.7}
+body.kd-top .kd-special-note strong{color:var(--k-ink);font-weight:900}
+
 /* はじめての方へ（紹介動画。PromoVideoPreview）と 01 配信予定は、黄色の面にまとめる。
    修正案（11/5 石田さんの本命）と同じく、最初の画面のすぐ下から色の面が来るように（白い段を続けない） */
 body.kd-top .promo-video{padding:28px 12px 0;background:var(--k-yellow)}
