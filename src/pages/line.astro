@@ -12,8 +12,10 @@ const web='https://line.me/R/ti/p/@683pdsif';
   <div class="news-shell">
     <header class="news-title"><h1>競輪ドラゴン公式LINE</h1></header>
     <main class="lb-main">
-      <img class="lb-hero" src="/assets/images/rd/special-1116-sato-720.webp" srcset="/assets/images/rd/special-1116-sato-360.webp 360w, /assets/images/rd/special-1116-sato-720.webp 720w" sizes="(min-width:600px) 260px, 56vw" width="720" height="860" alt="拳を握ってガッツポーズをする佐藤慎太郎選手" decoding="async"/>
-      <p class="lb-lead"><strong>11/16(月)21時</strong>佐藤慎太郎選手のスペシャル配信の参加リンクは公式LINEに届きます</p>
+      <div class="lb-top">
+        <p class="lb-lead"><strong>11/16(月)21時</strong><span class="lb-name">佐藤慎太郎選手</span>のスペシャル配信の参加リンクは公式LINEに届きます</p>
+        <img class="lb-hero" src="/assets/images/rd/special-1116-sato-720.webp" srcset="/assets/images/rd/special-1116-sato-360.webp 360w, /assets/images/rd/special-1116-sato-720.webp 720w" sizes="(min-width:600px) 220px, 42vw" width="720" height="860" alt="拳を握ってガッツポーズをする佐藤慎太郎選手" decoding="async"/>
+      </div>
       <div class="lb-open">
         <a class="lb-app" href={web} data-link="line" data-line-app data-track-placement="line_bridge_app">LINEアプリで開く</a>
         <a class="lb-web" href={web} data-link="line" data-track-placement="line_bridge_web">開かないときはこちら</a>
@@ -31,9 +33,12 @@ const web='https://line.me/R/ti/p/@683pdsif';
 <script>import '../scripts/line-bridge.js';</script>
 <style>
   .lb-main{display:flex;flex-direction:column}
-  .lb-hero{display:block;width:56%;max-width:260px;height:auto;margin:0 auto 4px}
-  .lb-lead{margin:0;padding:0 4px 16px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.75;word-break:auto-phrase}
+  .news-title{margin-bottom:0;padding-bottom:4px}
+  .lb-top{display:grid;grid-template-columns:1fr 42%;align-items:end;gap:6px;margin:-12px 0 10px}
+  .lb-hero{display:block;width:100%;max-width:220px;height:auto;margin-left:auto}
+  .lb-lead{margin:0;padding:0 0 6px 4px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.75;word-break:auto-phrase}
   .lb-lead strong{display:block;color:var(--k-red);font-family:var(--k-disp);font-size:21px;font-weight:400;line-height:1.5}
+  .lb-name{display:block;font-size:20px;line-height:1.4}
   .lb-open{padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff}
   .lb-open a{display:flex;align-items:center;justify-content:center;border:2px solid var(--k-ink);color:var(--k-ink);text-decoration:none}
   .lb-app{min-height:66px;border-radius:10px;background:var(--k-yellow);font-family:var(--k-disp);font-size:22px}
