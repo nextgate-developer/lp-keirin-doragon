@@ -120,7 +120,7 @@ body.kd-top .kd-special-dow{display:grid;place-items:center;width:36px;height:36
 body.kd-top .kd-special-time{grid-column:1/-1;justify-self:start;padding:1px 10px 2px;background:var(--k-ink);color:var(--k-yellow);font-family:var(--k-num);font-size:27px;line-height:1.25;letter-spacing:.02em}
 /* 11/16の回：題の下に慎太郎さんの吹き出し、左下に名前を大きく金文字で（石田さん 11/14）。
    名前だけLPのほかの所と違う書体（Zen Old Mincho の900。KdHead で使う字だけ読む）。吹き出しはいつもの見出しの書体（石田さん「ガハハはLPによくあるフォントで良い」） */
-body.kd-top .kd-special-bubble{position:relative;z-index:2;justify-self:start;align-self:start;display:grid;place-items:center;width:52cqw;aspect-ratio:230/112;margin:24cqw 0 0 2cqw;transform:rotate(-7deg);animation:kd-gahaha 1.4s ease-in-out infinite}
+body.kd-top .kd-special-bubble{position:relative;z-index:2;justify-self:start;align-self:start;display:grid;place-items:center;width:50cqw;aspect-ratio:230/112;margin:21cqw 0 0 18cqw;transform:rotate(-7deg);animation:kd-gahaha 1.4s ease-in-out infinite}
 body.kd-top .kd-special-bubble>*{grid-area:1/1}
 body.kd-top .kd-special-bubble svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(3px 3px 0 var(--k-ink))}
 body.kd-top .kd-special-bubble path{fill:#fff;stroke:var(--k-ink);stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke}
@@ -128,7 +128,7 @@ body.kd-top .kd-special-bubble span{position:relative;margin-right:14%;color:var
 @keyframes kd-gahaha{0%,100%{transform:rotate(-7deg) scale(1)}50%{transform:rotate(-4deg) scale(1.07)}}
 @media (prefers-reduced-motion:reduce){body.kd-top .kd-special-bubble{animation:none}}
 body.kd-top .kd-special-guest{position:relative;z-index:2;align-self:end;justify-self:start;margin:0;padding:0 0 12px 8px}
-body.kd-top .kd-special-debut{display:inline-block;margin:0 0 2px 6px;padding:2px 10px 3px;border:2px solid var(--k-ink);background:var(--k-red);color:#fff;font-family:"Zen Old Mincho",serif;font-weight:900;font-size:clamp(14px,4.8cqw,19px);line-height:1.3;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--k-ink)}
+body.kd-top .kd-special-debut{display:inline-block;margin:0 0 2px 6px;padding:2px 10px 3px;border:2px solid var(--k-ink);background:var(--k-red);color:var(--k-ink);font-family:"Zen Old Mincho",serif;font-weight:900;font-size:clamp(18px,6.6cqw,27px);line-height:1.3;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--k-ink)}
 body.kd-top .kd-special-name{display:grid;font-family:"Zen Old Mincho",serif;font-weight:900;font-size:min(15.5cqw,64px);line-height:1.12;letter-spacing:-.03em;white-space:nowrap}
 /* 同じ文字を3枚重ねる：黒の太い縁と影 → 赤の縁 → 金の字 */
 body.kd-top .kd-sn{grid-area:1/1;padding:0 .12em}
