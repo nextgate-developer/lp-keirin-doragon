@@ -119,12 +119,12 @@ body.kd-top .kd-special-day{font-family:var(--k-num);font-size:58px;line-height:
 body.kd-top .kd-special-dow{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--k-ink);border-radius:4px;background:var(--k-yellow);font-family:var(--k-disp);font-size:19px;line-height:1;transform:rotate(-7deg)}
 body.kd-top .kd-special-time{grid-column:1/-1;justify-self:start;padding:1px 10px 2px;background:var(--k-ink);color:var(--k-yellow);font-family:var(--k-num);font-size:27px;line-height:1.25;letter-spacing:.02em}
 /* 11/16の回：題の下に慎太郎さんの吹き出し、左下に名前を大きく金文字で（石田さん 11/14）。
-   名前と吹き出しは、LPのほかの所と違う書体（Zen Old Mincho の900・Potta One。KdHead で使う字だけ読む） */
+   名前だけLPのほかの所と違う書体（Zen Old Mincho の900。KdHead で使う字だけ読む）。吹き出しはいつもの見出しの書体（石田さん「ガハハはLPによくあるフォントで良い」） */
 body.kd-top .kd-special-bubble{position:relative;z-index:2;justify-self:start;align-self:start;display:grid;place-items:center;width:52cqw;aspect-ratio:230/112;margin:24cqw 0 0 2cqw;transform:rotate(-7deg);animation:kd-gahaha 1.4s ease-in-out infinite}
 body.kd-top .kd-special-bubble>*{grid-area:1/1}
 body.kd-top .kd-special-bubble svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(3px 3px 0 var(--k-ink))}
 body.kd-top .kd-special-bubble path{fill:#fff;stroke:var(--k-ink);stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-body.kd-top .kd-special-bubble span{position:relative;margin-right:14%;color:var(--k-red);font-family:"Potta One",var(--k-disp);font-size:10cqw;line-height:1;-webkit-text-stroke:1.5px var(--k-ink)}
+body.kd-top .kd-special-bubble span{position:relative;margin-right:14%;color:var(--k-red);font-family:var(--k-disp);font-size:8.6cqw;line-height:1}
 @keyframes kd-gahaha{0%,100%{transform:rotate(-7deg) scale(1)}50%{transform:rotate(-4deg) scale(1.07)}}
 @media (prefers-reduced-motion:reduce){body.kd-top .kd-special-bubble{animation:none}}
 body.kd-top .kd-special-guest{position:relative;z-index:2;align-self:end;justify-self:start;margin:0;padding:0 0 12px 8px}
