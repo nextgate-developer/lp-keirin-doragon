@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-13",
+  "snapshotDate": "2026-11-14",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "Jr50g7zKkkA",
+      "title": "平原康多さん、浅井康太選手への今の本音「良きライバルとして最高の競輪人生を」",
+      "publishedAt": "2026-11-14T09:00:15.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/Jr50g7zKkkA",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/Jr50g7zKkkA/hqdefault.jpg"
+    },
+    {
+      "id": "qdTdPCKu6Is",
+      "title": "三宅伸さん、二段ベッドは100％下派 でも下で寝たことは一度もない",
+      "publishedAt": "2026-11-14T07:00:13.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/qdTdPCKu6Is",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/qdTdPCKu6Is/hqdefault.jpg"
+    },
+    {
+      "id": "rNKVlXGZLnM",
+      "title": "【11/13】大ニュース！現役レジェンド 佐藤慎太郎選手の登場決定｜立川GⅢ準決勝前夜祭｜競輪ドラゴン",
+      "publishedAt": "2026-11-14T01:15:26.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=rNKVlXGZLnM",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/rNKVlXGZLnM/hqdefault.jpg"
+    },
     {
       "id": "5kNocTnzCsM",
       "title": "平原康多さん、マネージャーなしでスケジュールは全部自分で管理「A型でよかった」",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-13T09:00:06.000Z",
       "videoUrl": "https://www.youtube.com/shorts/qtDqaopEKik",
       "thumbnailUrl": "https://i2.ytimg.com/vi/qtDqaopEKik/hqdefault.jpg"
-    },
-    {
-      "id": "H8z_f6Qal1M",
-      "title": "後閑信一さん、車を40台乗り換えた理由は竹内力さんの「ミナミの帝王」",
-      "publishedAt": "2026-11-13T07:00:14.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/H8z_f6Qal1M",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/H8z_f6Qal1M/hqdefault.jpg"
-    },
-    {
-      "id": "DJIlJmOxPfo",
-      "title": "【11/12】競輪レジェンドがぶっちゃけ「ボクシングジムでケンカの修行をしていた」｜後閑信一さん｜立川GⅢ2日目前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-13T01:12:56.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=DJIlJmOxPfo",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/DJIlJmOxPfo/hqdefault.jpg"
-    },
-    {
-      "id": "1lcVTBmprJ4",
-      "title": "平原康多さん、解説席の足元にはマッサージ機 腰痛対策で「全く分からないようにやってます」",
-      "publishedAt": "2026-11-12T13:00:08.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/1lcVTBmprJ4",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/1lcVTBmprJ4/hqdefault.jpg"
     }
   ]
 }
