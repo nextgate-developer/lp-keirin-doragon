@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-14",
+  "snapshotDate": "2026-11-15",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,34 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "Oq6helLqf1w",
+      "title": "平原康多さん、ananのイケメングランプリで3位「勘弁してもらいたかった」",
+      "publishedAt": "2026-11-15T09:00:12.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/Oq6helLqf1w",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/Oq6helLqf1w/hqdefault.jpg"
+    },
+    {
+      "id": "gggH866QGco",
+      "title": "後閑信一さん、引退後に工事現場で働いたら日当がお菓子代に消えた",
+      "publishedAt": "2026-11-15T07:00:28.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/gggH866QGco",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/gggH866QGco/hqdefault.jpg"
+    },
+    {
+      "id": "UmRQVmHDWZA",
+      "title": "【11/16(月)21:00】佐藤慎太郎選手スペシャル配信｜競輪祭（小倉GⅠ）前々検日｜競輪ドラゴン",
+      "publishedAt": "2026-11-15T04:53:00.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=UmRQVmHDWZA",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/UmRQVmHDWZA/hqdefault.jpg"
+    },
+    {
+      "id": "QVOlz_OQH38",
+      "title": "【11/14】ドラゴン文春！レジェンド三宅伸、謎の女性と同乗!?｜立川GⅢ決勝前夜祭｜競輪ドラゴン",
+      "publishedAt": "2026-11-15T01:06:31.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=QVOlz_OQH38",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/QVOlz_OQH38/hqdefault.jpg"
+    },
     {
       "id": "c6bPBVfOLj4",
       "title": "後閑信一さん、グランプリのハンコを押すつもりが補欠に 1998年競輪祭の吉岡稔真さん失格",
@@ -23,34 +51,6 @@
       "publishedAt": "2026-11-14T11:00:32.000Z",
       "videoUrl": "https://www.youtube.com/shorts/xDYzvMuth3g",
       "thumbnailUrl": "https://i1.ytimg.com/vi/xDYzvMuth3g/hqdefault.jpg"
-    },
-    {
-      "id": "Jr50g7zKkkA",
-      "title": "平原康多さん、浅井康太選手への今の本音「良きライバルとして最高の競輪人生を」",
-      "publishedAt": "2026-11-14T09:00:15.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/Jr50g7zKkkA",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/Jr50g7zKkkA/hqdefault.jpg"
-    },
-    {
-      "id": "qdTdPCKu6Is",
-      "title": "三宅伸さん、二段ベッドは100％下派 でも下で寝たことは一度もない",
-      "publishedAt": "2026-11-14T07:00:13.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/qdTdPCKu6Is",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/qdTdPCKu6Is/hqdefault.jpg"
-    },
-    {
-      "id": "rNKVlXGZLnM",
-      "title": "【11/13】大ニュース！現役レジェンド 佐藤慎太郎選手の登場決定｜立川GⅢ準決勝前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-14T01:15:26.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=rNKVlXGZLnM",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/rNKVlXGZLnM/hqdefault.jpg"
-    },
-    {
-      "id": "5kNocTnzCsM",
-      "title": "平原康多さん、マネージャーなしでスケジュールは全部自分で管理「A型でよかった」",
-      "publishedAt": "2026-11-13T13:00:38.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/5kNocTnzCsM",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/5kNocTnzCsM/hqdefault.jpg"
     }
   ]
 }
