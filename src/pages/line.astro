@@ -44,17 +44,19 @@ const web='https://line.me/R/ti/p/@683pdsif';
 <script>import '../scripts/line-bridge.js';</script>
 <style>
   .lb-main{display:flex;flex-direction:column}
-  .news-title{margin-bottom:0;padding-bottom:4px}
-  .lb-top{margin:6px 0 10px}
+  /* 上のすき間を詰める（石田さん 11/15「余白詰めよう」）。全体の body.kd-page .news-title に勝つよう body から書く */
+  :global(body.kd-page.line-bridge-page) .news-title{margin-bottom:0;padding:8px 4px 0}
+  .lb-top{margin:4px 0 8px}
   /* 紺の面に、左上の吹き出し・右の切り抜き・左下の名前を重ねる（トップのお知らせカードと同じ組み。大きさは面の幅＝cqwで決める） */
   .lb-card{display:grid;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy) url(/assets/images/rd/bike-tile-white.webp) 0 0/240px 180px;overflow:hidden;container-type:inline-size}
   .lb-card>*{grid-area:1/1}
-  .lb-hero{display:block;justify-self:end;align-self:end;width:56cqw;max-width:none;height:auto;margin:8px -6cqw 0 0}
-  .lb-bubble{position:relative;z-index:2;justify-self:start;align-self:start;display:grid;place-items:center;width:46cqw;aspect-ratio:230/112;margin:11cqw 0 0 20cqw;transform:rotate(-7deg);animation:lb-gahaha 1.4s ease-in-out infinite}
+  .lb-hero{display:block;justify-self:end;align-self:end;width:56cqw;max-width:none;height:auto;margin:0 -6cqw 0 0}
+  /* 吹き出しは左上の空きを埋める大きさ（石田さん 11/15「吹き出し大きくして」） */
+  .lb-bubble{position:relative;z-index:2;justify-self:start;align-self:start;display:grid;place-items:center;width:62cqw;aspect-ratio:230/112;margin:3cqw 0 0 3cqw;transform:rotate(-7deg);animation:lb-gahaha 1.4s ease-in-out infinite}
   .lb-bubble>*{grid-area:1/1}
   .lb-bubble svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(3px 3px 0 var(--k-ink))}
   .lb-bubble path{fill:#fff;stroke:var(--k-ink);stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-  .lb-bubble span{position:relative;margin-right:14%;color:var(--k-red);font-family:var(--k-disp);font-size:7.8cqw;line-height:1}
+  .lb-bubble span{position:relative;margin-right:14%;color:var(--k-red);font-family:var(--k-disp);font-size:10.6cqw;line-height:1}
   @keyframes lb-gahaha{0%,100%{transform:rotate(-7deg) scale(1)}50%{transform:rotate(-4deg) scale(1.07)}}
   @media (prefers-reduced-motion:reduce){.lb-bubble{animation:none}}
   .lb-guest{position:relative;z-index:2;align-self:end;justify-self:start;margin:0;padding:0 0 10px 6px}
@@ -66,7 +68,7 @@ const web='https://line.me/R/ti/p/@683pdsif';
   .lb-sn-ink{color:var(--k-ink);-webkit-text-stroke:.34em var(--k-ink);text-shadow:.07em .08em 0 var(--k-ink)}
   .lb-sn-red{color:#e6b33a;-webkit-text-stroke:.2em #e6b33a}
   .lb-sn-gold{background:linear-gradient(180deg,#ff6a5a 0%,#e0281f 45%,#9e1410 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.012em #5a0a06}
-  .lb-lead{margin:10px 0 0;padding:0 2px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.7;word-break:auto-phrase}
+  .lb-lead{margin:8px 0 0;padding:0 2px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.7;word-break:auto-phrase}
   .lb-lead strong{display:block;color:var(--k-red);font-family:var(--k-disp);font-size:21px;font-weight:400;line-height:1.5}
   .lb-open{padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff}
   .lb-open a{display:flex;align-items:center;justify-content:center;border:2px solid var(--k-ink);color:var(--k-ink);text-decoration:none}
