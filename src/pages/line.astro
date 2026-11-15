@@ -21,6 +21,9 @@ const web='https://line.me/R/ti/p/@683pdsif';
           <p class="lb-guest"><span class="lb-debut">現役選手が初登場！</span><span class="lb-name"><span class="lb-sn lb-sn-ink" aria-hidden="true">佐藤慎太郎<small>選手</small></span><span class="lb-sn lb-sn-red" aria-hidden="true">佐藤慎太郎<small>選手</small></span><span class="lb-sn lb-sn-gold">佐藤慎太郎<small>選手</small></span></span></p>
         </div>
         <p class="lb-lead"><strong>11/16(月)21時〜</strong>スペシャル配信の参加リンクは公式LINEに届きます</p>
+        <!-- 最初の20分のYouTubeライブへのボタン（石田さん 11/15「中継ページにYouTube」。X広告のポストはそのままで、行き先にYouTubeも置く）。
+             data-link を付けると site-config.js の youtube（チャンネル）に置き換わるので付けない。押した数は動画のクリックとして数える。11/17朝に外す -->
+        <a class="lb-yt" href="https://www.youtube.com/live/UmRQVmHDWZA" data-track-video-action="external" data-track-video-id="UmRQVmHDWZA" data-track-video-kind="youtube_video" data-track-video-title="11/16 佐藤慎太郎選手スペシャル配信" data-track-placement="line_bridge_youtube"><span class="lb-yt-icon" aria-hidden="true"></span><span class="lb-yt-text"><small>21時から最初の20分</small>YouTubeライブで見る</span></a>
       </div>
       <div class="lb-open">
         <a class="lb-app" href={web} data-link="line" data-line-app data-track-placement="line_bridge_app">LINEアプリで開く</a>
@@ -70,6 +73,12 @@ const web='https://line.me/R/ti/p/@683pdsif';
   .lb-sn-gold{background:linear-gradient(180deg,#ff6a5a 0%,#e0281f 45%,#9e1410 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.012em #5a0a06}
   .lb-lead{margin:8px 0 0;padding:0 2px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.7;word-break:auto-phrase}
   .lb-lead strong{display:block;color:var(--k-red);font-family:var(--k-disp);font-size:21px;font-weight:400;line-height:1.5}
+  .lb-yt{display:flex;align-items:center;gap:12px;min-height:56px;margin:10px 0 0;padding:6px 14px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);text-decoration:none;box-shadow:3px 3px 0 var(--k-ink)}
+  .lb-yt:hover{background:#fff6f5}
+  .lb-yt-icon{flex:none;position:relative;width:38px;height:27px;border-radius:7px;background:#ff0033}
+  .lb-yt-icon::after{content:"";position:absolute;left:15px;top:7px;border-style:solid;border-width:6.5px 0 6.5px 11px;border-color:transparent transparent transparent #fff}
+  .lb-yt-text{display:flex;flex-direction:column;font-family:var(--k-disp);font-size:19px;line-height:1.25}
+  .lb-yt-text small{font-family:inherit;font-size:12px;color:var(--k-red)}
   .lb-open{padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff}
   .lb-open a{display:flex;align-items:center;justify-content:center;border:2px solid var(--k-ink);color:var(--k-ink);text-decoration:none}
   .lb-app{min-height:66px;border-radius:10px;background:var(--k-yellow);font-family:var(--k-disp);font-size:22px}
