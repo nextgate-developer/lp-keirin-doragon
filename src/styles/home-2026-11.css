@@ -133,9 +133,11 @@ body.kd-top .kd-special-name{display:grid;font-family:"Zen Old Mincho",serif;fon
 /* 同じ文字を3枚重ねる：黒の太い縁と影 → 赤の縁 → 金の字 */
 body.kd-top .kd-sn{grid-area:1/1;padding:0 .12em}
 body.kd-top .kd-sn small{margin-left:.04em;font-size:.46em;letter-spacing:0}
-body.kd-top .kd-sn-ink{color:var(--k-ink);-webkit-text-stroke:.3em var(--k-ink);text-shadow:.07em .08em 0 var(--k-ink)}
-body.kd-top .kd-sn-red{color:var(--k-red);-webkit-text-stroke:.17em var(--k-red)}
-body.kd-top .kd-sn-gold{background:linear-gradient(180deg,#fffbe2 0%,#ffe27a 30%,#e0a526 52%,#fff1a6 70%,#c48318 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.012em #7a4f0a}
+/* 名前の色は赤い字に金の縁と黒の外の縁（グランプリのジャージの赤・金・黒。石田さん 11/15「案1」）。
+   クラス名は前の金文字のときのまま：ink＝黒の外の縁と影、red＝金の縁、gold＝赤い字（読み上げはこの1枚） */
+body.kd-top .kd-sn-ink{color:var(--k-ink);-webkit-text-stroke:.34em var(--k-ink);text-shadow:.07em .08em 0 var(--k-ink)}
+body.kd-top .kd-sn-red{color:#e6b33a;-webkit-text-stroke:.2em #e6b33a}
+body.kd-top .kd-sn-gold{background:linear-gradient(180deg,#ff6a5a 0%,#e0281f 45%,#9e1410 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.012em #5a0a06}
 body.kd-top .kd-special-catch{margin-top:14px;padding-top:12px;border-top:2px dashed var(--k-ink);font-family:var(--k-disp);font-weight:400;line-height:1.3}
 body.kd-top .kd-special-catch span{display:block}
 body.kd-top .kd-special-catch span:first-child{font-size:17px}
