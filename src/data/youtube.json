@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-15",
+  "snapshotDate": "2026-11-16",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,20 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "t-mI-5TkNNo",
+      "title": "三宅伸さん、パチンコ屋で変装中の石丸寛之選手に話しかけると「めちゃくちゃ嫌な顔」",
+      "publishedAt": "2026-11-16T09:00:30.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/t-mI-5TkNNo",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/t-mI-5TkNNo/hqdefault.jpg"
+    },
+    {
+      "id": "q53rRH3lS44",
+      "title": "三宅伸さん、開催中の順番待ちの電話で選手みんなが奥さんに「愛してるよ」",
+      "publishedAt": "2026-11-16T07:00:11.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/q53rRH3lS44",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/q53rRH3lS44/hqdefault.jpg"
+    },
     {
       "id": "xei-lxgZD30",
       "title": "平原康多さん、骨を折りすぎてどの骨だったか分からない",
@@ -37,20 +51,6 @@
       "publishedAt": "2026-11-15T07:00:28.000Z",
       "videoUrl": "https://www.youtube.com/shorts/gggH866QGco",
       "thumbnailUrl": "https://i4.ytimg.com/vi/gggH866QGco/hqdefault.jpg"
-    },
-    {
-      "id": "UmRQVmHDWZA",
-      "title": "【11/16(月)21:00】佐藤慎太郎選手スペシャル配信｜競輪祭（小倉GⅠ）前々検日｜競輪ドラゴン",
-      "publishedAt": "2026-11-15T04:53:00.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=UmRQVmHDWZA",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/UmRQVmHDWZA/hqdefault.jpg"
-    },
-    {
-      "id": "QVOlz_OQH38",
-      "title": "【11/14】ドラゴン文春！レジェンド三宅伸、謎の女性と同乗!?｜立川GⅢ決勝前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-15T01:06:31.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=QVOlz_OQH38",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/QVOlz_OQH38/hqdefault.jpg"
     }
   ]
 }
