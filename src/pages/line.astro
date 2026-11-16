@@ -7,24 +7,12 @@ import Base from '../layouts/Base.astro';
 import KdHead from '../components/KdHead.astro';
 const web='https://line.me/R/ti/p/@683pdsif';
 ---
-<Base title="公式LINE｜競輪ドラゴン" description="11/16(月)21時 佐藤慎太郎選手のスペシャル配信の参加リンクは公式LINEに届きます" bodyClass="kd-page line-bridge-page" noindex ogImage="/assets/images/rd/ogp-line-1116-1200x630.jpg">
+<Base title="公式LINE｜競輪ドラゴン" description="競輪ドラゴンの配信の参加リンクは公式LINEに届きます" bodyClass="kd-page line-bridge-page" noindex>
   <KdHead slot="head"/>
   <div class="news-shell">
     <header class="news-title"><h1>競輪ドラゴン公式LINE</h1></header>
     <main class="lb-main">
-      <!-- 11/16まで：トップのお知らせカードと同じく、紺の面に吹き出し「ガハハ！」・切り抜き・赤金黒の名前（石田さん 11/14「中継ページもそれっぽくして」）。
-           11/17朝にいつもの中継ページに戻す（todo） -->
-      <div class="lb-top">
-        <div class="lb-card">
-          <p class="lb-bubble" aria-hidden="true"><svg viewBox="0 0 230 112" preserveAspectRatio="none"><path d="M96.0 8.0 L108.8 18.6 L127.5 11.0 L132.8 23.4 L155.1 19.7 L152.4 32.3 L175.7 33.0 L165.2 44.3 L224.0 44.0 L169.6 58.0 L186.6 66.7 L165.2 71.7 L175.7 83.0 L152.4 83.7 L155.1 96.3 L132.8 92.6 L127.5 105.0 L108.8 97.4 L96.0 108.0 L83.2 97.4 L64.5 105.0 L59.2 92.6 L36.9 96.3 L39.6 83.7 L16.3 83.0 L26.8 71.7 L5.4 66.7 L22.4 58.0 L5.4 49.3 L26.8 44.3 L16.3 33.0 L39.6 32.3 L36.9 19.7 L59.2 23.4 L64.5 11.0 L83.2 18.6 Z"/></svg><span>ガハハ！</span></p>
-          <img class="lb-hero" src="/assets/images/rd/special-1116-sato-720.webp" srcset="/assets/images/rd/special-1116-sato-360.webp 360w, /assets/images/rd/special-1116-sato-720.webp 720w" sizes="(min-width:600px) 260px, 56vw" width="720" height="846" alt="拳を握ってガッツポーズをする佐藤慎太郎選手" decoding="async"/>
-          <p class="lb-guest"><span class="lb-debut">現役選手が初登場！</span><span class="lb-name"><span class="lb-sn lb-sn-ink" aria-hidden="true">佐藤慎太郎<small>選手</small></span><span class="lb-sn lb-sn-red" aria-hidden="true">佐藤慎太郎<small>選手</small></span><span class="lb-sn lb-sn-gold">佐藤慎太郎<small>選手</small></span></span></p>
-        </div>
-        <p class="lb-lead"><strong>11/16(月)21時〜</strong>スペシャル配信の参加リンクは公式LINEに届きます</p>
-        <!-- 最初の20分のYouTubeライブへのボタン（石田さん 11/15「中継ページにYouTube」。X広告のポストはそのままで、行き先にYouTubeも置く）。
-             data-link を付けると site-config.js の youtube（チャンネル）に置き換わるので付けない。押した数は動画のクリックとして数える。11/17朝に外す -->
-        <a class="lb-yt" href="https://www.youtube.com/live/UmRQVmHDWZA" data-track-video-action="external" data-track-video-id="UmRQVmHDWZA" data-track-video-kind="youtube_video" data-track-video-title="11/16 佐藤慎太郎選手スペシャル配信" data-track-placement="line_bridge_youtube"><span class="lb-yt-icon" aria-hidden="true"></span><span class="lb-yt-text"><span class="lb-yt-promo"><b>YouTube</b><span>で</span><em>第一部</em><span>を</span><mark>無料配信</mark><span>！</span></span><small>ライブのページを開く</small></span></a>
-      </div>
+      <p class="lb-lead"><strong>配信の参加リンクは公式LINEに届きます</strong>友だち追加して会員登録すると、会員限定のZoom配信に参加できます</p>
       <div class="lb-open">
         <a class="lb-app" href={web} data-link="line" data-line-app data-track-placement="line_bridge_app">LINEアプリで開く</a>
         <a class="lb-web" href={web} data-link="line" data-track-placement="line_bridge_web">開かないときはこちら</a>
@@ -49,42 +37,8 @@ const web='https://line.me/R/ti/p/@683pdsif';
   .lb-main{display:flex;flex-direction:column}
   /* 上のすき間を詰める（石田さん 11/15「余白詰めよう」）。全体の body.kd-page .news-title に勝つよう body から書く */
   :global(body.kd-page.line-bridge-page) .news-title{margin-bottom:0;padding:8px 4px 0}
-  .lb-top{margin:4px 0 8px}
-  /* 紺の面に、左上の吹き出し・右の切り抜き・左下の名前を重ねる（トップのお知らせカードと同じ組み。大きさは面の幅＝cqwで決める） */
-  .lb-card{display:grid;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-navy) url(/assets/images/rd/bike-tile-white.webp) 0 0/240px 180px;overflow:hidden;container-type:inline-size}
-  .lb-card>*{grid-area:1/1}
-  .lb-hero{display:block;justify-self:end;align-self:end;width:56cqw;max-width:none;height:auto;margin:0 -6cqw 0 0}
-  /* 吹き出しは左上の空きを埋める大きさ（石田さん 11/15「吹き出し大きくして」） */
-  .lb-bubble{position:relative;z-index:2;justify-self:start;align-self:start;display:grid;place-items:center;width:62cqw;aspect-ratio:230/112;margin:3cqw 0 0 3cqw;transform:rotate(-7deg);animation:lb-gahaha 1.4s ease-in-out infinite}
-  .lb-bubble>*{grid-area:1/1}
-  .lb-bubble svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(3px 3px 0 var(--k-ink))}
-  .lb-bubble path{fill:#fff;stroke:var(--k-ink);stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-  .lb-bubble span{position:relative;margin-right:14%;color:var(--k-red);font-family:var(--k-disp);font-size:10.6cqw;line-height:1}
-  @keyframes lb-gahaha{0%,100%{transform:rotate(-7deg) scale(1)}50%{transform:rotate(-4deg) scale(1.07)}}
-  @media (prefers-reduced-motion:reduce){.lb-bubble{animation:none}}
-  .lb-guest{position:relative;z-index:2;align-self:end;justify-self:start;margin:0;padding:0 0 10px 6px}
-  .lb-debut{display:inline-block;margin:0 0 2px 6px;padding:2px 10px 3px;border:2px solid var(--k-ink);background:var(--k-red);color:var(--k-ink);font-family:"Zen Old Mincho",serif;font-weight:900;font-size:clamp(18px,6.6cqw,27px);line-height:1.3;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--k-ink)}
-  /* 名前は同じ文字を3枚重ねる：黒の太い縁と影 → 金の縁 → 赤い字（石田さん 11/15「案1」。クラス名は前の金文字のときのまま。書体はこの名前だけ Zen Old Mincho の900。KdHead で使う字だけ読む） */
-  .lb-name{display:grid;font-family:"Zen Old Mincho",serif;font-weight:900;font-size:min(15.5cqw,64px);line-height:1.12;letter-spacing:-.03em;white-space:nowrap}
-  .lb-sn{grid-area:1/1;padding:0 .12em}
-  .lb-sn small{margin-left:.04em;font-size:.46em;letter-spacing:0}
-  .lb-sn-ink{color:var(--k-ink);-webkit-text-stroke:.34em var(--k-ink);text-shadow:.07em .08em 0 var(--k-ink)}
-  .lb-sn-red{color:#e6b33a;-webkit-text-stroke:.2em #e6b33a}
-  .lb-sn-gold{background:linear-gradient(180deg,#ff6a5a 0%,#e0281f 45%,#9e1410 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.012em #5a0a06}
-  .lb-lead{margin:8px 0 0;padding:0 2px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.7;word-break:auto-phrase}
+  .lb-lead{margin:8px 0 12px;padding:0 2px;color:var(--k-ink);font-size:16px;font-weight:700;line-height:1.7;word-break:auto-phrase}
   .lb-lead strong{display:block;color:var(--k-red);font-family:var(--k-disp);font-size:21px;font-weight:400;line-height:1.5}
-  .lb-yt{display:flex;align-items:center;gap:12px;min-height:56px;margin:10px 0 0;padding:6px 14px;border:2px solid var(--k-ink);border-radius:10px;background:#fff;color:var(--k-ink);text-decoration:none;box-shadow:3px 3px 0 var(--k-ink)}
-  .lb-yt:hover{background:#fff6f5}
-  .lb-yt-icon{flex:none;position:relative;width:38px;height:27px;border-radius:7px;background:#ff0033}
-  .lb-yt-icon::after{content:"";position:absolute;left:15px;top:7px;border-style:solid;border-width:6.5px 0 6.5px 11px;border-color:transparent transparent transparent #fff}
-  .lb-yt-text{display:flex;flex-direction:column;font-family:var(--k-disp);line-height:1.25}
-  /* 目に入る順を YouTube（赤・いちばん大きい）→ 無料配信（黄色のマーカー）→ 第一部（小さめ）にする（石田さん 11/15） */
-  .lb-yt-promo{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.12em}
-  .lb-yt-promo b{color:#ff0033;font-weight:400;font-size:24px}
-  .lb-yt-promo span{font-size:12px}
-  .lb-yt-promo em{font-style:normal;font-size:14px}
-  .lb-yt-promo mark{padding:0 .1em;background:linear-gradient(transparent 38%,var(--k-yellow) 38%);color:var(--k-ink);font-size:19px}
-  .lb-yt-text small{font-family:inherit;font-size:11px;color:var(--k-mute)}
   .lb-open{padding:14px;border:2px solid var(--k-ink);border-radius:10px;background:var(--k-red);color:#fff}
   .lb-open a{display:flex;align-items:center;justify-content:center;border:2px solid var(--k-ink);color:var(--k-ink);text-decoration:none}
   .lb-app{min-height:66px;border-radius:10px;background:var(--k-yellow);font-family:var(--k-disp);font-size:22px}
