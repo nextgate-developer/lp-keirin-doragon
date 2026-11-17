@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-16",
+  "snapshotDate": "2026-11-17",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,34 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "EOv7Pa9vpSY",
+      "title": "佐藤慎太郎選手に一番響いた声援は「お願い、今日差して」",
+      "publishedAt": "2026-11-17T09:00:30.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/EOv7Pa9vpSY",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/EOv7Pa9vpSY/hqdefault.jpg"
+    },
+    {
+      "id": "RSV1kLarsVo",
+      "title": "X乗っ取られ事件の真相 佐藤慎太郎選手、後輩をおちょくっていたら次は自分だった",
+      "publishedAt": "2026-11-17T07:00:13.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/RSV1kLarsVo",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/RSV1kLarsVo/hqdefault.jpg"
+    },
+    {
+      "id": "D3VPsZ8WEE4",
+      "title": "佐藤慎太郎選手が競輪ドラゴン初の現役選手ゲストで登場「え？もう始まってんの？」",
+      "publishedAt": "2026-11-17T05:00:00.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/D3VPsZ8WEE4",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/D3VPsZ8WEE4/hqdefault.jpg"
+    },
+    {
+      "id": "UmRQVmHDWZA",
+      "title": "【11/16】現役選手初登場！佐藤慎太郎選手スペシャル配信｜X乗っ取られ騒動の真相も｜競輪祭（小倉GⅠ）前々検日｜競輪ドラゴン",
+      "publishedAt": "2026-11-17T00:27:04.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=UmRQVmHDWZA",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/UmRQVmHDWZA/hqdefault.jpg"
+    },
     {
       "id": "t-mI-5TkNNo",
       "title": "三宅伸さん、パチンコ屋で変装中の石丸寛之選手に話しかけると「めちゃくちゃ嫌な顔」",
@@ -23,34 +51,6 @@
       "publishedAt": "2026-11-16T07:00:11.000Z",
       "videoUrl": "https://www.youtube.com/shorts/q53rRH3lS44",
       "thumbnailUrl": "https://i2.ytimg.com/vi/q53rRH3lS44/hqdefault.jpg"
-    },
-    {
-      "id": "xei-lxgZD30",
-      "title": "平原康多さん、骨を折りすぎてどの骨だったか分からない",
-      "publishedAt": "2026-11-15T13:00:35.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/xei-lxgZD30",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/xei-lxgZD30/hqdefault.jpg"
-    },
-    {
-      "id": "O9vTKb6ysn8",
-      "title": "後閑信一さん、子どものころ開通前の関越道を自転車で走った「これが開通式だよ」",
-      "publishedAt": "2026-11-15T11:00:39.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/O9vTKb6ysn8",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/O9vTKb6ysn8/hqdefault.jpg"
-    },
-    {
-      "id": "Oq6helLqf1w",
-      "title": "平原康多さん、ananのイケメングランプリで3位「勘弁してもらいたかった」",
-      "publishedAt": "2026-11-15T09:00:12.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/Oq6helLqf1w",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/Oq6helLqf1w/hqdefault.jpg"
-    },
-    {
-      "id": "gggH866QGco",
-      "title": "後閑信一さん、引退後に工事現場で働いたら日当がお菓子代に消えた",
-      "publishedAt": "2026-11-15T07:00:28.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/gggH866QGco",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/gggH866QGco/hqdefault.jpg"
     }
   ]
 }
