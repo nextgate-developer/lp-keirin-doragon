@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-17",
+  "snapshotDate": "2026-11-18",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,34 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "QJEmc3Hun8E",
+      "title": "三宅伸さん、競輪選手の自転車の送料は自腹「北海道なら往復3万円ぐらい」",
+      "publishedAt": "2026-11-18T09:00:21.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/QJEmc3Hun8E",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/QJEmc3Hun8E/hqdefault.jpg"
+    },
+    {
+      "id": "Rtcbkm7bvT0",
+      "title": "後閑信一さん、たった25万円差でグランプリを逃した本田晴美さんの話「一戦一戦が大事」",
+      "publishedAt": "2026-11-18T07:00:05.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/Rtcbkm7bvT0",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/Rtcbkm7bvT0/hqdefault.jpg"
+    },
+    {
+      "id": "vRosFXFbl7s",
+      "title": "後閑信一さん 爆笑トーク10連発「みんな神山さんの税金分しか稼いでない」【競輪ドラゴン】",
+      "publishedAt": "2026-11-18T03:27:11.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=vRosFXFbl7s",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/vRosFXFbl7s/hqdefault.jpg"
+    },
+    {
+      "id": "VwD1Poe5K9k",
+      "title": "【11/17】元ガールズ福田礼佳さん登場！同期・児玉碧衣選手“あおいタソ”のマル秘エピソード満載｜競輪祭（小倉GⅠ）初日前夜祭｜競輪ドラゴン",
+      "publishedAt": "2026-11-18T01:31:54.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=VwD1Poe5K9k",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/VwD1Poe5K9k/hqdefault.jpg"
+    },
     {
       "id": "AaE4N6HyVrY",
       "title": "50歳で迎える競輪祭 佐藤慎太郎選手「優勝する気はあるよ」",
@@ -23,34 +51,6 @@
       "publishedAt": "2026-11-17T09:00:30.000Z",
       "videoUrl": "https://www.youtube.com/shorts/EOv7Pa9vpSY",
       "thumbnailUrl": "https://i2.ytimg.com/vi/EOv7Pa9vpSY/hqdefault.jpg"
-    },
-    {
-      "id": "RSV1kLarsVo",
-      "title": "X乗っ取られ事件の真相 佐藤慎太郎選手、後輩をおちょくっていたら次は自分だった",
-      "publishedAt": "2026-11-17T07:00:13.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/RSV1kLarsVo",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/RSV1kLarsVo/hqdefault.jpg"
-    },
-    {
-      "id": "D3VPsZ8WEE4",
-      "title": "佐藤慎太郎選手が競輪ドラゴン初の現役選手ゲストで登場「え？もう始まってんの？」",
-      "publishedAt": "2026-11-17T05:00:00.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/D3VPsZ8WEE4",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/D3VPsZ8WEE4/hqdefault.jpg"
-    },
-    {
-      "id": "UmRQVmHDWZA",
-      "title": "【11/16】現役選手初登場！佐藤慎太郎選手スペシャル配信｜X乗っ取られ騒動の真相も｜競輪祭（小倉GⅠ）前々検日｜競輪ドラゴン",
-      "publishedAt": "2026-11-17T00:27:04.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=UmRQVmHDWZA",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/UmRQVmHDWZA/hqdefault.jpg"
-    },
-    {
-      "id": "t-mI-5TkNNo",
-      "title": "三宅伸さん、パチンコ屋で変装中の石丸寛之選手に話しかけると「めちゃくちゃ嫌な顔」",
-      "publishedAt": "2026-11-16T09:00:30.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/t-mI-5TkNNo",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/t-mI-5TkNNo/hqdefault.jpg"
     }
   ]
 }
