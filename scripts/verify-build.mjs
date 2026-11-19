@@ -58,4 +58,20 @@ assert.equal(bridge('meta[name="robots"]').attr('content'),'noindex,follow');
 assert.ok(!fs.readFileSync('dist/sitemap.xml','utf8').includes('/line.html'),'line.html must stay out of the sitemap');
 for(const placement of ['line_bridge_app','line_bridge_web'])assert.equal(bridge(`a[data-link="line"][data-track-placement="${placement}"][href^="https://line.me/"]`).length,1,placement);
 assert.ok(fs.existsSync('dist/assets/images/rd/line-add-qr.png'),'LINE QR image missing');
+// ゲスト6人のショートはボタンより下（主役はボタン）。サムネはすべて dist にあり、i.ytimg.com を直接読まない（11/19 4人→6人）
+assert.equal(bridge('.lb-open ~ .lb-shorts li').length,6,'line.html must list 6 guest shorts below the LINE button');
+assert.equal(bridge('.lb-shorts a').length,6,'every guest short on line.html must link to YouTube');
+for(const el of bridge('.lb-shorts img').toArray()){
+  const files=[bridge(el).attr('src'),...(bridge(el).attr('srcset')||'').split(',').map((s)=>s.trim().split(' ')[0])].filter(Boolean);
+  for(const f of files)assert.ok(f.startsWith('/assets/')&&fs.existsSync(`dist${f}`),`line.html short thumbnail must be a local file: ${f}`);
+}
+// リンクのあるサムネは、YouTube のショートを開き、動画の計測（content_click）が数えられる書き方
+for(const el of bridge('.lb-shorts a').toArray()){
+  const a=bridge(el),id=a.attr('data-track-video-id');
+  assert.match(id||'',/^[-\w]{11}$/,'line.html short needs data-track-video-id');
+  assert.equal(a.attr('href'),`https://www.youtube.com/shorts/${id}`);
+  assert.equal(a.attr('data-track-video-action'),'external');
+  assert.equal(a.attr('data-track-video-kind'),'youtube_video');
+  assert.ok(a.attr('data-track-video-title'),'line.html short needs data-track-video-title');
+}
 console.log(`Generated HTML verified: ${routes.length} routes, ${topics.length} topics, all session displays and metadata.`);

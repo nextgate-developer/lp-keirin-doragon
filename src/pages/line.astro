@@ -6,6 +6,23 @@
 import Base from '../layouts/Base.astro';
 import KdHead from '../components/KdHead.astro';
 const web='https://line.me/R/ti/p/@683pdsif';
+// ボタンの下に、これまでのゲストのショートのサムネを並べ、押すとそのショートが開く（石田さん 11/17「中継ページにはショートのサムネ4つ(実際に飛べるやつ)で行きましょう」）。
+// 11/19 6人に（石田さん「中継ページにyoutubeのその動画とべるサムネを小さく入れたい、６人全員。配信のイメージ付きやすいようにね」）。小さめの3列×2段。
+// 主役はボタンなので、サムネはボタンより下に置く。並びは佐藤慎太郎選手が先頭、平原さんが最後（石田さん「平原さんを主張するとBetimo うるさいので 慎太郎さんをトップに 平原さんをラストに」）。
+// 各人の公開済みのショートから再生のいちばん多い1本（11/17・11/19 YouTube Data API）。
+// 三宅さんは11/19に、笑顔で明るいサムネの1本（戦力外のプロ野球選手の話・約1万6千回）に替えた（石田さん 11/19昼「三宅さんだけもっとサムネ良いやつに使用」）。
+// 福田さん・岩崎さんは 11/19 公開のドラゴンポーズの1本（COO 11/19）。佐藤選手は 11/19 に公開済みの4本で再生のいちばん多い1本。
+// サムネは i.ytimg.com を読み込まず webp にして置く（lp_redesign/中継ページ_ゲスト案/作り方/short_thumbs.py。11/19の4人は手元のサムネの元の絵から）。
+// 現役選手は「選手」、引退した人は「さん」。
+const shorts=[
+  {key:'sato',name:'佐藤慎太郎選手',id:'AaE4N6HyVrY',title:'50歳で迎える競輪祭 佐藤慎太郎選手「優勝する気はあるよ」'},
+  {key:'miyake',name:'三宅伸さん',id:'5GntkgB0fbM',title:'三宅伸さん「あのクラスならまず受かる」戦力外のプロ野球選手が競輪へ'},
+  {key:'gokan',name:'後閑信一さん',id:'kPR8CYPkbqo',title:'後閑信一さん「みんな神山さんの税金分しか稼いでない」生涯獲得賞金 約30億の話'},
+  {key:'fukuda',name:'福田礼佳さん',id:'JkwgQG7ydQI',title:'ガールズOGの福田礼佳さんが競輪ドラゴンポーズに挑戦「なんか変な汗出た」'},
+  {key:'iwasaki',name:'岩崎ゆみこさん',id:'WQHO4qhAkxk',title:'ガールズOGの岩崎ゆみこさんが競輪ドラゴンポーズに挑戦「元気ないですよね すいません」'},
+  {key:'hirahara',name:'平原康多さん',id:'oM9Fjmbkg3E',title:'平原康多さんが驚いた松本貴治選手のメンタル　6着以内でグランプリでも先行'},
+];
+const thumb=(key:string,w:number)=>`/assets/images/rd/line-short-${key}-${w}.webp`;
 ---
 <Base title="公式LINE｜競輪ドラゴン" description="競輪ドラゴンの配信の参加リンクは公式LINEに届きます" bodyClass="kd-page line-bridge-page" noindex>
   <KdHead slot="head"/>
@@ -20,6 +37,17 @@ const web='https://line.me/R/ti/p/@683pdsif';
         <p>iPhone：画面の下のまん中にあるアドレスの横の「︙」から「ブラウザで開く」</p>
         <p>Android：右上の「︙」から「Chromeで開く」</p>
       </div>
+      <section class="lb-shorts" aria-label="配信の切り抜きショート">
+        <p>配信の切り抜きをショートで見られます</p>
+        <ul>
+          {shorts.map((s)=>{
+            const img=<img src={thumb(s.key,400)} srcset={`${thumb(s.key,200)} 200w, ${thumb(s.key,400)} 400w`} sizes="(min-width: 420px) 104px, 27vw" width="400" height="711" alt="" loading="lazy" decoding="async"/>;
+            return <li>{s.id
+              ? <a href={`https://www.youtube.com/shorts/${s.id}`} target="_blank" rel="noopener noreferrer" data-track-video-action="external" data-track-video-id={s.id} data-track-video-kind="youtube_video" data-track-video-title={s.title} data-track-placement="line_bridge_short" aria-label={`${s.name}のショート「${s.title}」をYouTubeで見る（別タブ）`}>{img}<span>{s.name}</span></a>
+              : <div class="lb-soon">{img}<span>{s.name}</span></div>}</li>;
+          })}
+        </ul>
+      </section>
       <ul class="lb-trust">
         <li>運営は株式会社ネクストゲート</li>
         <li>会員登録は11/30まで無料</li>
@@ -45,6 +73,18 @@ const web='https://line.me/R/ti/p/@683pdsif';
   .lb-app:hover{background:#ffd52e}
   .lb-web{width:fit-content;min-height:44px;margin-top:12px;padding:0 16px;border-radius:6px;background:#fff;font-size:15px;font-weight:700}
   .lb-open p{margin:12px 2px 0;font-size:13px;font-weight:700;line-height:1.75;word-break:auto-phrase}
+  .lb-shorts{margin-top:14px;padding:8px 6px 6px;border:2px solid var(--k-ink);border-radius:10px;background:#1a1a1a}
+  .lb-shorts>p{margin:0 2px 8px;color:#cfd3dc;font-size:11px;font-weight:700;line-height:1.3}
+  /* 6人を小さめの3列×2段に。広い画面でも1枚が大きくなりすぎないよう、幅に上限を付ける（11/19） */
+  .lb-shorts ul{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 10px;max-width:330px;margin:0 auto;padding:0;list-style:none}
+  .lb-shorts a,.lb-soon{display:block;color:#fff;text-decoration:none}
+  .lb-shorts img{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:6px;background:#000}
+  .lb-shorts span{display:block;margin-top:4px;font-size:10px;font-weight:700;line-height:1.3;text-align:center;white-space:nowrap}
+  /* 押すとショートが開くことが分かるよう、サムネの右下に再生の印（三角は CSS で描く） */
+  .lb-shorts a{position:relative}
+  .lb-shorts a::after{content:"";position:absolute;right:5px;bottom:24px;width:22px;height:16px;border-radius:4px;background:var(--k-red)}
+  .lb-shorts a::before{content:"";position:absolute;z-index:1;right:12px;bottom:28px;width:8px;height:8px;background:#fff;clip-path:polygon(0 0,100% 50%,0 100%)}
+  .lb-shorts a:hover img{filter:brightness(1.08)}
   .lb-trust{margin:12px 2px 0;padding:0;list-style:none;color:var(--k-ink);font-size:12px;font-weight:700;line-height:1.7;word-break:auto-phrase}
   .lb-trust li{padding-left:1em;text-indent:-1em}
   .lb-trust li::before{content:"・"}
