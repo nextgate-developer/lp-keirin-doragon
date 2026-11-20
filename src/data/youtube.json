@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-19",
+  "snapshotDate": "2026-11-20",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "asXPqMHHGHw",
+      "title": "佐藤慎太郎選手は美容院じゃなくて床屋派「最初からズバッといけよ」",
+      "publishedAt": "2026-11-20T09:00:13.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/asXPqMHHGHw",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/asXPqMHHGHw/hqdefault.jpg"
+    },
+    {
+      "id": "SCDMATPCQAc",
+      "title": "平原康多さん、GⅠもFⅠも調整は同じ「お客さんは僕から車券買ってくれるわけだし」",
+      "publishedAt": "2026-11-20T07:00:25.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/SCDMATPCQAc",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/SCDMATPCQAc/hqdefault.jpg"
+    },
+    {
+      "id": "lC7TfKnaWWk",
+      "title": "【11/19】福田礼佳×岩崎ゆみこWゲスト！秘密の園❗️ガールズ選手の宿舎㊙️話｜競輪祭（小倉GⅠ）3日目前夜祭｜競輪ドラゴン",
+      "publishedAt": "2026-11-20T01:12:30.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=lC7TfKnaWWk",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/lC7TfKnaWWk/hqdefault.jpg"
+    },
     {
       "id": "-34iClzWZEg",
       "title": "競輪を極めた鉄人から人生アドバイス 佐藤慎太郎選手「もう真剣に行こうよ」",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-19T09:00:03.000Z",
       "videoUrl": "https://www.youtube.com/shorts/9bET6kKdmJU",
       "thumbnailUrl": "https://i2.ytimg.com/vi/9bET6kKdmJU/hqdefault.jpg"
-    },
-    {
-      "id": "ln0iabUdryA",
-      "title": "佐藤慎太郎選手、小倉の発走機の前で応援していた小学生がいつの間にか競輪選手に",
-      "publishedAt": "2026-11-19T06:30:38.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/ln0iabUdryA",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/ln0iabUdryA/hqdefault.jpg"
-    },
-    {
-      "id": "WQHO4qhAkxk",
-      "title": "ガールズOGの岩崎ゆみこさんが競輪ドラゴンポーズに挑戦「元気ないですよね すいません」",
-      "publishedAt": "2026-11-19T05:00:15.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/WQHO4qhAkxk",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/WQHO4qhAkxk/hqdefault.jpg"
-    },
-    {
-      "id": "JkwgQG7ydQI",
-      "title": "ガールズOGの福田礼佳さんが競輪ドラゴンポーズに挑戦「なんか変な汗出た」",
-      "publishedAt": "2026-11-19T03:00:33.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/JkwgQG7ydQI",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/JkwgQG7ydQI/hqdefault.jpg"
     }
   ]
 }
