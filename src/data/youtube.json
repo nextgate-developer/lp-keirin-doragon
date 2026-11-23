@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-22",
+  "snapshotDate": "2026-11-23",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "TBty_6lOJns",
+      "title": "後閑信一さん、いつも前を通っていた11億円の豪邸は竹内力さんの家「あれは俺の大使館だよ」",
+      "publishedAt": "2026-11-23T09:00:01.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/TBty_6lOJns",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/TBty_6lOJns/hqdefault.jpg"
+    },
+    {
+      "id": "rry8frmaWxM",
+      "title": "佐藤慎太郎選手「1億稼いでも5000万は税金」それでも走るのは「名誉のため」",
+      "publishedAt": "2026-11-23T07:00:34.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/rry8frmaWxM",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/rry8frmaWxM/hqdefault.jpg"
+    },
+    {
+      "id": "xYnsOFjBLHY",
+      "title": "【競輪祭GⅠ決勝】道を極めた2人がダブル熱弁！後閑信一×三宅伸｜競輪ドラゴン",
+      "publishedAt": "2026-11-23T01:16:11.000Z",
+      "videoUrl": "https://www.youtube.com/watch?v=xYnsOFjBLHY",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/xYnsOFjBLHY/hqdefault.jpg"
+    },
     {
       "id": "FRNcMdhqYIY",
       "title": "平原康多さん、先輩からの嫉妬は「めちゃくちゃあったんじゃないですか」",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-22T09:00:13.000Z",
       "videoUrl": "https://www.youtube.com/shorts/aHzObksw2O0",
       "thumbnailUrl": "https://i2.ytimg.com/vi/aHzObksw2O0/hqdefault.jpg"
-    },
-    {
-      "id": "Ytj0PiP3pf8",
-      "title": "三宅伸さん 本音トーク12連発「歴代最強は古性じゃねえかな」【競輪ドラゴン】",
-      "publishedAt": "2026-11-22T07:00:29.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=Ytj0PiP3pf8",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/Ytj0PiP3pf8/hqdefault.jpg"
-    },
-    {
-      "id": "KAucbXf0Opo",
-      "title": "平原康多さん、宿舎に入る前の朝は選手がTSUTAYAへ「級班関係なく全員行ってましたよね」",
-      "publishedAt": "2026-11-22T07:00:08.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/KAucbXf0Opo",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/KAucbXf0Opo/hqdefault.jpg"
-    },
-    {
-      "id": "o9Ks-vAULMU",
-      "title": "【11/21】こうちゃん小倉グルメ旅！行列の名物パンを生で実食!?｜競輪祭（小倉GⅠ）準決勝前夜祭｜競輪ドラゴン",
-      "publishedAt": "2026-11-22T01:07:25.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=o9Ks-vAULMU",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/o9Ks-vAULMU/hqdefault.jpg"
     }
   ]
 }
