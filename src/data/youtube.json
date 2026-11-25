@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-24",
+  "snapshotDate": "2026-11-25",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "yj15meOnbuM",
+      "title": "ガールズOGの岩崎ゆみこさん、お風呂の後のケアは1時間「どんだけかけてると思ってるんですか」",
+      "publishedAt": "2026-11-25T11:00:00.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/yj15meOnbuM",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/yj15meOnbuM/hqdefault.jpg"
+    },
+    {
+      "id": "gJeIq1Queeg",
+      "title": "後閑信一さん、タイトルを取りたい清水裕友選手に言った一言「まくれねえんじゃ取れねえよ」",
+      "publishedAt": "2026-11-25T09:00:16.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/gJeIq1Queeg",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/gJeIq1Queeg/hqdefault.jpg"
+    },
+    {
+      "id": "ESpQTbR3p0k",
+      "title": "ガールズOGの福田礼佳さん、選手は発走機から客席が見えている 現地で応援するなら「名指しで言ってください」",
+      "publishedAt": "2026-11-25T07:00:04.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/ESpQTbR3p0k",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/ESpQTbR3p0k/hqdefault.jpg"
+    },
     {
       "id": "BllX3RpVEmU",
       "title": "平原康多さん、後輩に伝えたメリハリの話「全部スイッチ入ってたら疲れるでしょ」",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-23T11:00:08.000Z",
       "videoUrl": "https://www.youtube.com/shorts/MXCBC8ayEl4",
       "thumbnailUrl": "https://i2.ytimg.com/vi/MXCBC8ayEl4/hqdefault.jpg"
-    },
-    {
-      "id": "TBty_6lOJns",
-      "title": "後閑信一さん、いつも前を通っていた11億円の豪邸は竹内力さんの家「あれは俺の大使館だよ」",
-      "publishedAt": "2026-11-23T09:00:01.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/TBty_6lOJns",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/TBty_6lOJns/hqdefault.jpg"
-    },
-    {
-      "id": "rry8frmaWxM",
-      "title": "佐藤慎太郎選手「1億稼いでも5000万は税金」それでも走るのは「名誉のため」",
-      "publishedAt": "2026-11-23T07:00:34.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/rry8frmaWxM",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/rry8frmaWxM/hqdefault.jpg"
-    },
-    {
-      "id": "xYnsOFjBLHY",
-      "title": "【競輪祭GⅠ決勝】道を極めた2人がダブル熱弁！後閑信一×三宅伸｜競輪ドラゴン",
-      "publishedAt": "2026-11-23T01:16:11.000Z",
-      "videoUrl": "https://www.youtube.com/watch?v=xYnsOFjBLHY",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/xYnsOFjBLHY/hqdefault.jpg"
     }
   ]
 }
