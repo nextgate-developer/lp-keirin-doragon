@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-25",
+  "snapshotDate": "2026-11-26",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "vGBmxFIVElw",
+      "title": "後閑信一さん、昔の先輩と車でパトカーに並んだら「おい ヘルメット被れ」",
+      "publishedAt": "2026-11-26T11:00:05.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/vGBmxFIVElw",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/vGBmxFIVElw/hqdefault.jpg"
+    },
+    {
+      "id": "ZwP0dKiEGf0",
+      "title": "三宅伸さん、いいちこの会長と仲良くなってお願いしたのは「コマーシャル出してくれ」",
+      "publishedAt": "2026-11-26T09:00:20.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/ZwP0dKiEGf0",
+      "thumbnailUrl": "https://i3.ytimg.com/vi/ZwP0dKiEGf0/hqdefault.jpg"
+    },
+    {
+      "id": "03BupTlh8QI",
+      "title": "ガールズOGの福田礼佳さん、競輪一家の年末年始は親戚が「いない可能性もありましたね」",
+      "publishedAt": "2026-11-26T07:00:20.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/03BupTlh8QI",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/03BupTlh8QI/hqdefault.jpg"
+    },
     {
       "id": "sEwuBOMGcY0",
       "title": "後閑信一さん、関東の競輪はドリフで近畿は吉本新喜劇「志村がここで最後取れよ」",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-25T09:00:16.000Z",
       "videoUrl": "https://www.youtube.com/shorts/gJeIq1Queeg",
       "thumbnailUrl": "https://i4.ytimg.com/vi/gJeIq1Queeg/hqdefault.jpg"
-    },
-    {
-      "id": "ESpQTbR3p0k",
-      "title": "ガールズOGの福田礼佳さん、選手は発走機から客席が見えている 現地で応援するなら「名指しで言ってください」",
-      "publishedAt": "2026-11-25T07:00:04.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/ESpQTbR3p0k",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/ESpQTbR3p0k/hqdefault.jpg"
-    },
-    {
-      "id": "BllX3RpVEmU",
-      "title": "平原康多さん、後輩に伝えたメリハリの話「全部スイッチ入ってたら疲れるでしょ」",
-      "publishedAt": "2026-11-24T07:00:34.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/BllX3RpVEmU",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/BllX3RpVEmU/hqdefault.jpg"
-    },
-    {
-      "id": "VOj79-SVP6A",
-      "title": "佐藤慎太郎選手、若い頃は妻に「うちはシングルマザーだから」と言われていた",
-      "publishedAt": "2026-11-23T13:00:30.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/VOj79-SVP6A",
-      "thumbnailUrl": "https://i3.ytimg.com/vi/VOj79-SVP6A/hqdefault.jpg"
     }
   ]
 }
