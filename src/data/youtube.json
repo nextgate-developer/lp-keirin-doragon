@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-26",
+  "snapshotDate": "2026-11-27",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,27 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "H9JdNBRZlas",
+      "title": "後閑信一さん、塾をクビになった少年はママチャリで「抜くことに快感を得ちゃったんだよ」",
+      "publishedAt": "2026-11-27T11:00:20.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/H9JdNBRZlas",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/H9JdNBRZlas/hqdefault.jpg"
+    },
+    {
+      "id": "8UrqyqTLkC4",
+      "title": "ガールズOGの福田礼佳さん、あだ名ペコちゃんの名付け親は…「ちょっと恥ずかしいんですけれど」",
+      "publishedAt": "2026-11-27T09:00:04.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/8UrqyqTLkC4",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/8UrqyqTLkC4/hqdefault.jpg"
+    },
+    {
+      "id": "DdFD7iEhJvU",
+      "title": "佐藤慎太郎選手、お父さんに頼まれて庭を直したら実家が「めちゃくちゃ日本庭園」",
+      "publishedAt": "2026-11-27T07:00:15.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/DdFD7iEhJvU",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/DdFD7iEhJvU/hqdefault.jpg"
+    },
     {
       "id": "y_7LN1QFI1I",
       "title": "ガールズOGの岩崎ゆみこさん、表彰式の前にメイク直しは？「私は本当にしなくて」",
@@ -30,27 +51,6 @@
       "publishedAt": "2026-11-26T09:00:20.000Z",
       "videoUrl": "https://www.youtube.com/shorts/ZwP0dKiEGf0",
       "thumbnailUrl": "https://i3.ytimg.com/vi/ZwP0dKiEGf0/hqdefault.jpg"
-    },
-    {
-      "id": "03BupTlh8QI",
-      "title": "ガールズOGの福田礼佳さん、競輪一家の年末年始は親戚が「いない可能性もありましたね」",
-      "publishedAt": "2026-11-26T07:00:20.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/03BupTlh8QI",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/03BupTlh8QI/hqdefault.jpg"
-    },
-    {
-      "id": "sEwuBOMGcY0",
-      "title": "後閑信一さん、関東の競輪はドリフで近畿は吉本新喜劇「志村がここで最後取れよ」",
-      "publishedAt": "2026-11-25T13:00:39.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/sEwuBOMGcY0",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/sEwuBOMGcY0/hqdefault.jpg"
-    },
-    {
-      "id": "yj15meOnbuM",
-      "title": "ガールズOGの岩崎ゆみこさん、お風呂の後のケアは1時間「どんだけかけてると思ってるんですか」",
-      "publishedAt": "2026-11-25T11:00:00.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/yj15meOnbuM",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/yj15meOnbuM/hqdefault.jpg"
     }
   ]
 }
