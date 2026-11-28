@@ -1,6 +1,6 @@
 {
   "mode": "rss",
-  "snapshotDate": "2026-11-27",
+  "snapshotDate": "2026-11-28",
   "sourceUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_O34vySXuFXrXhbSy1Z23g",
   "channelUrl": "https://www.youtube.com/@keirindragon",
   "promotion": {
@@ -10,6 +10,20 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/fiz99QP0YIQ/hq2.jpg"
   },
   "videos": [
+    {
+      "id": "ecIndoB_r5w",
+      "title": "ガールズOGの岩崎ゆみこさん、夫の北野良栄選手は高校まで「本当に人見知り」",
+      "publishedAt": "2026-11-28T09:00:16.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/ecIndoB_r5w",
+      "thumbnailUrl": "https://i2.ytimg.com/vi/ecIndoB_r5w/hqdefault.jpg"
+    },
+    {
+      "id": "Sb1uPou5s9k",
+      "title": "平原康多さん、ポカーンとしている後輩の佐々木悠葵選手は「すっげー考えてるんですよ」",
+      "publishedAt": "2026-11-28T07:00:12.000Z",
+      "videoUrl": "https://www.youtube.com/shorts/Sb1uPou5s9k",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/Sb1uPou5s9k/hqdefault.jpg"
+    },
     {
       "id": "wqFr_44_Fks",
       "title": "三宅伸さん、5日間ほど1500キロカロリーに抑えて「5、6キロなんかすぐですね」",
@@ -37,20 +51,6 @@
       "publishedAt": "2026-11-27T09:00:04.000Z",
       "videoUrl": "https://www.youtube.com/shorts/8UrqyqTLkC4",
       "thumbnailUrl": "https://i1.ytimg.com/vi/8UrqyqTLkC4/hqdefault.jpg"
-    },
-    {
-      "id": "DdFD7iEhJvU",
-      "title": "佐藤慎太郎選手、お父さんに頼まれて庭を直したら実家が「めちゃくちゃ日本庭園」",
-      "publishedAt": "2026-11-27T07:00:15.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/DdFD7iEhJvU",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/DdFD7iEhJvU/hqdefault.jpg"
-    },
-    {
-      "id": "y_7LN1QFI1I",
-      "title": "ガールズOGの岩崎ゆみこさん、表彰式の前にメイク直しは？「私は本当にしなくて」",
-      "publishedAt": "2026-11-26T13:00:28.000Z",
-      "videoUrl": "https://www.youtube.com/shorts/y_7LN1QFI1I",
-      "thumbnailUrl": "https://i2.ytimg.com/vi/y_7LN1QFI1I/hqdefault.jpg"
     }
   ]
 }
